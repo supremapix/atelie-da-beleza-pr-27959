@@ -2,10 +2,7 @@ import { Sparkles } from "lucide-react";
 
 const SectionDivider = () => {
   return (
-    <div className="relative h-24 md:h-32 bg-gradient-to-b from-black via-primary/5 to-black overflow-hidden">
-      {/* Animated gradient line */}
-      <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
-      
+    <div className="relative h-24 md:h-32 bg-black overflow-hidden">
       {/* Center ornament */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <div className="relative">
