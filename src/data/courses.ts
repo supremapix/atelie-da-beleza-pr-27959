@@ -43,7 +43,6 @@ import injetaveisBotox from "@/assets/all-courses/injetaveis-botox.jpg";
 import injetaveisMasterCurso from "@/assets/all-courses/injetaveis-master-curso.jpg";
 import bioestimulador from "@/assets/all-courses/bioestimulador.jpg";
 import botoxFullFace from "@/assets/all-courses/botox-full-face.jpg";
-import botoxTercoSuperior from "@/assets/all-courses/botox-terco-superior.jpg";
 import preenchimentoLabial from "@/assets/all-courses/preenchimento-labial.jpg";
 import jatoPlasma30 from "@/assets/all-courses/jato-plasma-30.jpg";
 import jatoPlasmaMulti from "@/assets/all-courses/jato-plasma-multi.jpg";
@@ -465,16 +464,6 @@ export const courses: Course[] = [
     highlighted: true,
     description: "Aplicação de botox em face completa com protocolos avançados.",
     duration: "20 horas",
-    level: "Avançado",
-    category: "Injetáveis"
-  },
-  { 
-    id: "botox-terco-superior",
-    title: "Botox Terço Superior", 
-    image: botoxTercoSuperior, 
-    highlighted: true,
-    description: "Especialização em botox para terço superior da face.",
-    duration: "16 horas",
     level: "Avançado",
     category: "Injetáveis"
   },
