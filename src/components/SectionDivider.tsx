@@ -9,9 +9,6 @@ const SectionDivider = () => {
       {/* Center ornament */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
         <div className="relative">
-          {/* Outer glow circle */}
-          <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl animate-pulse"></div>
-          
           {/* Main circle */}
           <div className="relative bg-black border-2 border-primary rounded-full p-3 md:p-4 shadow-lg shadow-primary/50">
             <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-primary animate-spin" style={{ animationDuration: '3s' }} />
