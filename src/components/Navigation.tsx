@@ -11,6 +11,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
 } from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
@@ -134,16 +138,33 @@ const Navigation = () => {
               <div className="border-t border-border/50 pt-3 mt-3">
                 <p className="text-xs font-semibold text-muted-foreground px-4 mb-2 uppercase tracking-wider">Áreas</p>
                 {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => {
-                      navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-sm py-2 px-4 rounded-lg hover:bg-muted"
-                  >
-                    {category} ({coursesByCategory[category].length})
-                  </button>
+                  <div key={category} className="mb-2">
+                    <div className="flex items-center justify-between px-4 py-2">
+                      <button
+                        onClick={() => {
+                          navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="flex items-center gap-3 text-left text-black hover:text-primary transition-colors text-sm font-medium"
+                      >
+                        {category} ({coursesByCategory[category].length})
+                      </button>
+                    </div>
+                    <div className="pl-8 space-y-1">
+                      {coursesByCategory[category].map((course) => (
+                        <button
+                          key={course.id}
+                          onClick={() => {
+                            navigate(`/curso/${course.id}`);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="block w-full text-left text-xs text-muted-foreground hover:text-primary transition-colors py-1.5 px-2 rounded hover:bg-muted"
+                        >
+                          {course.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
               <button
@@ -283,26 +304,37 @@ const Navigation = () => {
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-64 max-h-96 overflow-y-auto bg-white z-50">
-                  <DropdownMenuItem onClick={() => navigate('/cursos')} className="cursor-pointer">
-                    <GraduationCap className="h-4 w-4 mr-2" />
-                    Ver Todos os Cursos
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>Áreas</DropdownMenuLabel>
-                  {categories.map((category) => (
-                    <DropdownMenuItem 
-                      key={category}
-                      onClick={() => navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`)}
-                      className="cursor-pointer"
-                    >
-                      <span className="flex justify-between w-full">
-                        <span>{category}</span>
-                        <span className="text-xs text-muted-foreground">({coursesByCategory[category].length})</span>
-                      </span>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
+            <DropdownMenuContent className="w-64 max-h-96 overflow-y-auto bg-white z-50">
+              <DropdownMenuItem onClick={() => navigate('/cursos')} className="cursor-pointer">
+                <GraduationCap className="h-4 w-4 mr-2" />
+                Ver Todos os Cursos
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Áreas</DropdownMenuLabel>
+              {categories.map((category) => (
+                <DropdownMenuSub key={category}>
+                  <DropdownMenuSubTrigger className="cursor-pointer">
+                    <span className="flex justify-between w-full">
+                      <span>{category}</span>
+                      <span className="text-xs text-muted-foreground">({coursesByCategory[category].length})</span>
+                    </span>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent className="w-56 bg-white z-50">
+                      {coursesByCategory[category].map((course) => (
+                        <DropdownMenuItem
+                          key={course.id}
+                          onClick={() => navigate(`/curso/${course.id}`)}
+                          className="cursor-pointer"
+                        >
+                          {course.title}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+              ))}
+            </DropdownMenuContent>
               </DropdownMenu>
               <button
                 onClick={() => handleNavigation('contato')}
