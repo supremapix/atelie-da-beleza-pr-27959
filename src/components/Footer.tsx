@@ -1,7 +1,10 @@
 import { Heart, Facebook, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import logoFooter from "@/assets/logo-footer-white.png";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  
   return (
     <footer className="bg-black py-12 md:py-16 border-t border-primary/30">
       <div className="container mx-auto px-4">
@@ -52,31 +55,31 @@ const Footer = () => {
             <h4 className="text-[#D4AF37] text-lg md:text-xl font-bold mb-4 md:mb-6 tracking-wider font-playfair uppercase">Cursos Populares</h4>
             <ul className="space-y-2 text-white/80 text-sm font-montserrat">
               <li 
-                onClick={() => window.location.href = '/cursos'}
+                onClick={() => navigate('/cursos')}
                 className="hover:text-primary transition-all duration-300 hover:scale-105 hover:translate-x-1 cursor-pointer flex items-center justify-center md:justify-start gap-2"
               >
                 <span className="text-primary">→</span> Micropigmentação
               </li>
               <li 
-                onClick={() => window.location.href = '/cursos'}
+                onClick={() => navigate('/cursos')}
                 className="hover:text-primary transition-all duration-300 hover:scale-105 hover:translate-x-1 cursor-pointer flex items-center justify-center md:justify-start gap-2"
               >
                 <span className="text-primary">→</span> Estética Facial
               </li>
               <li 
-                onClick={() => window.location.href = '/cursos'}
+                onClick={() => navigate('/cursos')}
                 className="hover:text-primary transition-all duration-300 hover:scale-105 hover:translate-x-1 cursor-pointer flex items-center justify-center md:justify-start gap-2"
               >
                 <span className="text-primary">→</span> Design de Sobrancelhas
               </li>
               <li 
-                onClick={() => window.location.href = '/cursos'}
+                onClick={() => navigate('/cursos')}
                 className="hover:text-primary transition-all duration-300 hover:scale-105 hover:translate-x-1 cursor-pointer flex items-center justify-center md:justify-start gap-2"
               >
                 <span className="text-primary">→</span> Lash Master Class
               </li>
               <li 
-                onClick={() => window.location.href = '/cursos'}
+                onClick={() => navigate('/cursos')}
                 className="hover:text-primary transition-all duration-300 hover:scale-105 hover:translate-x-1 cursor-pointer flex items-center justify-center md:justify-start gap-2"
               >
                 <span className="text-primary">→</span> Injetáveis Estéticos

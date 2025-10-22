@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, TrendingUp, Award, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   Carousel,
   CarouselContent,
@@ -76,9 +77,7 @@ const courses = [
 ];
 
 const Courses = () => {
-  const navigateToAllCourses = () => {
-    window.location.href = '/cursos';
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="cursos" className="py-20 md:py-32 bg-black">
@@ -190,7 +189,7 @@ const Courses = () => {
           <Button 
             size="lg"
             variant="outline"
-            onClick={navigateToAllCourses}
+            onClick={() => navigate('/cursos')}
             className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-base px-8 py-6 group shadow-card"
           >
             Ver Todos os Cursos (+49)

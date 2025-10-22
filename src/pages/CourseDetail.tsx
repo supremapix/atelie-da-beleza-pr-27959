@@ -32,7 +32,7 @@ const CourseDetail = () => {
   }
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5511999999999"; // Substituir pelo número real
+    const phoneNumber = "5541996439389";
     const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o curso: ${course.title}`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };

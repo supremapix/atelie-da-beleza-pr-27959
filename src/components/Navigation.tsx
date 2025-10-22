@@ -1,8 +1,17 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, Sparkles } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, Sparkles, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoWhite from "@/assets/logo-white-transparent.png";
+import { courses } from "@/data/courses";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -21,6 +30,17 @@ const Navigation = () => {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Agrupar cursos por categoria
+  const coursesByCategory = courses.reduce((acc, course) => {
+    if (!acc[course.category]) {
+      acc[course.category] = [];
+    }
+    acc[course.category].push(course);
+    return acc;
+  }, {} as Record<string, typeof courses>);
+
+  const categories = Object.keys(coursesByCategory).sort();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,14 +121,31 @@ const Navigation = () => {
               </button>
               <button
                 onClick={() => {
-                  handleNavigation('cursos');
+                  navigate('/cursos');
                   setIsMobileMenuOpen(false);
                 }}
                 className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-lg hover:bg-muted"
               >
                 <GraduationCap className="h-5 w-5" />
-                Cursos
+                Todos os Cursos
               </button>
+              
+              {/* Mobile Categories */}
+              <div className="border-t border-border/50 pt-3 mt-3">
+                <p className="text-xs font-semibold text-muted-foreground px-4 mb-2 uppercase tracking-wider">Áreas</p>
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => {
+                      navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-sm py-2 px-4 rounded-lg hover:bg-muted"
+                  >
+                    {category} ({coursesByCategory[category].length})
+                  </button>
+                ))}
+              </div>
               <button
                 onClick={() => {
                   handleNavigation('contato');
@@ -235,14 +272,38 @@ const Navigation = () => {
                 Sobre Nós
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </button>
-              <button
-                onClick={() => handleNavigation('cursos')}
-                className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
-              >
-                <GraduationCap className="h-4 w-4" />
-                Cursos
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-              </button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
+                  >
+                    <GraduationCap className="h-4 w-4" />
+                    Cursos
+                    <ChevronDown className="h-3 w-3" />
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-64 max-h-96 overflow-y-auto bg-white z-50">
+                  <DropdownMenuItem onClick={() => navigate('/cursos')} className="cursor-pointer">
+                    <GraduationCap className="h-4 w-4 mr-2" />
+                    Ver Todos os Cursos
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel>Áreas</DropdownMenuLabel>
+                  {categories.map((category) => (
+                    <DropdownMenuItem 
+                      key={category}
+                      onClick={() => navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`)}
+                      className="cursor-pointer"
+                    >
+                      <span className="flex justify-between w-full">
+                        <span>{category}</span>
+                        <span className="text-xs text-muted-foreground">({coursesByCategory[category].length})</span>
+                      </span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
               <button
                 onClick={() => handleNavigation('contato')}
                 className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
