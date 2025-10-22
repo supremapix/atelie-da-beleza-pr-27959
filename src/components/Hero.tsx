@@ -58,37 +58,45 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-8 md:py-20 text-center md:mt-20">
-        <div className="max-w-6xl mx-auto space-y-4 md:space-y-8 lg:space-y-10 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-4 text-center flex items-center justify-center min-h-screen">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 animate-fade-in">
+          {/* Tag Superior */}
           <div className="inline-block">
-            <p className="text-primary text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
+            <p className="text-primary text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
               Transforme sua Carreira
             </p>
-            <div className="w-12 md:w-16 h-0.5 bg-primary mx-auto"></div>
+            <div className="w-16 md:w-20 h-0.5 bg-primary mx-auto"></div>
           </div>
           
-          <h1 className="text-[2.2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-bold tracking-tight leading-tight font-playfair px-2">
-            <span className="block text-white mb-1 md:mb-2">Torne-se</span>
-            <span className="block text-primary mb-2 md:mb-3">Referência em Estética</span>
-            <span className="block text-white/90 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-1 md:mt-2 font-montserrat font-light leading-snug">
+          {/* Título Principal */}
+          <h1 className="font-bold tracking-tight leading-[1.1] font-playfair">
+            <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-2 md:mb-3">
+              Torne-se
+            </span>
+            <span className="block text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 md:mb-4">
+              Referência em Estética
+            </span>
+            <span className="block text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 md:mt-4 font-montserrat font-light leading-snug">
               em apenas algumas horas
             </span>
           </h1>
           
-          <p className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed px-2 font-montserrat font-light">
+          {/* Descrição */}
+          <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-4">
             Cursos <span className="text-primary font-semibold">rápidos e profissionalizantes</span> com certificação reconhecida.
-            <span className="block mt-2">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
+            <span className="block mt-2 md:mt-3">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
           </p>
           
-          <div className="pt-8 md:pt-72 lg:pt-80 flex flex-col gap-4 justify-center items-center px-2">
+          {/* Botão CTA */}
+          <div className="pt-6 md:pt-10 lg:pt-12">
             <Button 
               variant="outline" 
               size="lg"
               onClick={scrollToCourses}
-              className="group text-sm sm:text-base px-6 py-5 w-full max-w-sm sm:w-auto bg-[#D4AF37]/20 border-[#D4AF37]/40 text-white hover:bg-[#D4AF37]/30 hover:border-[#D4AF37]/60 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all font-semibold"
+              className="group text-base md:text-lg px-8 py-6 md:px-10 md:py-7 w-full max-w-md sm:w-auto bg-[#D4AF37]/20 border-[#D4AF37]/40 text-white hover:bg-[#D4AF37]/30 hover:border-[#D4AF37]/60 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all font-semibold"
             >
               Conheça Nossos Cursos
-              <GraduationCap className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+              <GraduationCap className="ml-2 w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
             </Button>
           </div>
         </div>
