@@ -301,7 +301,7 @@ export const courses: Course[] = [
   },
   { 
     id: "herus-hifu",
-    title: "HERUS HIFU", 
+    title: "Herus Hifu", 
     image: herusHifu, 
     highlighted: true,
     description: "Protocolo avançado de HIFU para lifting não invasivo.",
