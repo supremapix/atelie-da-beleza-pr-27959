@@ -100,7 +100,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="bg-white backdrop-blur-lg border-t border-primary/20 shadow-lg animate-fade-in">
+          <div className="bg-white backdrop-blur-lg border-t border-primary/20 shadow-lg animate-fade-in max-h-[calc(100vh-5rem)] overflow-y-auto">
             <div className="container mx-auto px-4 py-6 space-y-3">
               <button
                 onClick={() => {
