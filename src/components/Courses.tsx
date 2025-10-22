@@ -21,6 +21,7 @@ import remocaoLaserImg from "@/assets/curso-remocao-laser.jpg";
 
 const courses = [
   {
+    id: "micropigmentacao-sobrancelhas",
     title: "Micropigmentação Completo",
     description: "Domine todas as técnicas de micropigmentação: nanoblading, shadow, shading e despigmentação química.",
     hours: "16h",
@@ -30,6 +31,7 @@ const courses = [
     image: micropigmentacaoImg
   },
   {
+    id: "estetica-facial-master",
     title: "Estética Facial Master",
     description: "Limpeza de pele, peelings químicos e microagulhamento facial completo.",
     hours: "32h",
@@ -39,6 +41,7 @@ const courses = [
     image: esteticaFacialImg
   },
   {
+    id: "injetaveis-master",
     title: "Injetáveis Master",
     description: "Bioestimulador de colágeno, preenchimento labial e toxina botulínica Full Face.",
     hours: "24h",
@@ -48,6 +51,7 @@ const courses = [
     image: injetaveisImg
   },
   {
+    id: "lash-master-class",
     title: "Lash Master Class",
     description: "Extensão de cílios fio a fio com técnicas avançadas para iniciantes.",
     hours: "16h",
@@ -57,6 +61,7 @@ const courses = [
     image: lashImg
   },
   {
+    id: "design-sobrancelhas",
     title: "Design de Sobrancelhas",
     description: "Design, henna e coloração profissional de sobrancelhas.",
     hours: "8h",
@@ -66,6 +71,7 @@ const courses = [
     image: designSobrancelhasImg
   },
   {
+    id: "remocao-laser",
     title: "Remoção a Laser",
     description: "Remoção de micropigmentação e tatuagem à laser com bônus Black Peel.",
     hours: "16h",
@@ -167,7 +173,7 @@ const Courses = () => {
                         </div>
                         <Button 
                           size="sm"
-                          onClick={() => window.open('https://wa.me/4941996439389?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20' + encodeURIComponent(course.title), '_blank')}
+                          onClick={() => navigate(`/curso/${course.id}`)}
                           className="group/btn bg-primary hover:bg-primary/90 text-background font-semibold shadow-md hover:shadow-lg shrink-0 text-xs md:text-sm px-3 md:px-4 h-8 md:h-9"
                         >
                           Saiba Mais
