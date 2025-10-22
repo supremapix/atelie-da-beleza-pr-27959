@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 lg:pt-40">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 lg:pt-24">
       {/* Background - Image on Mobile, Video on Desktop */}
       <div className="absolute inset-0 w-full h-full">
         {isMobile ? (
