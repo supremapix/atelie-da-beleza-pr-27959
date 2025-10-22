@@ -58,8 +58,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-20 text-center">
-        <div className="max-w-6xl mx-auto space-y-6 md:space-y-8 lg:space-y-10 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-4 py-8 md:py-20 text-center">
+        <div className="max-w-6xl mx-auto space-y-4 md:space-y-8 lg:space-y-10 animate-fade-in">
           <div className="inline-block">
             <p className="text-primary text-xs sm:text-sm md:text-sm lg:text-base tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
               Transforme sua Carreira
@@ -80,7 +80,7 @@ const Hero = () => {
             <span className="block mt-2">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
           </p>
           
-          <div className="pt-64 md:pt-72 lg:pt-80 flex flex-col gap-4 justify-center items-center px-2">
+          <div className="pt-8 md:pt-72 lg:pt-80 flex flex-col gap-4 justify-center items-center px-2">
             <Button 
               variant="outline" 
               size="lg"
