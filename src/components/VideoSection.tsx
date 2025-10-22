@@ -26,7 +26,7 @@ const VideoSection = () => {
                 <div className="absolute inset-0 bg-black/30 blur-3xl animate-pulse"></div>
                 <div className="relative bg-white border-4 border-black px-6 md:px-12 py-4 md:py-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
                   <div className="text-5xl md:text-7xl lg:text-8xl font-bold font-playfair mb-1 md:mb-2 text-black">
-                    +49
+                    +42
                   </div>
                   <div className="text-base md:text-xl lg:text-2xl font-semibold font-montserrat uppercase tracking-wider text-black">
                     Cursos Profissionalizantes

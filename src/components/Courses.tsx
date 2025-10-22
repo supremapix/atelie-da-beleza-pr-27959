@@ -99,7 +99,7 @@ const Courses = () => {
             Cursos em <span className="text-primary">Destaque</span>
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto font-montserrat font-light leading-relaxed">
-            Escolha entre mais de <span className="text-primary font-semibold">49 cursos profissionalizantes</span> e comece sua jornada rumo ao sucesso
+            Escolha entre mais de <span className="text-primary font-semibold">42 cursos profissionalizantes</span> e comece sua jornada rumo ao sucesso
           </p>
         </div>
 
@@ -198,7 +198,7 @@ const Courses = () => {
             onClick={() => navigate('/cursos')}
             className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-semibold text-base px-8 py-6 group shadow-card"
           >
-            Ver Todos os Cursos (+49)
+            Ver Todos os Cursos (+42)
             <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

@@ -30,7 +30,7 @@ const TodosCursos = () => {
                 Todos os Nossos <span className="text-primary">Cursos</span>
               </h1>
               <p className="text-lg md:text-xl text-foreground/80 font-montserrat font-medium">
-                Mais de <span className="text-black font-bold animate-[pulse_2s_ease-in-out_infinite] inline-block">49 cursos profissionalizantes</span> em estética e beleza para você se especializar e alcançar o sucesso na sua carreira
+                Mais de <span className="text-black font-bold animate-[pulse_2s_ease-in-out_infinite] inline-block">42 cursos profissionalizantes</span> em estética e beleza para você se especializar e alcançar o sucesso na sua carreira
               </p>
             </div>
           </div>
