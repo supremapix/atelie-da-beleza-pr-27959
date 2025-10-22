@@ -61,21 +61,21 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-20 text-center">
         <div className="max-w-6xl mx-auto space-y-6 md:space-y-8 lg:space-y-10 animate-fade-in">
           <div className="inline-block">
-            <p className="text-primary text-[0.45rem] sm:text-xs md:text-sm lg:text-base tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
+            <p className="text-primary text-xs sm:text-sm md:text-sm lg:text-base tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
               Transforme sua Carreira
             </p>
             <div className="w-12 md:w-16 h-0.5 bg-primary mx-auto"></div>
           </div>
           
-          <h1 className="text-[1.7rem] sm:text-[2.2rem] md:text-[2.7rem] lg:text-[3.4rem] xl:text-[4rem] font-bold tracking-tight leading-tight font-playfair px-2">
+          <h1 className="text-[2.2rem] sm:text-[2.5rem] md:text-[2.7rem] lg:text-[3.4rem] xl:text-[4rem] font-bold tracking-tight leading-tight font-playfair px-2">
             <span className="block text-white mb-1 md:mb-2">Torne-se</span>
             <span className="block text-primary mb-2 md:mb-3">Referência em Estética</span>
-            <span className="block text-white/90 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[2.2rem] mt-1 md:mt-2 font-montserrat font-light leading-snug">
+            <span className="block text-white/90 text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-[2.2rem] mt-1 md:mt-2 font-montserrat font-light leading-snug">
               em apenas algumas horas
             </span>
           </h1>
           
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed px-2 font-montserrat font-light">
+          <p className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed px-2 font-montserrat font-light">
             Cursos <span className="text-primary font-semibold">rápidos e profissionalizantes</span> com certificação reconhecida.
             <span className="block mt-2">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
           </p>
