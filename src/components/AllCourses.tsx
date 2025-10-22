@@ -82,7 +82,7 @@ const AllCourses = () => {
 
         {/* Grid de cursos */}
         <div className="mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {filteredCourses.map((course) => (
               <Card 
                 key={course.id} 
@@ -90,8 +90,8 @@ const AllCourses = () => {
                 className="overflow-hidden bg-white border-2 border-border hover:border-primary/30 hover-lift group relative"
               >
                 {course.highlighted && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <div className="bg-primary text-background px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                  <div className="absolute top-3 md:top-4 right-3 md:right-4 z-10">
+                    <div className="bg-primary text-background px-2.5 md:px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                       <Sparkles className="w-3 h-3" />
                       Destaque
                     </div>
@@ -99,7 +99,7 @@ const AllCourses = () => {
                 )}
                 
                 {/* Course Image */}
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-52 md:h-48">
                   <img
                     src={course.image}
                     alt={course.title}
@@ -109,25 +109,25 @@ const AllCourses = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 
-                <CardHeader className="pb-3">
+                <CardHeader className="pb-3 px-4 md:px-6 pt-4 md:pt-6">
                   <div className="mb-2">
                     <span className="text-xs font-semibold text-primary uppercase tracking-wider">
                       {course.category}
                     </span>
                   </div>
-                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors min-h-[3rem] font-montserrat font-semibold leading-tight">
+                  <CardTitle className="text-lg md:text-xl text-foreground group-hover:text-primary transition-colors min-h-[2.5rem] md:min-h-[3rem] font-montserrat font-semibold leading-tight">
                     {course.title}
                   </CardTitle>
                 </CardHeader>
                 
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                <CardContent className="space-y-3 md:space-y-4 px-4 md:px-6">
+                  <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                     {course.description}
                   </p>
-                  <div className="flex items-center gap-4 text-sm">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3 md:gap-4 text-sm">
+                    <div className="flex items-center gap-1.5 md:gap-2">
                       <Clock className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-foreground">{course.duration}</span>
+                      <span className="font-semibold text-foreground text-xs md:text-sm">{course.duration}</span>
                     </div>
                     <div className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium">
                       {course.level}
@@ -135,22 +135,22 @@ const AllCourses = () => {
                   </div>
                 </CardContent>
                 
-                <CardFooter className="pt-0 flex-col gap-3">
-                  <div className="flex gap-2 w-full">
+                <CardFooter className="pt-0 flex-col gap-2 md:gap-3 px-4 md:px-6 pb-4 md:pb-6">
+                  <div className="flex flex-col md:flex-row gap-2 w-full">
                     <Button 
                       variant="outline"
-                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-background"
+                      className="flex-1 border-primary text-primary hover:bg-primary hover:text-background text-xs md:text-sm h-9 md:h-10"
                       onClick={() => handleWhatsApp(course.title)}
                     >
-                      <Phone className="mr-2 w-4 h-4" />
+                      <Phone className="mr-1.5 md:mr-2 w-3.5 h-3.5 md:w-4 md:h-4" />
                       Tire suas dúvidas
                     </Button>
                     <Button 
                       variant="default" 
-                      className="flex-1 shadow-md hover:shadow-lg"
+                      className="flex-1 shadow-md hover:shadow-lg text-xs md:text-sm h-9 md:h-10"
                       onClick={() => setSelectedCourse(course)}
                     >
-                      <Info className="mr-2 w-4 h-4" />
+                      <Info className="mr-1.5 md:mr-2 w-3.5 h-3.5 md:w-4 md:h-4" />
                       Saiba Mais
                     </Button>
                   </div>

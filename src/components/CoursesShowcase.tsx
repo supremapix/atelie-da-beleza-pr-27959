@@ -150,10 +150,10 @@ const CoursesShowcase = () => {
                   style={{ width: `calc(${100 / visibleItems}% - ${(visibleItems - 1) * (visibleItems === 1 ? 0 : 1.5)}rem / ${visibleItems})` }}
                   onClick={() => handleCourseClick(course.id)}
                 >
-                  <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-primary/50 hover:scale-105">
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 hover:shadow-primary/50 md:hover:scale-105">
                     {/* Highlighted Badge */}
                     {course.highlighted && (
-                      <div className="absolute top-3 right-3 z-10 bg-primary text-black px-3 py-1 rounded-full text-xs md:text-sm font-bold font-montserrat animate-pulse">
+                      <div className="absolute top-3 md:top-4 right-3 md:right-4 z-10 bg-primary text-black px-3 py-1.5 rounded-full text-sm md:text-xs font-bold font-montserrat animate-pulse">
                         ⭐ DESTAQUE
                       </div>
                     )}
@@ -168,7 +168,7 @@ const CoursesShowcase = () => {
                       />
                       
                       {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 md:opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
                       
                       {/* Sparkle Effect on Hover */}
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -179,14 +179,14 @@ const CoursesShowcase = () => {
                     </div>
 
                     {/* Title Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                      <h3 className="text-white font-bold text-base md:text-xl lg:text-2xl font-playfair mb-2 drop-shadow-lg">
+                    <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 transform translate-y-0 md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-500">
+                      <h3 className="text-white font-bold text-xl md:text-base lg:text-2xl font-playfair mb-3 md:mb-2 drop-shadow-lg leading-tight">
                         {course.title}
                       </h3>
                       <Button 
                         variant="hero" 
                         size="sm"
-                        className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 text-xs md:text-sm"
+                        className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500 text-sm w-full md:w-auto"
                       >
                         Ver Detalhes
                       </Button>

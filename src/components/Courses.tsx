@@ -118,7 +118,7 @@ const Courses = () => {
                     className="group hover-lift overflow-hidden bg-white border-2 border-border hover:border-primary/30 h-full"
                   >
                     {/* Course Image */}
-                    <div className="relative overflow-hidden h-56">
+                    <div className="relative overflow-hidden h-56 md:h-56">
                       <img
                         src={course.image}
                         alt={course.title}
@@ -128,50 +128,50 @@ const Courses = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       
                       {/* Category Badge only */}
-                      <Badge variant="outline" className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-xs font-montserrat border-primary text-foreground">
+                      <Badge variant="outline" className="absolute top-3 md:top-4 left-3 md:left-4 bg-white/95 backdrop-blur-sm text-xs md:text-xs font-montserrat border-primary text-foreground">
                         {course.category}
                       </Badge>
                     </div>
 
-                    <CardHeader className="pb-3 bg-white">
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <CardTitle className="text-3xl font-playfair text-foreground group-hover:text-primary transition-colors flex-1">
+                    <CardHeader className="pb-3 bg-white px-4 md:px-6 pt-4 md:pt-6">
+                      <div className="flex items-start justify-between gap-2 md:gap-3 mb-2">
+                        <CardTitle className="text-xl md:text-3xl font-playfair text-foreground group-hover:text-primary transition-colors flex-1 leading-tight">
                           {course.title}
                         </CardTitle>
                         {course.highlight && (
-                          <Badge className="bg-primary text-background font-semibold shadow-lg shrink-0 text-xs">
+                          <Badge className="bg-primary text-background font-semibold shadow-lg shrink-0 text-[10px] md:text-xs px-2 md:px-3 py-0.5 md:py-1">
                             ⭐ Destaque
                           </Badge>
                         )}
                       </div>
-                      <CardDescription className="text-sm leading-relaxed font-montserrat text-muted-foreground">
+                      <CardDescription className="text-sm md:text-sm leading-relaxed font-montserrat text-muted-foreground">
                         {course.description}
                       </CardDescription>
                     </CardHeader>
                     
-                    <CardContent className="space-y-4 bg-white">
-                      <div className="flex items-center justify-between text-sm border-t pt-4">
-                        <div className="flex items-center gap-2 text-muted-foreground">
+                    <CardContent className="space-y-3 md:space-y-4 bg-white px-4 md:px-6 pb-4 md:pb-6">
+                      <div className="flex items-center justify-between text-xs md:text-sm border-t pt-3 md:pt-4">
+                        <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground">
                           <Clock className="w-4 h-4 text-primary" />
                           <span className="font-montserrat font-semibold text-foreground">{course.hours}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-muted-foreground">
+                        <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground">
                           <Award className="w-4 h-4 text-primary" />
-                          <span className="font-montserrat text-sm text-foreground font-medium">Certificado</span>
+                          <span className="font-montserrat text-xs md:text-sm text-foreground font-medium">Certificado</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between pt-2 gap-3">
+                      <div className="flex items-center justify-between pt-2 gap-2 md:gap-3">
                         <div className="flex flex-col">
-                          <span className="text-xs text-muted-foreground font-montserrat mb-0.5">À vista:</span>
-                          <span className="text-2xl font-bold text-primary font-montserrat animate-pulse">{course.price}</span>
+                          <span className="text-[10px] md:text-xs text-muted-foreground font-montserrat mb-0.5">À vista:</span>
+                          <span className="text-xl md:text-2xl font-bold text-primary font-montserrat animate-pulse">{course.price}</span>
                         </div>
                         <Button 
                           size="sm"
                           onClick={() => window.open('https://wa.me/4941996439389?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20' + encodeURIComponent(course.title), '_blank')}
-                          className="group/btn bg-primary hover:bg-primary/90 text-background font-semibold shadow-md hover:shadow-lg shrink-0"
+                          className="group/btn bg-primary hover:bg-primary/90 text-background font-semibold shadow-md hover:shadow-lg shrink-0 text-xs md:text-sm px-3 md:px-4 h-8 md:h-9"
                         >
                           Saiba Mais
-                          <ChevronRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
                       </div>
                     </CardContent>
