@@ -139,8 +139,48 @@ const CourseDetail = () => {
         </div>
       </section>
 
+      {/* Video Section */}
+      {course.videoUrl && (
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 font-playfair">
+                Conheça o Curso
+              </h2>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30">
+                <iframe
+                  src={course.videoUrl}
+                  title={`Vídeo do curso ${course.title}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Detailed Description */}
+      {course.detailedDescription && (
+        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 font-playfair">
+                Sobre o Curso
+              </h2>
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12">
+                <p className="text-lg md:text-xl text-white/90 font-montserrat leading-relaxed">
+                  {course.detailedDescription}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Course Benefits */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-playfair">
             O que você vai aprender
@@ -171,23 +211,23 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24">
+      {/* Personalized CTA Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 via-primary/10 to-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-playfair">
-            Pronto para começar sua jornada?
+            {course.personalizedCTA ? "Não Perca Esta Oportunidade!" : "Pronto para começar sua jornada?"}
           </h2>
-          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto font-montserrat">
-            Entre em contato agora mesmo e garanta sua vaga neste curso!
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto font-montserrat leading-relaxed">
+            {course.personalizedCTA || "Entre em contato agora mesmo e garanta sua vaga neste curso!"}
           </p>
           <Button
             variant="hero"
             size="lg"
             onClick={handleWhatsAppClick}
-            className="text-base md:text-lg px-8 md:px-12 py-6 md:py-8"
+            className="text-base md:text-lg px-8 md:px-12 py-6 md:py-8 group"
           >
-            <Phone className="mr-2 h-5 w-5" />
-            Falar com Especialista
+            <Phone className="mr-2 h-5 w-5 group-hover:animate-pulse" />
+            Quero Garantir Minha Vaga Agora!
           </Button>
         </div>
       </section>

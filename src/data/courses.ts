@@ -52,6 +52,9 @@ export interface Course {
   level: string;
   category: string;
   includes?: string[];
+  videoUrl?: string;
+  detailedDescription?: string;
+  personalizedCTA?: string;
 }
 
 export const courses: Course[] = [
@@ -65,7 +68,10 @@ export const courses: Course[] = [
     duration: "24 horas",
     level: "Todos os níveis",
     category: "Pacotes de Beleza",
-    includes: ["Design de sobrancelhas", "Extensão de cílios"]
+    includes: ["Design de sobrancelhas", "Extensão de cílios"],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    detailedDescription: "Transforme-se em uma especialista do olhar! Neste curso intensivo, você aprenderá desde o design perfeito de sobrancelhas até as técnicas mais avançadas de extensão de cílios. Com 24 horas de prática supervisionada, você dominará o mapeamento facial, simetria, aplicação fio a fio e técnicas de volume russo. Prepare-se para atender clientes exigentes e construir uma carreira lucrativa na área mais procurada da beleza.",
+    personalizedCTA: "Seu sonho de trabalhar com estética do olhar começa agora! Entre em contato e garanta sua vaga neste curso que já transformou centenas de profissionais. Vagas limitadas!"
   },
   { 
     id: "design-expert",
@@ -76,7 +82,10 @@ export const courses: Course[] = [
     duration: "16 horas",
     level: "Todos os níveis",
     category: "Pacotes de Beleza",
-    includes: ["Design de sobrancelhas", "Reconstrução de sobrancelhas", "Brow lamination", "Spa das sobrancelhas", "Depilação egípcia (fio)"]
+    includes: ["Design de sobrancelhas", "Reconstrução de sobrancelhas", "Brow lamination", "Spa das sobrancelhas", "Depilação egípcia (fio)"],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    detailedDescription: "O curso mais completo de design de sobrancelhas do mercado! Aprenda todas as tendências e técnicas: desde o design clássico até a brow lamination que está conquistando o mundo. Com certificação reconhecida e prática intensiva, você sairá preparada para atender desde clientes iniciantes até as mais exigentes. Inclui técnicas de reconstrução para sobrancelhas danificadas e protocolos de spa para tratamento completo.",
+    personalizedCTA: "Torne-se uma Design Expert e destaque-se no mercado! Fale conosco agora e descubra como podemos transformar sua carreira em apenas 16 horas de formação intensiva."
   },
   { 
     id: "micropigmentacao-sobrancelhas",
@@ -86,7 +95,10 @@ export const courses: Course[] = [
     description: "Domine as técnicas mais modernas de micropigmentação de sobrancelhas com resultados naturais e duradouros.",
     duration: "16 horas",
     level: "Intermediário",
-    category: "Pacotes de Beleza"
+    category: "Pacotes de Beleza",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    detailedDescription: "Entre no mercado mais lucrativo da beleza! A micropigmentação de sobrancelhas é uma das técnicas mais procuradas e bem remuneradas. Neste curso você aprenderá nanoblading, shadow, ombré e técnicas de correção. Com treino em pele sintética e modelos reais, você sairá preparada para atender com segurança e criar sobrancelhas perfeitas e naturais que suas clientes vão amar.",
+    personalizedCTA: "Invista na sua carreira de micropigmentadora! Este curso tem vagas limitadas por turma para garantir atendimento personalizado. Fale conosco agora e reserve sua vaga!"
   },
   { 
     id: "capacitacao-depilacao-ceras",
@@ -184,7 +196,10 @@ export const courses: Course[] = [
     duration: "32 horas",
     level: "Todos os níveis",
     category: "Pacotes Estética",
-    includes: ["Limpeza de pele com extração", "Protocolos personalizados", "Peelings químicos estratégicos", "Microagulhamento facial (caneta e manual)"]
+    includes: ["Limpeza de pele com extração", "Protocolos personalizados", "Peelings químicos estratégicos", "Microagulhamento facial (caneta e manual)"],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    detailedDescription: "A formação mais completa em estética facial do Brasil! Em 32 horas intensivas você dominará desde limpezas de pele profundas até peelings químicos avançados e microagulhamento facial. Aprenda a criar protocolos personalizados para cada tipo de pele, trabalhe com os melhores equipamentos e cosméticos do mercado, e torne-se uma referência em tratamentos faciais regenerativos. Inclui certificação master e apostila completa.",
+    personalizedCTA: "Esta é a formação que vai transformar sua carreira! Com 32 horas de prática intensiva, você sairá pronta para abrir seu próprio espaço ou trabalhar nas melhores clínicas. Não perca esta oportunidade, fale conosco agora!"
   },
   { 
     id: "limpeza-pele-premium",
@@ -266,7 +281,10 @@ export const courses: Course[] = [
     duration: "16 horas",
     level: "Avançado",
     category: "Pacotes Estética",
-    includes: ["Skinbooster (Mesoterapia)", "Botox Full Face", "Bioestimulador de colágeno", "Preenchimento labial"]
+    includes: ["Skinbooster (Mesoterapia)", "Botox Full Face", "Bioestimulador de colágeno", "Preenchimento labial"],
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    detailedDescription: "Entre no mercado premium da estética com o curso mais completo de injetáveis! Aprenda as técnicas mais avançadas de aplicação de toxina botulínica, preenchimento labial, bioestimuladores de colágeno e skinboosters. Com prática em modelos reais e supervisão especializada, você dominará anatomia facial, técnicas de aplicação segura e protocolos que garantem resultados naturais. Este curso é seu passaporte para um mercado de alta remuneração.",
+    personalizedCTA: "Dê o próximo passo na sua carreira! O mercado de injetáveis estéticos está em crescimento exponencial. Garanta sua vaga neste curso exclusivo e comece a atender já no próximo mês. Entre em contato agora!"
   },
   { 
     id: "imersao-pos-operatorio",
