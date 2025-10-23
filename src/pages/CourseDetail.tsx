@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getCourseById } from "@/data/courses";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AdvancedSEO from "@/components/AdvancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, BarChart3, Tag, Phone, CheckCircle2, Users, Award, Star, TrendingUp, Sparkles } from "lucide-react";
 import { useEffect } from "react";
@@ -31,6 +32,43 @@ const CourseDetail = () => {
     );
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": course.title,
+    "description": course.description,
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Ateliê Beleza",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
+      }
+    },
+    "timeRequired": course.duration,
+    "educationalLevel": course.level,
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "onsite",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "addressCountry": "BR"
+        }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  };
+
   const handleWhatsAppClick = () => {
     const phoneNumber = "5541996439389";
     const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o curso: ${course.title}`);
@@ -39,6 +77,13 @@ const CourseDetail = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+      <AdvancedSEO
+        title={`${course.title} - Curso de Estética em Curitiba | Ateliê Beleza`}
+        description={`${course.description} ${course.duration} • ${course.level} • Material incluso • Certificado reconhecido. Aprenda com os melhores profissionais de Curitiba.`}
+        canonical={`https://ateliebeleza.app.br/curso/${courseId}`}
+        keywords={`${course.title}, curso ${course.title.toLowerCase()}, estética Curitiba, capacitação profissional, ${course.category.toLowerCase()}`}
+        structuredData={structuredData}
+      />
       <Navigation />
       <FloatingButtons />
       

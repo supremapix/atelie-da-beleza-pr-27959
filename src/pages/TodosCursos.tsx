@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import AllCourses from "@/components/AllCourses";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import AdvancedSEO from "@/components/AdvancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, GraduationCap, TrendingUp, Users, Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +10,49 @@ import { useNavigate } from "react-router-dom";
 const TodosCursos = () => {
   const navigate = useNavigate();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Cursos de Estética - Ateliê Beleza",
+    "description": "Mais de 42 cursos profissionalizantes em estética e beleza oferecidos pelo Ateliê Beleza em Curitiba",
+    "numberOfItems": 42,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Course",
+          "name": "Micropigmentação de Sobrancelhas",
+          "provider": {
+            "@type": "Organization",
+            "name": "Ateliê Beleza"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Course",
+          "name": "Design de Sobrancelhas",
+          "provider": {
+            "@type": "Organization",
+            "name": "Ateliê Beleza"
+          }
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <AdvancedSEO
+        title="Todos os Cursos de Estética - Curitiba | Ateliê Beleza"
+        description="Explore mais de 42 cursos profissionalizantes em estética e beleza. Micropigmentação, design de sobrancelhas, lash lifting, estética facial e corporal. Certificação reconhecida."
+        canonical="https://ateliebeleza.app.br/cursos"
+        keywords="cursos de estética, cursos de beleza Curitiba, micropigmentação, design sobrancelhas, lash lifting, estética facial, estética corporal, capacitação profissional"
+        structuredData={structuredData}
+      />
       <Navigation />
       <main className="pt-20">
         {/* Hero Section */}
