@@ -4,10 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { MessageCircle, Clock, Sparkles, Phone, Info } from "lucide-react";
 import { courses as coursesData, Course } from "@/data/courses";
+import CourseSearch from "@/components/CourseSearch";
 
 const AllCourses = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("todos");
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const handleWhatsApp = (courseName: string) => {
     const message = `Olá! Gostaria de tirar dúvidas sobre o curso: ${courseName}`;
@@ -25,9 +27,22 @@ const AllCourses = () => {
 
   const categories = Object.keys(coursesByCategory).sort();
 
-  const filteredCourses = selectedCategory === "todos" 
+  // Filtrar por categoria
+  const coursesBySelectedCategory = selectedCategory === "todos" 
     ? coursesData 
     : coursesByCategory[selectedCategory] || [];
+
+  // Filtrar por busca
+  const filteredCourses = coursesBySelectedCategory.filter((course) => {
+    if (!searchTerm) return true;
+    const search = searchTerm.toLowerCase();
+    return (
+      course.title.toLowerCase().includes(search) ||
+      course.description.toLowerCase().includes(search) ||
+      course.category.toLowerCase().includes(search) ||
+      (course.detailedDescription && course.detailedDescription.toLowerCase().includes(search))
+    );
+  });
 
   // Scroll para categoria quando vier de hash na URL
   useEffect(() => {
@@ -59,6 +74,12 @@ const AllCourses = () => {
           </p>
         </div>
 
+        {/* Barra de Busca */}
+        <CourseSearch 
+          searchTerm={searchTerm} 
+          onSearchChange={setSearchTerm}
+        />
+
         {/* Filtros por categoria */}
         <div className="mb-8 flex flex-wrap gap-2 justify-center">
           <Button
@@ -82,7 +103,14 @@ const AllCourses = () => {
 
         {/* Grid de cursos */}
         <div className="mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {filteredCourses.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-white/80 text-lg">
+                Nenhum curso encontrado para "{searchTerm}". Tente buscar por outro termo.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {filteredCourses.map((course) => (
               <Card 
                 key={course.id} 
@@ -157,7 +185,8 @@ const AllCourses = () => {
                 </CardFooter>
               </Card>
             ))}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Modal de Detalhes do Curso */}
