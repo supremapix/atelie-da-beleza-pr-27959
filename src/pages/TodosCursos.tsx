@@ -6,6 +6,8 @@ import AdvancedSEO from "@/components/AdvancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, GraduationCap, TrendingUp, Users, Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import FAQ from "@/components/FAQ";
+import { generalFAQ } from "@/data/faq";
 
 const TodosCursos = () => {
   const navigate = useNavigate();
@@ -68,10 +70,10 @@ const TodosCursos = () => {
                 Voltar para Início
               </Button>
               
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-playfair text-foreground">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-playfair text-foreground">
                 Todos os Nossos <span className="text-primary">Cursos</span>
               </h1>
-              <p className="text-lg md:text-xl text-foreground/80 font-montserrat font-medium">
+              <p className="text-base sm:text-lg md:text-xl text-foreground/80 font-montserrat font-medium">
                 Mais de <span className="text-black font-bold animate-[pulse_2s_ease-in-out_infinite] inline-block">42 cursos profissionalizantes</span> em estética e beleza para você se especializar e alcançar o sucesso na sua carreira
               </p>
             </div>
@@ -161,6 +163,9 @@ const TodosCursos = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQ items={generalFAQ} />
       </main>
       <Footer />
       <FloatingButtons />

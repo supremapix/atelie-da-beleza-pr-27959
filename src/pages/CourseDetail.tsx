@@ -4,9 +4,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AdvancedSEO from "@/components/AdvancedSEO";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Clock, BarChart3, Tag, Phone, CheckCircle2, Users, Award, Star, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowLeft, Clock, BarChart3, Tag, Phone, CheckCircle2, Users, Award, Star, TrendingUp, Sparkles, Calendar, DollarSign } from "lucide-react";
 import { useEffect } from "react";
 import FloatingButtons from "@/components/FloatingButtons";
+import FAQ from "@/components/FAQ";
+import { generalFAQ } from "@/data/faq";
 
 const CourseDetail = () => {
   const { courseId } = useParams<{ courseId: string }>();
@@ -149,10 +151,10 @@ const CourseDetail = () => {
                 <div className="inline-block bg-primary/20 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/30">
                   {course.category}
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair mb-4 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair mb-4 leading-tight">
                   {course.title}
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 font-montserrat leading-relaxed mb-6">
+                <p className="text-base sm:text-lg md:text-xl text-white/90 font-montserrat leading-relaxed mb-6">
                   {course.description}
                 </p>
                 
@@ -344,6 +346,67 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Course Specs Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-playfair">
+              Ficha Técnica do Curso
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
+                <Calendar className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3 font-montserrat">Informações do Curso</h3>
+                <ul className="space-y-3 text-white/90">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>Duração:</strong> {course.duration}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>Nível:</strong> {course.level}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>Turmas:</strong> Máximo 5 alunas</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong>Horário:</strong> 9h às 16h30/17h</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
+                <DollarSign className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-white mb-3 font-montserrat">O Que Está Incluso</h3>
+                <ul className="space-y-3 text-white/90">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Apostila completa</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Certificado reconhecido</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Material para prática</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>Suporte pós-curso</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQ items={generalFAQ} className="bg-gradient-to-b from-transparent via-black/50 to-transparent text-white" />
 
       {/* Personalized CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent relative overflow-hidden">

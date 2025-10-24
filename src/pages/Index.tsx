@@ -12,6 +12,8 @@ import FloatingButtons from "@/components/FloatingButtons";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import LiveNotifications from "@/components/LiveNotifications";
 import AdvancedSEO from "@/components/AdvancedSEO";
+import FAQ from "@/components/FAQ";
+import { generalFAQ } from "@/data/faq";
 
 const Index = () => {
   const structuredData = {
@@ -56,6 +58,7 @@ const Index = () => {
         <CoursesShowcase />
         <About />
         <Testimonials />
+        <FAQ items={generalFAQ} />
         <Contact />
       </main>
       <Footer />

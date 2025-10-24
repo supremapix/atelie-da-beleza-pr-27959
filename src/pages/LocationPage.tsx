@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, MapPin, Phone, Clock, Award, Users, Star, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import FAQ from "@/components/FAQ";
+import { neighborhoodFAQ } from "@/data/faq";
 
 interface LocationPageProps {
   neighborhood: string;
@@ -117,11 +119,11 @@ const LocationPage = ({
                 <span className="text-sm font-medium">Atendendo {neighborhood}</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
                 Cursos de Estética em <span className="text-primary">{neighborhood}</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 {description}
               </p>
 
@@ -207,6 +209,9 @@ const LocationPage = ({
             </div>
           </section>
         )}
+
+        {/* FAQ Section */}
+        <FAQ items={neighborhoodFAQ} title={`Dúvidas sobre Cursos em ${neighborhood}`} />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5">
