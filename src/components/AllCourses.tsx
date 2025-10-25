@@ -208,7 +208,7 @@ const AllCourses = () => {
 
         {/* Modal de Detalhes do Curso */}
         <Dialog open={!!selectedCourse} onOpenChange={() => setSelectedCourse(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white">
             <DialogHeader>
               <DialogTitle className="text-2xl font-playfair text-primary">
                 {selectedCourse?.title}
@@ -229,7 +229,7 @@ const AllCourses = () => {
               </div>
 
               {/* Informações Gerais */}
-              <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-muted/50 rounded-lg">
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-primary" />
                   <div>
@@ -244,6 +244,20 @@ const AllCourses = () => {
                     <p className="font-semibold text-foreground">{selectedCourse?.level}</p>
                   </div>
                 </div>
+                {selectedCourse?.cashPrice && (
+                  <div className="flex items-center gap-2 col-span-full">
+                    <div className="w-full bg-primary/5 p-4 rounded-lg border border-primary/20">
+                      <p className="text-lg font-bold text-primary mb-1">
+                        R$ {selectedCourse.cashPrice} à vista
+                      </p>
+                      {selectedCourse.installmentPrice && (
+                        <p className="text-sm text-muted-foreground">
+                          Ou 10x de R$ {(selectedCourse.installmentPrice / 10).toFixed(2)} = R$ {selectedCourse.installmentPrice}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Categoria */}
@@ -252,14 +266,54 @@ const AllCourses = () => {
                 <p className="text-lg font-bold text-primary">{selectedCourse?.category}</p>
               </div>
 
+              {/* O que você vai aprender */}
+              {selectedCourse?.whatYouWillLearn && selectedCourse.whatYouWillLearn.length > 0 && (
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">O Que Você Vai Aprender</h3>
+                  <div className="space-y-2">
+                    {selectedCourse.whatYouWillLearn.slice(0, 6).map((item, index) => (
+                      <div key={index} className="flex items-start gap-2 text-sm">
+                        <Info className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <p className="text-muted-foreground">{item}</p>
+                      </div>
+                    ))}
+                    {selectedCourse.whatYouWillLearn.length > 6 && (
+                      <p className="text-sm text-primary font-semibold italic">
+                        + {selectedCourse.whatYouWillLearn.length - 6} tópicos adicionais...
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Bônus */}
+              {selectedCourse?.bonuses && selectedCourse.bonuses.length > 0 && (
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h3 className="text-lg font-bold text-green-800 mb-3 flex items-center gap-2">
+                    <Sparkles className="w-5 h-5" />
+                    Bônus Exclusivos
+                  </h3>
+                  <div className="space-y-2">
+                    {selectedCourse.bonuses.map((bonus, index) => (
+                      <div key={index} className="flex items-start gap-2 text-sm">
+                        <Info className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                        <p className="text-green-800 font-medium">{bonus}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Descrição Completa */}
-              <div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Sobre o Curso</h3>
-                <p className="text-muted-foreground leading-relaxed">{selectedCourse?.description}</p>
-              </div>
+              {selectedCourse?.detailedDescription && (
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">Sobre o Curso</h3>
+                  <p className="text-muted-foreground leading-relaxed">{selectedCourse.detailedDescription}</p>
+                </div>
+              )}
 
               {/* Botões de Ação */}
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-3 pt-4 border-t">
                 <Button 
                   variant="outline"
                   className="flex-1 border-primary text-primary hover:bg-primary hover:text-background"

@@ -292,43 +292,104 @@ const CourseDetail = () => {
         </section>
       )}
 
-      {/* Course Benefits */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
-              O Que Você Vai Dominar
-            </h2>
-            <p className="text-white/70 text-lg font-montserrat">Saia do curso 100% preparada para atuar profissionalmente</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              { title: "Técnicas Profissionais", desc: "Do básico ao avançado com prática supervisionada" },
-              { title: "Segurança e Higiene", desc: "Protocolos de biossegurança e boas práticas" },
-              { title: "Gestão de Clientes", desc: "Como atrair, atender e fidelizar sua clientela" },
-              { title: "Equipamentos & Materiais", desc: "Conheça e domine ferramentas profissionais" },
-              { title: "Prática Intensiva", desc: "Horas de treino com acompanhamento especializado" },
-              { title: "Certificado Reconhecido", desc: "Certificação que abre portas no mercado" }
-            ].map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 hover:border-primary/50 hover:scale-105 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center flex-shrink-0 mt-1 group-hover:from-primary/50 group-hover:to-primary/20 transition-all">
-                    <CheckCircle2 className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold mb-1 font-montserrat">{benefit.title}</h3>
-                    <p className="text-white/70 text-sm font-montserrat">{benefit.desc}</p>
-                  </div>
-                </div>
+      {/* What You Will Learn */}
+      {course.whatYouWillLearn && course.whatYouWillLearn.length > 0 && (
+        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+                  O Que Você Vai Aprender
+                </h2>
+                <p className="text-white/70 text-lg font-montserrat">Conteúdo completo e atualizado do curso</p>
               </div>
-            ))}
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {course.whatYouWillLearn.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/15 hover:border-primary/50 transition-all duration-300 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:from-primary/50 group-hover:to-primary/20 transition-all">
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      </div>
+                      <p className="text-white/90 font-montserrat text-sm md:text-base leading-relaxed">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Course Differentials */}
+      {course.courseDifferentials && course.courseDifferentials.length > 0 && (
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+                  Diferenciais do Curso
+                </h2>
+                <p className="text-white/70 text-lg font-montserrat">Por que este curso se destaca</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {course.courseDifferentials.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border border-primary/30 rounded-xl p-6 hover:bg-primary/25 hover:border-primary/50 hover:scale-105 transition-all duration-300 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 mt-1 shadow-lg">
+                        <Sparkles className="w-5 h-5 text-black" />
+                      </div>
+                      <p className="text-white font-semibold font-montserrat text-sm md:text-base leading-relaxed">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Bonuses */}
+      {course.bonuses && course.bonuses.length > 0 && (
+        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-green-900/10 to-transparent">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-block bg-green-500/20 border border-green-500/50 text-green-300 px-6 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
+                  🎁 BÔNUS EXCLUSIVOS
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+                  Você Também Ganha
+                </h2>
+                <p className="text-white/70 text-lg font-montserrat">Conteúdos extras inclusos no seu curso</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {course.bonuses.map((bonus, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-green-900/20 to-green-900/5 backdrop-blur-sm border-2 border-green-500/30 rounded-xl p-6 hover:border-green-500/50 hover:scale-105 transition-all duration-300 group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500/40 to-green-500/20 flex items-center justify-center flex-shrink-0 mt-1 shadow-lg">
+                        <CheckCircle2 className="w-5 h-5 text-green-400" />
+                      </div>
+                      <p className="text-white font-semibold font-montserrat text-sm md:text-base leading-relaxed">{bonus}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Testimonial Simplified Section */}
       <section className="py-16 md:py-24">
@@ -350,55 +411,105 @@ const CourseDetail = () => {
       {/* Course Specs Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-playfair">
               Ficha Técnica do Curso
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
+              {/* Pricing Section */}
+              {(course.cashPrice || course.installmentPrice) && (
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border-2 border-primary/40 rounded-2xl p-8 hover:border-primary/60 transition-all">
+                  <DollarSign className="w-10 h-10 text-primary mb-4" />
+                  <h3 className="text-xl font-bold text-white mb-4 font-montserrat">Investimento Profissional</h3>
+                  <div className="space-y-4">
+                    {course.cashPrice && (
+                      <div className="bg-white/10 rounded-lg p-4 border border-primary/30">
+                        <p className="text-white/70 text-sm mb-1">Pagamento à vista</p>
+                        <p className="text-3xl font-bold text-primary">R$ {course.cashPrice}</p>
+                      </div>
+                    )}
+                    {course.installmentPrice && (
+                      <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <p className="text-white/70 text-sm mb-1">Ou parcelado em até 10x</p>
+                        <p className="text-2xl font-bold text-white">
+                          10x de R$ {(course.installmentPrice / 10).toFixed(2)}
+                        </p>
+                        <p className="text-white/60 text-xs mt-1">
+                          Total: R$ {course.installmentPrice}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Course Info Section */}
               <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
                 <Calendar className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3 font-montserrat">Informações do Curso</h3>
+                <h3 className="text-xl font-bold text-white mb-4 font-montserrat">
+                  {course.courseInfo && course.courseInfo.length > 0 ? "Detalhes do Curso" : "Informações do Curso"}
+                </h3>
                 <ul className="space-y-3 text-white/90">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong>Duração:</strong> {course.duration}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong>Nível:</strong> {course.level}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong>Turmas:</strong> Máximo 5 alunas</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong>Horário:</strong> 9h às 16h30/17h</span>
-                  </li>
+                  {course.courseInfo && course.courseInfo.length > 0 ? (
+                    course.courseInfo.map((info, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-sm md:text-base">{info}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Duração:</strong> {course.duration}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Nível:</strong> {course.level}</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Turmas:</strong> Máximo 5 alunas</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span><strong>Horário:</strong> 9h às 16h30/17h</span>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
               
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
-                <DollarSign className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3 font-montserrat">O Que Está Incluso</h3>
-                <ul className="space-y-3 text-white/90">
-                  <li className="flex items-start gap-2">
+              {/* Includes Section */}
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:col-span-2">
+                <Tag className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-xl font-bold text-white mb-4 font-montserrat">O Que Está Incluso</h3>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Apostila completa</span>
-                  </li>
-                  <li className="flex items-start gap-2">
+                    <span className="text-white/90">Apostila completa</span>
+                  </div>
+                  <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Certificado reconhecido</span>
-                  </li>
-                  <li className="flex items-start gap-2">
+                    <span className="text-white/90">Certificado reconhecido</span>
+                  </div>
+                  <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Material para prática</span>
-                  </li>
-                  <li className="flex items-start gap-2">
+                    <span className="text-white/90">Material para prática</span>
+                  </div>
+                  <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Suporte pós-curso</span>
-                  </li>
-                </ul>
+                    <span className="text-white/90">Suporte pós-curso</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90">Turmas reduzidas</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90">Prática com modelos</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
