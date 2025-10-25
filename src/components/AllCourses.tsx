@@ -152,7 +152,7 @@ const AllCourses = () => {
                   <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                     {course.description}
                   </p>
-                  <div className="flex items-center gap-3 md:gap-4 text-sm">
+                  <div className="flex items-center gap-3 md:gap-4 text-sm flex-wrap">
                     <div className="flex items-center gap-1.5 md:gap-2">
                       <Clock className="w-4 h-4 text-primary" />
                       <span className="font-semibold text-foreground text-xs md:text-sm">{course.duration}</span>
@@ -161,6 +161,23 @@ const AllCourses = () => {
                       {course.level}
                     </div>
                   </div>
+                  {(course.cashPrice || course.installmentPrice) && (
+                    <div className="pt-2 border-t border-border">
+                      <div className="flex flex-col gap-1">
+                        {course.cashPrice && (
+                          <p className="text-sm">
+                            <span className="text-muted-foreground">À vista:</span>{" "}
+                            <span className="font-bold text-primary">R$ {course.cashPrice}</span>
+                          </p>
+                        )}
+                        {course.installmentPrice && (
+                          <p className="text-xs text-muted-foreground">
+                            Ou 10x de R$ {(course.installmentPrice / 10).toFixed(2)}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
                 
                 <CardFooter className="pt-0 flex-col gap-2 md:gap-3 px-4 md:px-6 pb-4 md:pb-6">

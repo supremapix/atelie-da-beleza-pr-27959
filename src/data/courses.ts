@@ -51,556 +51,931 @@ export interface Course {
   duration: string;
   level: string;
   category: string;
+  cashPrice?: number;
+  installmentPrice?: number;
   includes?: string[];
   videoUrl?: string;
   detailedDescription?: string;
   personalizedCTA?: string;
+  whatYouWillLearn?: string[];
+  courseDifferentials?: string[];
+  courseInfo?: string[];
+  bonuses?: string[];
 }
 
 export const courses: Course[] = [
-  // PACOTES DE BELEZA
-  { 
-    id: "estetica-olhar",
-    title: "Estética do Olhar", 
-    image: esteticaOlhar, 
-    highlighted: true,
-    description: "Curso completo de design de sobrancelhas e extensão de cílios para dominar todas as técnicas do olhar.",
-    duration: "24 horas",
-    level: "Todos os níveis",
-    category: "Pacotes de Beleza",
-    includes: ["Design de sobrancelhas", "Extensão de cílios"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Transforme-se em uma especialista do olhar! Neste curso intensivo, você aprenderá desde o design perfeito de sobrancelhas até as técnicas mais avançadas de extensão de cílios. Com 24 horas de prática supervisionada, você dominará o mapeamento facial, simetria, aplicação fio a fio e técnicas de volume russo. Prepare-se para atender clientes exigentes e construir uma carreira lucrativa na área mais procurada da beleza.",
-    personalizedCTA: "Seu sonho de trabalhar com estética do olhar começa agora! Entre em contato e garanta sua vaga neste curso que já transformou centenas de profissionais. Vagas limitadas!"
-  },
-  { 
-    id: "design-expert",
-    title: "Design Expert 7.0", 
-    image: designHenna, 
-    highlighted: true,
-    description: "Formação completa em design de sobrancelhas incluindo reconstrução, brow lamination, spa e depilação egípcia.",
-    duration: "16 horas",
-    level: "Todos os níveis",
-    category: "Pacotes de Beleza",
-    includes: ["Design de sobrancelhas", "Reconstrução de sobrancelhas", "Brow lamination", "Spa das sobrancelhas", "Depilação egípcia (fio)"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "O curso mais completo de design de sobrancelhas do mercado! Aprenda todas as tendências e técnicas: desde o design clássico até a brow lamination que está conquistando o mundo. Com certificação reconhecida e prática intensiva, você sairá preparada para atender desde clientes iniciantes até as mais exigentes. Inclui técnicas de reconstrução para sobrancelhas danificadas e protocolos de spa para tratamento completo.",
-    personalizedCTA: "Torne-se uma Design Expert e destaque-se no mercado! Fale conosco agora e descubra como podemos transformar sua carreira em apenas 16 horas de formação intensiva."
-  },
-  { 
-    id: "micropigmentacao-sobrancelhas",
-    title: "Micropigmentação de Sobrancelhas 5.0", 
-    image: microCompleto,
-    highlighted: true,
-    description: "Domine as técnicas mais modernas de micropigmentação de sobrancelhas com resultados naturais e duradouros.",
-    duration: "16 horas",
-    level: "Intermediário",
-    category: "Pacotes de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entre no mercado mais lucrativo da beleza! A micropigmentação de sobrancelhas é uma das técnicas mais procuradas e bem remuneradas. Neste curso você aprenderá nanoblading, shadow, ombré e técnicas de correção. Com treino em pele sintética e modelos reais, você sairá preparada para atender com segurança e criar sobrancelhas perfeitas e naturais que suas clientes vão amar.",
-    personalizedCTA: "Invista na sua carreira de micropigmentadora! Este curso tem vagas limitadas por turma para garantir atendimento personalizado. Fale conosco agora e reserve sua vaga!"
-  },
-  { 
-    id: "capacitacao-depilacao-ceras",
-    title: "Capacitação em Depilação Facial e Corporal 5.0", 
-    image: depilacaoCeras,
-    description: "Aprenda todas as técnicas de depilação com ceras quentes para atendimento profissional completo.",
-    duration: "16 horas",
-    level: "Iniciante",
-    category: "Pacotes de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a arte da depilação profissional! Neste curso completo você aprenderá todas as técnicas de depilação facial e corporal com ceras quentes e frias. Inclui preparação da pele, manejo de diferentes tipos de cera, higienização, e atendimento de áreas sensíveis. Com prática supervisionada, você sairá preparada para oferecer um serviço completo e de qualidade aos seus clientes.",
-    personalizedCTA: "Comece sua carreira com um dos serviços mais procurados da beleza! A depilação profissional garante clientela fixa e recorrente. Fale conosco e inicie já!"
-  },
-  { 
-    id: "remocao-laser-40",
-    title: "Remoção a Laser 4.0", 
+  {
+    id: "remocao-laser-micro",
+    title: "Remoção de Micropigmentação e Tatuagem à Laser",
     image: remocaoLaserMicro,
     highlighted: true,
-    description: "Técnicas completas de remoção a laser, despigmentação elétrica, reparação tecidual e black peel.",
-    duration: "16 horas",
-    level: "Avançado",
-    category: "Pacotes de Beleza",
-    includes: ["Laser", "Despigmentação elétrica", "Reparação tecidual", "Black Peel"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Seja especialista em remoção e correção! Este curso avançado ensina todas as técnicas de remoção a laser de micropigmentação e tatuagens, além de despigmentação elétrica e black peel. Com 16 horas de prática intensiva, você aprenderá a trabalhar com diferentes tipos de pele, cores de pigmentos e protocolos de segurança. Prepare-se para atender um mercado crescente de clientes que precisam de correção e remoção.",
-    personalizedCTA: "A remoção a laser é uma das especialidades mais lucrativas! Poucos profissionais dominam esta técnica. Entre em contato agora e seja referência na sua região!"
+    description: "Capacitação de Remoção a Laser de Micropigmentação e Tatuagem – Laser Off",
+    duration: "16h",
+    level: "Nível 1 - Fundamentos",
+    category: "Beleza e Design",
+    cashPrice: 1500,
+    installmentPrice: 1690,
+    detailedDescription: "Este curso é para quem quer aprender a remover tatuagens e micropigmentações de forma segura, prática e eficaz. Usamos um laser que consegue quebrar os pigmentos da pele sem machucar ou prejudicar o local. Isso significa que você poderá realizar o procedimento com segurança.",
+    whatYouWillLearn: [
+      "Como identificar cada tipo de pigmento e escolher o melhor tratamento",
+      "Como usar o laser para remover tatuagens e micropigmentações com segurança",
+      "Técnicas complementares, como a despigmentação elétrica, para melhorar os resultados",
+      "Como cuidar da pele antes e depois do procedimento",
+      "Como precificar seus atendimentos"
+    ],
+    courseDifferentials: [
+      "Aprendizado baseado em protocolos reais de atendimento",
+      "Turmas pequenas, garantindo atenção individual",
+      "Material didático e modelos reais para prática",
+      "Suporte pós-curso para tirar dúvidas"
+    ],
+    courseInfo: [
+      "Duração: 2 dias (9h às 17h)",
+      "Carga horária: 16 horas",
+      "Turmas: máximo de 4 alunos",
+      "Material didático incluso",
+      "Certificado"
+    ],
+    bonuses: ["Técnica Black Peel"]
   },
-
-  // AVULSOS DE BELEZA
-  { 
-    id: "design-sobrancelhas",
-    title: "Design de Sobrancelhas", 
-    image: designHenna,
-    description: "Aprenda a técnica completa de design de sobrancelhas para um visual perfeito.",
-    duration: "8 horas",
-    level: "Iniciante",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Comece sua jornada na estética com o curso de design de sobrancelhas! Aprenda simetria facial, técnicas de medição, depilação com pinça e cera, e coloração com henna. Este curso é perfeito para iniciantes e oferece uma base sólida para você começar a atender com confiança. Em apenas 8 horas você estará pronta para transformar o olhar das suas clientes!",
-    personalizedCTA: "Inicie sua carreira na beleza com o curso mais procurado! Design de sobrancelhas é rápido de aprender e tem alta demanda. Garanta sua vaga agora!"
-  },
-  { 
-    id: "lash-master-class",
-    title: "Lash Master Class", 
-    image: lashIniciante,
-    description: "Domine a arte da extensão de cílios do básico ao avançado.",
-    duration: "16 horas",
-    level: "Todos os níveis",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Transforme-se em uma Lash Designer profissional! Aprenda todas as técnicas de extensão de cílios: fio a fio clássico, volume russo, mega volume e técnicas híbridas. Com 16 horas de treinamento intensivo, você dominará a curvatura perfeita, mapeamento de olhos, escolha de fios ideais e aplicação segura. Inclui prática em modelos reais com supervisão especializada e certificado reconhecido nacionalmente.",
-    personalizedCTA: "Seja uma especialista em extensão de cílios! Este é um dos serviços mais lucrativos da beleza, com clientes fiéis e retorno garantido. Entre em contato e comece sua transformação profissional!"
-  },
-  { 
-    id: "depilacao-egipcia",
-    title: "Depilação Facial Egípcia", 
-    image: epilacaoFio,
-    description: "Técnica milenar de epilação com fio para design perfeito de sobrancelhas e rosto.",
-    duration: "6 horas",
-    level: "Iniciante",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a técnica milenar da depilação egípcia com fio! Esta técnica precisa e delicada é perfeita para design de sobrancelhas, buço e rosto completo. Aprenda a manusear o fio com destreza, criar designs perfeitos e atender com agilidade. Em apenas 6 horas você estará pronta para oferecer este serviço diferenciado que encanta as clientes pela precisão e durabilidade.",
-    personalizedCTA: "Adicione uma técnica exclusiva ao seu portfólio! A depilação egípcia é muito procurada e poucos profissionais dominam. Destaque-se no mercado!"
-  },
-  { 
-    id: "lash-brow-lamination",
-    title: "Lash Master Class + Brow Lamination", 
-    image: lashLifting,
-    description: "Combine extensão de cílios com técnica de laminação de sobrancelhas.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Combine as duas técnicas mais modernas do olhar! Neste curso você aprenderá lash lifting (permanente de cílios) e brow lamination (laminação de sobrancelhas). São procedimentos que deixam os pelos naturalmente mais volumosos, alinhados e com curvatura perfeita. Ideal para quem quer oferecer tratamentos de baixa manutenção com efeito duradouro que as clientes adoram!",
-    personalizedCTA: "Ofereça o combo perfeito para suas clientes! Lash lifting e brow lamination são as técnicas do momento. Aprenda em um único curso e multiplique seus ganhos!"
-  },
-  { 
-    id: "micropigmentacao-labial",
-    title: "Micropigmentação Labial", 
-    image: microLabial,
-    description: "Técnicas de micropigmentação labial para correção e embelezamento dos lábios.",
-    duration: "16 horas",
-    level: "Intermediário",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialize-se em micropigmentação labial! Aprenda técnicas de contorno, preenchimento total, correção de assimetrias e aquarela labial. Com 16 horas de treino intensivo você dominará colorimetria labial, escolha de pigmentos, técnicas de aplicação e cicatrização. Este procedimento tem alta demanda e excelente remuneração, sendo um diferencial importante no seu portfólio.",
-    personalizedCTA: "Lábios perfeitos são o desejo de toda mulher! Torne-se especialista em micropigmentação labial e conquiste um nicho premium. Vagas limitadas, garanta a sua!"
-  },
-  { 
-    id: "micropigmentacao-olhos",
-    title: "Micropigmentação de Olhos", 
+  {
+    id: "micro-delineado-olhos",
+    title: "Micropigmentação para Delineado dos Olhos",
     image: delineadoOlhos,
-    description: "Aprenda a técnica de micropigmentação de delineado para realçar o olhar.",
-    duration: "16 horas",
-    level: "Intermediário",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a técnica refinada de micropigmentação de olhos! Aprenda delineado superior, inferior, esfumado e técnicas de preenchimento de cílios. Com 16 horas de prática você desenvolverá precisão, simetria e conhecimento profundo da anatomia ocular. Este é um procedimento delicado que requer treinamento especializado - seja uma das poucas profissionais certificadas!",
-    personalizedCTA: "Micropigmentação de olhos é uma arte refinada e muito valorizada! Poucos profissionais têm esta especialização. Destaque-se e conquiste clientes exigentes!"
+    description: "Curso de Micropigmentação de Olhos",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Beleza e Design",
+    cashPrice: 1300,
+    installmentPrice: 1450,
+    detailedDescription: "O delineado perfeito é o sonho de muitas mulheres. Com este curso, você será a profissional capaz de realizar esse desejo de forma segura e profissional.",
+    whatYouWillLearn: [
+      "Delineado clássico – traço suave e elegante",
+      "Delineado gatinho – efeito mais marcado e definido",
+      "Anatomia dos olhos e regiões ao redor",
+      "Diferenças entre as técnicas e como escolher a melhor para cada cliente",
+      "Pigmentologia: cores e pigmentos ideais",
+      "Uso de anestésicos",
+      "Processo de cicatrização",
+      "Cuidados pré e pós-procedimento",
+      "Durabilidade do procedimento",
+      "Ficha de anamnese e termo de consentimento",
+      "Materiais profissionais e biossegurança",
+      "Precificação dos atendimentos"
+    ],
+    courseInfo: [
+      "Duração: 2 dias, das 9h às 17h",
+      "Carga horária: 16 horas",
+      "Modelos disponibilizados para prática",
+      "Materiais necessários: jaleco, luvas e máscaras descartáveis",
+      "Infraestrutura completa",
+      "Apostila e certificado inclusos",
+      "Início com treino em pele sintética",
+      "Demonstração da professora",
+      "Prática em modelos reais",
+      "Turmas pequenas para atenção individual",
+      "Material didático e suporte pós-curso"
+    ]
   },
-  { 
-    id: "dermaplaning",
-    title: "Dermaplaning", 
-    image: dermaplaning,
-    description: "Técnica de esfoliação facial profunda com bisturi para pele radiante.",
-    duration: "4 horas",
-    level: "Intermediário",
-    category: "Avulsos de Beleza",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Aprenda a técnica de dermaplaning que está conquistando o mundo! Esta esfoliação profunda com bisturi remove células mortas e pelos faciais, deixando a pele incrivelmente lisa e radiante. Em 4 horas você aprenderá técnica, ângulos corretos, protocolos de segurança e como combinar com outros tratamentos. Resultado imediato que as clientes adoram!",
-    personalizedCTA: "Dermaplaning é a técnica do momento! Resultados instantâneos, procedimento rápido e clientes satisfeitas. Aprenda agora e adicione ao seu menu de tratamentos!"
-  },
-
-  // PACOTES ESTÉTICA
-  { 
-    id: "estetica-facial-master",
-    title: "Estética Facial Master", 
-    image: esteticaFacialMaster, 
+  {
+    id: "micropigmentacao-sobrancelhas",
+    title: "Micropigmentação de Sobrancelhas 5.0",
+    image: microCompleto,
     highlighted: true,
-    description: "Formação master nas principais técnicas da estética regenerativa: limpeza, protocolos, peelings e microagulhamento.",
-    duration: "32 horas",
-    level: "Todos os níveis",
-    category: "Pacotes Estética",
-    includes: ["Limpeza de pele com extração", "Protocolos personalizados", "Peelings químicos estratégicos", "Microagulhamento facial (caneta e manual)"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "A formação mais completa em estética facial do Brasil! Em 32 horas intensivas você dominará desde limpezas de pele profundas até peelings químicos avançados e microagulhamento facial. Aprenda a criar protocolos personalizados para cada tipo de pele, trabalhe com os melhores equipamentos e cosméticos do mercado, e torne-se uma referência em tratamentos faciais regenerativos. Inclui certificação master e apostila completa.",
-    personalizedCTA: "Esta é a formação que vai transformar sua carreira! Com 32 horas de prática intensiva, você sairá pronta para abrir seu próprio espaço ou trabalhar nas melhores clínicas. Não perca esta oportunidade, fale conosco agora!"
+    description: "Aprenda a criar sobrancelhas naturais, harmoniosas e personalizadas, dominando técnicas nanoblading e shadow",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Beleza e Design",
+    cashPrice: 1800,
+    installmentPrice: 1950,
+    detailedDescription: "Entre no mercado mais lucrativo da beleza! A micropigmentação de sobrancelhas é uma das técnicas mais procuradas e bem remuneradas.",
+    courseInfo: [
+      "Duração: 2 dias (8:30 às 17:00) – 16h",
+      "Aulas teóricas e práticas",
+      "Treino inicial em pele sintética + prática em modelos reais",
+      "Turmas pequenas e suporte pós-curso",
+      "Kit incluso",
+      "Certificado incluso"
+    ]
   },
-  { 
-    id: "limpeza-pele-premium",
-    title: "Limpeza de Pele Premium", 
-    image: limpezaPeeling,
-    description: "Limpeza profunda com extração, protocolos personalizados e peeling de diamante.",
-    duration: "16 horas",
-    level: "Intermediário",
-    category: "Pacotes Estética",
-    includes: ["Limpeza de pele com extração", "Protocolos personalizados", "Peeling de diamante"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Torne-se especialista em limpeza de pele premium! Este curso ensina limpeza profunda profissional com extração, protocolos personalizados para cada tipo de pele e peeling de diamante. Com 16 horas de treinamento prático, você aprenderá a avaliar a pele, escolher produtos adequados e realizar procedimentos que deixam a pele renovada e radiante. Inclui técnicas de higienização, extração segura e finalização.",
-    personalizedCTA: "Limpeza de pele é o tratamento facial mais procurado! Aprenda a versão premium e fidelize suas clientes com resultados incríveis. Entre em contato!"
+  {
+    id: "micro-labial",
+    title: "Micropigmentação Labial",
+    image: microLabial,
+    description: "Aprenda a transformar lábios com técnicas profissionais, criando efeitos que vão do mais marcante ao natural e correção de pigmentos escuros",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Beleza e Design",
+    cashPrice: 1300,
+    installmentPrice: 1450,
+    whatYouWillLearn: [
+      "Full lips – lábios marcantes e uniformes",
+      "Lip tint – efeito natural e revitalizado",
+      "Neutralização – correção de lábios escuros",
+      "Borda infinita – contorno perfeito e definido",
+      "Anatomia labial e estrutura dos lábios",
+      "Diferenças entre as técnicas e como escolher a melhor para cada cliente",
+      "Pigmentologia e colorimetria",
+      "Uso seguro de anestésicos",
+      "Processo de cicatrização",
+      "Cuidados pré e pós-procedimento",
+      "Durabilidade do resultado",
+      "Ficha de anamnese e termo de consentimento",
+      "Materiais profissionais e biossegurança",
+      "Precificação e organização do atendimento"
+    ],
+    courseInfo: [
+      "Duração: 2 dias (8:30 às 17:00) – 16h",
+      "Materiais necessários: jaleco, luvas e máscaras descartáveis",
+      "Professora experiente: Paula Haubert",
+      "Infraestrutura completa",
+      "Início com treino em pele sintética",
+      "Demonstração da professora seguida de prática em modelos reais",
+      "Turmas pequenas para atenção individual",
+      "Material didático atualizado e certificado incluso",
+      "Suporte pós-curso"
+    ]
   },
-  { 
-    id: "microagulhamento-master",
-    title: "Microagulhamento Master", 
-    image: microagulhamentoMaster,
-    highlighted: true,
-    description: "Formação completa em microagulhamento capilar, facial e corporal.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Pacotes Estética",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine o microagulhamento em todas as suas aplicações! Aprenda técnicas faciais para rejuvenescimento, capilares para queda de cabelo e calvície, e corporais para estrias e flacidez. Com 8 horas intensivas você dominará manejo de caneta e dermapen, profundidades corretas, protocolos com ativos e cuidados pós-procedimento. Certificação master reconhecida!",
-    personalizedCTA: "Microagulhamento é o tratamento regenerativo mais procurado! Seja master e atenda facial, capilar e corporal. Vagas limitadas, garanta já!"
+  {
+    id: "design-henna-coloracao",
+    title: "Design de Sobrancelhas Estratégico + Henna, Coloração e Spa",
+    image: designHenna,
+    description: "Curso desenvolvido para quem deseja dominar o design de sobrancelhas de forma personalizada e em harmonia facial",
+    duration: "8h",
+    level: "Nível 1 - Fundamentos",
+    category: "Beleza e Design",
+    cashPrice: 499,
+    installmentPrice: 599,
+    detailedDescription: "Durante o curso, você vai aprender desde o mapeamento geométrico facial até as técnicas de coloração e spa, com toda a base teórica e prática necessária para atuar com segurança e excelência.",
+    whatYouWillLearn: [
+      "Design de sobrancelhas com medidas estratégicas",
+      "Técnicas com henna e coloração profissional",
+      "Mapeamento e visagismo facial",
+      "Spa das sobrancelhas com cosméticos específicos",
+      "Epilação egípcia",
+      "Colorimetria, precificação e biossegurança"
+    ]
   },
-  { 
-    id: "capacitacao-facial-corporal",
-    title: "Capacitação em Estética Facial e Corporal", 
-    image: capacitacaoCompleta, 
-    highlighted: true,
-    description: "Formação completa integrando técnicas faciais e corporais para atendimento profissional abrangente.",
-    duration: "56 horas",
-    level: "Todos os níveis",
-    category: "Pacotes Estética",
-    includes: ["Limpeza de pele com extração", "Protocolos personalizados", "Peelings químicos estratégicos", "Microagulhamento facial", "Drenagem linfática", "Massagem modeladora", "Massagem relaxante com bambuterapia"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "A capacitação mais completa do mercado! Em 56 horas você dominará estética facial E corporal, tornando-se uma profissional completa. Inclui limpezas de pele, peelings, microagulhamento facial, drenagem linfática, massagem modeladora e bambuterapia. Saia preparada para abrir seu próprio espaço de estética com serviços diversificados ou trabalhar nas melhores clínicas do país!",
-    personalizedCTA: "Seja uma esteticista completa! Esta formação intensiva de 56 horas te prepara para atender de forma integral. Invista na sua carreira, fale conosco!"
-  },
-  { 
-    id: "capacitacao-corporal",
-    title: "Capacitação em Estética Corporal", 
-    image: capacitacaoCorporal,
-    description: "Especialização completa em estética corporal com técnicas de massagem e modelagem.",
-    duration: "24 horas",
-    level: "Intermediário",
-    category: "Pacotes Estética",
-    includes: ["Drenagem linfática", "Massagem modeladora", "Massagem relaxante com bambuterapia"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialize-se em estética corporal! Em 24 horas você aprenderá as três técnicas mais procuradas: drenagem linfática para desintoxicação e redução de medidas, massagem modeladora para contorno corporal, e massagem relaxante com bambuterapia para bem-estar. Saia preparada para atender diversos objetivos das clientes e construir uma cartela fiel de clientes corporais.",
-    personalizedCTA: "Estética corporal está em alta! Clientes buscam cada vez mais tratamentos corporais. Torne-se especialista e conquiste este mercado lucrativo!"
-  },
-  { 
-    id: "terapias-relaxantes",
-    title: "Terapias Relaxantes", 
-    image: terapiasRelaxantes,
-    description: "Conjunto completo de terapias para relaxamento, bem-estar e spa.",
-    duration: "24 horas",
-    level: "Iniciante",
-    category: "Pacotes Estética",
-    includes: ["Massagem relaxante com crânio facial", "Ventosaterapia", "Pedras quentes", "Spa dos pés"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Transforme vidas através do relaxamento! Aprenda massagem relaxante completa com técnicas de crânio facial, ventosaterapia terapêutica, pedras quentes e spa dos pés. Em 24 horas você dominará protocolos de bem-estar que aliviam stress, tensões musculares e promovem saúde integral. Perfeito para quem quer trabalhar com qualidade de vida e terapias holísticas.",
-    personalizedCTA: "O mercado de bem-estar está crescendo exponencialmente! Ofereça terapias relaxantes e conquiste clientes que buscam saúde e equilíbrio. Comece agora!"
-  },
-  { 
-    id: "tratamentos-equipamentos-corporais",
-    title: "Tratamentos Faciais com Principais Equipamentos", 
-    image: skinSpaFacial,
-    description: "Aprenda a operar os principais equipamentos de estética corporal profissional.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Pacotes Estética",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine os equipamentos de última geração! Aprenda a operar e criar protocolos com os principais equipamentos faciais: radiofrequência, ultrassom, microc correntes, LED terapia e mais. Em 8 horas você entenderá a física dos equipamentos, indicações, contraindicações e como maximizar resultados. Essencial para quem quer oferecer tratamentos avançados!",
-    personalizedCTA: "Equipamentos de estética multiplicam seus ganhos! Aprenda a usar tecnologia de ponta e cobre mais pelos tratamentos. Invista no seu futuro!"
-  },
-  { 
-    id: "injetaveis-esteticos",
-    title: "Injetáveis Estéticos", 
-    image: injetaveisBotox, 
-    highlighted: true,
-    description: "Formação em mesoterapia (skinbooster) e toxina botulínica full face.",
-    duration: "16 horas",
-    level: "Avançado",
-    category: "Pacotes Estética",
-    includes: ["Skinbooster", "Botox Full Face"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entre no mundo dos injetáveis estéticos! Aprenda skinbooster (mesoterapia) para hidratação e rejuvenescimento profundo da pele, e toxina botulínica full face para suavização de rugas. Com 16 horas de treinamento você dominará anatomia facial, pontos de aplicação, dosagens e técnicas seguras. Este curso abre portas para um dos mercados mais valorizados da estética avançada.",
-    personalizedCTA: "Injetáveis estéticos são o futuro da estética! Alta remuneração e clientes fiéis. Comece sua jornada neste mercado premium hoje mesmo!"
-  },
-  { 
-    id: "injetaveis-master",
-    title: "Injetáveis Master", 
-    image: injetaveisMasterCurso, 
-    highlighted: true,
-    description: "Curso master completo de injetáveis avançados: skinbooster, botox, bioestimulador e preenchimento.",
-    duration: "16 horas",
-    level: "Avançado",
-    category: "Pacotes Estética",
-    includes: ["Skinbooster (Mesoterapia)", "Botox Full Face", "Bioestimulador de colágeno", "Preenchimento labial"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entre no mercado premium da estética com o curso mais completo de injetáveis! Aprenda as técnicas mais avançadas de aplicação de toxina botulínica, preenchimento labial, bioestimuladores de colágeno e skinboosters. Com prática em modelos reais e supervisão especializada, você dominará anatomia facial, técnicas de aplicação segura e protocolos que garantem resultados naturais. Este curso é seu passaporte para um mercado de alta remuneração.",
-    personalizedCTA: "Dê o próximo passo na sua carreira! O mercado de injetáveis estéticos está em crescimento exponencial. Garanta sua vaga neste curso exclusivo e comece a atender já no próximo mês. Entre em contato agora!"
-  },
-  { 
-    id: "imersao-pos-operatorio",
-    title: "Imersão em Pós Operatório", 
-    image: posOperatorioDrenagem,
-    description: "Especialização em drenagem pós-operatória e taping para recuperação cirúrgica.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Pacotes Estética",
-    includes: ["Drenagem pós operatório", "Taping"],
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialize-se em pós-operatório! Aprenda drenagem linfática específica para recuperação de cirurgias plásticas e taping estético para redução de edemas e aderências. Em 8 horas você dominará manobras específicas, protocolos por tipo de cirurgia e cuidados essenciais. Este é um nicho altamente lucrativo com demanda constante de clínicas e cirurgiões plásticos.",
-    personalizedCTA: "Pós-operatório é um nicho premium! Trabalhe com cirurgiões plásticos e tenha uma agenda lotada. Especialize-se agora e destaque-se no mercado!"
-  },
-
-  // CURSOS AVULSOS INDIVIDUAIS
-  { 
-    id: "limpeza-pele-iniciante",
-    title: "Limpeza de Pele Iniciante", 
-    image: limpezaIniciante,
-    description: "Fundamentos da limpeza de pele profunda e profissional para iniciantes.",
-    duration: "8 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Comece sua carreira na estética facial! Aprenda os fundamentos da limpeza de pele profissional: higienização, esfoliação, extração, máscaras e finalização. Em 8 horas você aprenderá a avaliar tipos de pele, escolher produtos adequados e realizar o procedimento com segurança. Perfeito para iniciantes que querem começar a atender rapidamente com um dos tratamentos mais procurados!",
-    personalizedCTA: "Dê o primeiro passo na estética! Limpeza de pele é o procedimento mais solicitado e garante clientela fiel. Comece sua carreira agora!"
-  },
-  { 
+  {
     id: "reconstrucao-sobrancelhas",
-    title: "Reconstrução de Sobrancelhas", 
+    title: "Especialização em Reconstrução de Sobrancelhas",
     image: reconstrucaoSobrancelhas,
-    description: "Técnicas avançadas de reconstrução capilar para sobrancelhas.",
-    duration: "5 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Seja especialista em reconstrução de sobrancelhas! Aprenda técnicas para recuperar sobrancelhas danificadas por depilação excessiva, queimaduras ou falhas naturais. Em 5 horas você dominará implante de fios, técnicas de preenchimento e protocolos de crescimento capilar. Atenda um público específico que busca soluções para problemas reais e esteja entre os poucos profissionais especializados!",
-    personalizedCTA: "Reconstrução de sobrancelhas é uma especialização rara e valiosa! Atenda quem realmente precisa e tenha clientes gratas. Especialize-se!"
+    description: "Curso 100% presencial voltado para profissionais que desejam elevar seus atendimentos reconstrutivos",
+    duration: "5h",
+    level: "Nível 1 - Fundamentos",
+    category: "Beleza e Design",
+    cashPrice: 349,
+    installmentPrice: 449,
+    detailedDescription: "Através do Design Reconstrutivo, do uso da Dermapen e de produtos específicos, você vai aprender a promover sobrancelhas mais encorpadas, preenchidas e bonitas.",
+    whatYouWillLearn: [
+      "Fundamentos do tratamento e indicações",
+      "Higiene e biossegurança",
+      "Estrutura da pele e ciclo dos pelos",
+      "Técnica com Dermapen para estimular o crescimento",
+      "Produtos ideais para resultados eficazes",
+      "Design reconstrutivo respeitando o formato natural",
+      "Uso do LED como aliado do tratamento"
+    ],
+    bonuses: [
+      "Aromaterapia com óleos essenciais: experiência sensorial relaxante",
+      "SPA dos lábios: lábios mais hidratados, regenerados e livres do ressecamento"
+    ],
+    courseInfo: [
+      "Duração: 4h",
+      "Inclui: modelos, material didático, certificado, loja e estrutura completa",
+      "Trazer: jaleco, luvas e máscara",
+      "Turmas pequenas para melhor aprendizado"
+    ]
   },
-  { 
-    id: "hydra-nutri-gloss",
-    title: "Hydra Nutri Gloss", 
-    image: hydraNutriGloss,
-    description: "Técnica de hidratação labial profunda com efeito glossy.",
-    duration: "4 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Lábios hidratados e com brilho natural! Aprenda a técnica de hidratação labial profunda que deixa os lábios macios, volumosos e com efeito gloss duradouro. Em apenas 4 horas você dominará a aplicação de ativos, técnicas de massagem labial e protocolos que suas clientes vão amar. Procedimento rápido, resultado imediato e alta satisfação!",
-    personalizedCTA: "Adicione este procedimento rápido e lucrativo ao seu portfólio! Lábios perfeitos em minutos, clientes satisfeitas sempre. Aprenda agora!"
-  },
-  { 
-    id: "bb-glow-hydra",
-    title: "BB Glow + Hydra Nutri Gloss", 
-    image: bbGlow,
-    description: "Combine tratamento de base natural na pele com hidratação labial glossy.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "O combo perfeito para pele e lábios! BB Glow é a técnica que cria uma base natural e uniforme na pele através de microagulhamento com pigmentos, reduzindo manchas e imperfeições. Combinado com Hydra Nutri Gloss labial, você oferece um tratamento completo de embelezamento. Em 8 horas aprenda as duas técnicas mais desejadas do momento!",
-    personalizedCTA: "BB Glow é febre mundial! Ofereça pele perfeita sem maquiagem + lábios de arrasar. Aprenda este combo que vai lotar sua agenda!"
-  },
-  { 
-    id: "peelings-quimicos",
-    title: "Peelings Químicos Estratégicos Multinivels", 
-    image: peelingsQuimicos,
-    description: "Domine diversos tipos de peelings químicos e suas aplicações estratégicas.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Torne-se especialista em peelings químicos! Aprenda todos os tipos: superficiais, médios e profundos. Domine ácidos glicólico, salicílico, mandélico, TCA e mais. Em 8 horas você aprenderá indicações, contraindicações, protocolos por tipo de pele e como tratar melasma, acne, manchas e envelhecimento. Certificação avançada que diferencia profissionais!",
-    personalizedCTA: "Peelings químicos transformam a pele! Seja expert e ofereça tratamentos avançados que realmente funcionam. Destaque-se como profissional qualificada!"
-  },
-  { 
-    id: "microagulhamento-facial",
-    title: "Microagulhamento Facial", 
-    image: microagulhamentoFacial,
-    description: "Técnica de rejuvenescimento facial com microagulhas.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Rejuvenesça a pele com microagulhamento facial! Aprenda a técnica que estimula colágeno naturalmente, tratando rugas, flacidez, cicatrizes de acne e poros dilatados. Em 8 horas você dominará o uso de dermapen, roller, profundidades ideais, protocolos com ativos e cuidados pós-procedimento. Resultado visível que fideliza clientes!",
-    personalizedCTA: "Microagulhamento facial é o tratamento rejuvenescedor mais procurado! Resultados comprovados, clientes satisfeitas. Aprenda e lucre!"
-  },
-  { 
-    id: "imersao-capilar",
-    title: "Imersão Capilar", 
-    image: imersaoCapilar,
-    description: "Tratamentos capilares profissionais e técnicas de recuperação capilar.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialize-se em tratamentos capilares! Aprenda reconstrução, cauterização, botox capilar, cronograma capilar e técnicas de recuperação para cabelos danificados. Em 8 horas você dominará diagnóstico capilar, escolha de ativos e protocolos que transformam cabelos. Atenda um mercado crescente de clientes que buscam cabelos saudáveis e bonitos!",
-    personalizedCTA: "Cabelos saudáveis são desejo de todas! Torne-se especialista capilar e conquiste clientes fiéis que voltam mensalmente. Comece já!"
-  },
-  { 
-    id: "radiofrequencia",
-    title: "Radiofrequência", 
-    image: radiofrequencia,
-    description: "Tratamento facial e corporal convencional de rejuvenescimento e firmeza com radiofrequência.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a radiofrequência facial e corporal! Aprenda a usar este equipamento versátil para firmeza de pele, redução de celulite, contorno corporal e rejuvenescimento facial. Em 8 horas você entenderá a física da RF, protocolos por área tratada, parâmetros ideais e como potencializar resultados. Equipamento essencial em qualquer clínica de estética!",
-    personalizedCTA: "Radiofrequência é indispensável na estética moderna! Tratamento sem dor, resultados visíveis, clientes satisfeitas. Aprenda a operar este equipamento queridinho!"
-  },
-  { 
-    id: "ultrafocus",
-    title: "Ultrassom Micro a Macrofocalizado (Ultrafocus)", 
-    image: ultrafocus,
-    description: "Tecnologia de ultrassom microfocalizado para lifting facial não invasivo.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a tecnologia mais avançada de lifting não invasivo! Ultrassom microfocalizado atinge camadas profundas da pele, estimulando colágeno e promovendo firmeza sem cirurgia. Em 8 horas você aprenderá protocolos faciais e corporais, profundidades de atuação e como oferecer o 'lifting sem cortes' que as clientes adoram. Tecnologia premium para resultados premium!",
-    personalizedCTA: "Ultrassom microfocalizado é o lifting do futuro! Sem cirurgia, sem dor, resultados incríveis. Ofereça tecnologia de ponta e multiplique seus ganhos!"
-  },
-  { 
-    id: "herus-hifu",
-    title: "Ultrassom Micro a Macrofocado (Herus Hifu)", 
-    image: herusHifu,
-    description: "Protocolo avançado de HIFU para lifting não invasivo com resultados duradouros.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialização em HIFU (High Intensity Focused Ultrasound)! Aprenda a operar o Herus HIFU para lifting facial e corporal não invasivo com resultados que duram até 2 anos. Em 8 horas você dominará protocolos específicos, áreas de aplicação, parâmetros e contraindicações. Tecnologia exclusiva que posiciona você no mercado premium da estética avançada!",
-    personalizedCTA: "HIFU é o procedimento mais procurado para rejuvenescimento! Resultados duradouros sem cirurgia. Seja especialista certificada e conquiste o mercado premium!"
-  },
-  { 
-    id: "capacitacao-depilacao-laser",
-    title: "Capacitação em Depilação a Laser", 
+  {
+    id: "depilacao-laser",
+    title: "Depilação a Laser — Alta Performance Profissional",
     image: depilacaoLaser,
-    description: "Formação completa em depilação a laser de última geração.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entre no mercado de depilação a laser! Aprenda a operar equipamentos de última geração, entenda fototipos, parâmetros seguros e protocolos por região corporal. Em 8 horas você dominará avaliação de clientes, número de sessões necessárias e como garantir resultados eficazes. Depilação a laser é um dos serviços mais lucrativos com alta demanda e clientes recorrentes!",
-    personalizedCTA: "Depilação a laser é altíssima demanda! Clientes pagam bem e retornam por meses. Invista nesta capacitação e tenha renda recorrente garantida!"
+    description: "Aprenda a dominar uma das técnicas mais procuradas na estética com resultados na redução de pelos faciais e corporais",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Beleza e Design",
+    cashPrice: 990,
+    installmentPrice: 1100,
+    detailedDescription: "Esse curso é voltado para Profissionais da área da saúde e estética, e ensina tudo — da teoria à prática clínica para atuar com segurança, precisão e alto desempenho.",
+    whatYouWillLearn: [
+      "Fisiologia da pele e do pelo",
+      "Classificação dos fototipos",
+      "Estrutura e ciclos de crescimento do pelo",
+      "Parâmetros e ajustes do laser",
+      "Métodos corretos de aplicação",
+      "Indicações e contraindicações",
+      "Prática clínica supervisionada",
+      "Estratégias de manutenção e resultados"
+    ],
+    courseInfo: [
+      "Duração: 1 dia (8h) — das 9h às 17h",
+      "Inclui: prática com modelos reais, material didático, certificado e suporte pós-curso",
+      "Turmas reduzidas: máximo de 4 alunos",
+      "Infraestrutura completa para aprendizado intensivo",
+      "Indicado para: Biomédicos(as), Enfermeiros(as), Farmacêuticos(as), Fisioterapeutas, Médicos(as), Dentistas e Cosmetólogos(as) com especialização na área da estética"
+    ]
   },
-  { 
-    id: "drenagem-linfatica",
-    title: "Drenagem Linfática Corporal", 
-    image: drenagemLinfatica,
-    description: "Técnicas de drenagem linfática manual e modeladora corporal.",
-    duration: "8 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Aprenda a técnica mais procurada da estética corporal! Drenagem linfática manual é essencial para desintoxicação, redução de edemas, celulite e retenção líquida. Em 8 horas você dominará manobras específicas, sentido correto do fluxo linfático e protocolos completos. Técnica relaxante que as clientes adoram e que garante fidelização e retorno regular!",
-    personalizedCTA: "Drenagem linfática garante agenda cheia! Clientes voltam semanalmente, resultados visíveis, técnica agradável. Comece sua carreira com este curso!"
+  {
+    id: "lash-lifting",
+    title: "Lash Lifting e Brow Lamination",
+    image: lashLifting,
+    description: "Aprenda as técnicas mais desejadas para embelezar o olhar realçando cílios e sobrancelhas de forma natural",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Beleza e Design",
+    cashPrice: 450,
+    installmentPrice: 550,
+    detailedDescription: "O diferencial deste curso é que você não segue protocolos prontos de fabricantes, e sim aprende a personalizar conforme as características dos fios e da pele de cada cliente — garantindo resultados muito mais bonitos e duradouros.",
+    whatYouWillLearn: [
+      "Lash lifting, lash tint, lash botox e brow lamination",
+      "Avaliação de espessura, porosidade e curvatura dos fios",
+      "Cuidados pré e pós-procedimento",
+      "Indicações, contraindicações e intercorrências",
+      "Higienização correta e alinhamento perfeito",
+      "Composição e função dos produtos (kits aprovados pela Anvisa)",
+      "Precificação e dicas de marketing e fotografia profissional"
+    ],
+    bonuses: ["Técnica completa de Brow Lamination (sobrancelhas)"],
+    courseInfo: [
+      "Duração: 1 dia (8h) — das 9h às 16h30/17h",
+      "Turmas reduzidas: até 5 alunas",
+      "Aulas presenciais com teoria e prática",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso para suas dúvidas",
+      "Trazer: jaleco, luvas e máscara descartável"
+    ]
   },
-  { 
+  {
+    id: "depilacao-ceras",
+    title: "Depilação Facial e Corporal com Técnicas Associadas",
+    image: depilacaoCeras,
+    highlighted: true,
+    description: "Aprenda técnicas clássicas e modernas de depilação com Roll-on e método Espanhol, além de protocolos complementares",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Beleza e Design",
+    cashPrice: 790,
+    installmentPrice: 890,
+    detailedDescription: "Se você quer trabalhar com estética e conquistar uma agenda cheia, esse curso é a base perfeita para começar! Mais do que remover pelos, você vai aprender a entregar resultados seguros, duradouros e com acabamento profissional, cuidando da saúde e da estética da pele.",
+    whatYouWillLearn: [
+      "Anatomia e ciclo de vida dos pelos",
+      "Tipos de pele e pelos",
+      "Técnicas com cera quente (método espanhol) e roll-on",
+      "Gerenciamento de pele pré e pós depilação",
+      "Cosmetologia aplicada à epilação",
+      "Eletroterapia associada (alta frequência e fototerapia)",
+      "Higiene, biossegurança e normas sanitárias",
+      "Protocolo para tratamento e prevenção de foliculite",
+      "Cuidados com gestantes",
+      "Precificação, fidelização e como montar seu negócio"
+    ],
+    bonuses: ["Ebook de mídias sociais para te ajudar a divulgar e atrair clientes"],
+    courseInfo: [
+      "Duração: 2 dias (16h totais)",
+      "Horário: 9h às 16h30/17h",
+      "Turmas pequenas (máx. 5 alunas)",
+      "Aulas teóricas e práticas presenciais",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Materiais: Trazer: Jaleco, luvas e máscara descartável"
+    ],
+    personalizedCTA: "Ideal para iniciantes ou profissionais que querem aperfeiçoar técnicas, agregar valor aos atendimentos e oferecer uma experiência completa de cuidado e bem-estar para suas clientes."
+  },
+  {
+    id: "lash-master-class",
+    title: "Lash Master Class – Formação Completa em Extensão de Cílios",
+    image: lashIniciante,
+    highlighted: true,
+    description: "Quer se tornar uma lash designer completa, dominar os efeitos mais desejados pelas clientes e garantir retenções impecáveis?",
+    duration: "16h",
+    level: "Nível 4 - Master",
+    category: "Beleza e Design",
+    cashPrice: 900,
+    installmentPrice: 999,
+    detailedDescription: "Você vai dominar desde o clássico fio a fio, até os volumes mais sofisticados e buscados atualmente. Aprenda anatomia ocular, contraindicações e cuidados, técnicas de preparação e finalização profissional, retenção e manutenção correta, remoção mecânica e química, precificação, marketing e fotos profissionais, ética e postura profissional.",
+    courseInfo: [
+      "Duração: 2 dias — 16h (9h às 17h)",
+      "2 modelos por aluna (fornecidos pelo centro de formação)",
+      "Materiais incluídos nas aulas",
+      "Turmas reduzidas (máx. 5 alunas)",
+      "Material didático + certificado",
+      "Aulas teóricas e práticas com materiais premium",
+      "Suporte pós-curso e loja com todos os produtos disponíveis"
+    ],
+    personalizedCTA: "Ao final, você sairá pronta para atuar profissionalmente, dominando todos os fios tecnológicos, entregando resultados elegantes e de longa duração."
+  },
+  {
     id: "massagem-modeladora",
-    title: "Massagem Modeladora Corporal", 
+    title: "Massagem Estética Modeladora",
     image: massagemModeladora,
-    description: "Massagem para modelagem corporal e redução de medidas.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Transforme o corpo das suas clientes! Massagem modeladora é a técnica para redução de medidas, celulite e modelagem de contorno corporal. Em 8 horas você aprenderá manobras vigorosas, uso de cosméticos redutores e protocolos por região. Resultados visíveis que motivam as clientes a continuar o tratamento. Uma das técnicas corporais mais procuradas!",
-    personalizedCTA: "Massagem modeladora é febre! Toda mulher quer reduzir medidas e combater celulite. Domine esta técnica e tenha agenda lotada todo mês!"
+    description: "A massagem modeladora utiliza manobras firmes e precisas para redefinir o contorno corporal e estimular a circulação",
+    duration: "8h",
+    level: "Nível 1 - Fundamentos",
+    category: "Estética Corporal",
+    cashPrice: 500,
+    installmentPrice: 550,
+    detailedDescription: "Transforme o corpo e a autoestima das suas clientes com uma técnica poderosa e altamente procurada no mercado. Resultados visíveis desde as primeiras sessões.",
+    whatYouWillLearn: [
+      "Anatomia e fisiologia da pele",
+      "Técnicas atualizadas de massagem modeladora",
+      "Lipodistrofia e fibroedema gelóide (celulite)",
+      "Cosmetologia e nutracêuticos aplicados",
+      "Frequência ideal e intensidade das manobras",
+      "Preparo da pele e esfoliação corporal",
+      "Avaliação e ficha de anamnese (com perimetria)",
+      "Mitos e verdades sobre redução de medidas",
+      "Protocolos e planos de tratamento",
+      "Biossegurança e postura profissional"
+    ],
+    courseInfo: [
+      "100% presencial",
+      "Voltado para iniciantes na estética",
+      "Aulas teóricas e práticas com modelos",
+      "Material didático e certificado inclusos",
+      "Turmas reduzidas (máximo 5 alunas)",
+      "Suporte pós-curso",
+      "Carga horária: 8h (1 dia)",
+      "Horário: 9h às 16h30",
+      "Trazer: jaleco, luvas, máscara e 2 toalhas de banho (cor clara)"
+    ]
   },
-  { 
-    id: "massagem-relaxante",
-    title: "Massagem Relaxante com Crânio Facial e Bambuterapia", 
-    image: massagemRelaxante,
-    description: "Técnicas de massagem para relaxamento profundo e bem-estar completo.",
-    duration: "8 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Proporcione relaxamento completo! Aprenda massagem relaxante corporal, crânio facial para alivio de tensões e bambuterapia com bambus aquecidos. Em 8 horas você dominará técnicas suaves, pontos de tensão e protocolos de bem-estar. Perfeito para quem busca trabalhar com qualidade de vida, spas e atendimento diferenciado. Clientes saem renovadas!",
-    personalizedCTA: "Bem-estar é tendência! Massagem relaxante conquista clientes que voltam sempre. Aprenda e ofereça momentos únicos de relaxamento!"
+  {
+    id: "drenagem-linfatica",
+    title: "Drenagem Linfática",
+    image: drenagemLinfatica,
+    description: "Técnica essencial para reduzir edemas, melhorar circulação e promover bem-estar",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Corporal",
+    cashPrice: 500,
+    installmentPrice: 550
   },
-  { 
-    id: "ventosaterapia",
-    title: "Ventosaterapia", 
-    image: ventosaterapia,
-    description: "Terapia com ventosas para diversos tratamentos estéticos e terapêuticos.",
-    duration: "4 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Descubra o poder terapêutico das ventosas! Ventosaterapia é técnica milenar para celulite, dores musculares, desintoxicação e relaxamento. Em apenas 4 horas você aprenderá técnicas de aplicação, contraindicações e protocolos completos. Procedimento rápido, eficaz e muito procurado. Combine com outras massagens para resultados potencializados!",
-    personalizedCTA: "Ventosaterapia está em alta! Técnica rápida de aprender, resultados imediatos. Adicione ao seu portfólio e aumente seus ganhos em poucas horas!"
+  {
+    id: "pos-operatorio-completo",
+    title: "Imersão em Pós Operatório (DRENAGEM + TAPING)",
+    image: posOperatorioDrenagem,
+    description: "Curso-imersão completo combinando drenagem linfática pós-operatória e taping",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Corporal",
+    cashPrice: 1390,
+    installmentPrice: 1540,
+    detailedDescription: "Aprenda as técnicas essenciais para atendimento pós-operatório de cirurgias plásticas.",
+    whatYouWillLearn: [
+      "Revisão da anatomia e fisiologia do sistema linfático aplicada à prática estética",
+      "Princípios, efeitos e manobras da DLM",
+      "Indicações, contraindicações e adaptações específicas para o pós-operatório de cirurgias plásticas",
+      "Taping no Trans e Pós-Operatório"
+    ]
   },
-  { 
+  {
     id: "taping",
-    title: "Taping", 
+    title: "Taping Aplicado na Estética e no Pós-Operatório",
     image: taping,
-    description: "Aplicação de bandagens estéticas para diversos fins terapêuticos e estéticos.",
-    duration: "5 horas",
-    level: "Iniciante",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a técnica de bandagem estética! Taping é usado para drenagem linfática, redução de edemas, modelagem corporal e recuperação pós-operatória. Em 5 horas você aprenderá aplicações faciais e corporais, diferentes tensões e protocolos específicos. Técnica moderna que complementa perfeitamente outros tratamentos e potencializa resultados!",
-    personalizedCTA: "Taping é tendência mundial! Técnica versátil para diversos objetivos. Rápido de aprender, resultados visíveis. Destaque-se oferecendo esta técnica moderna!"
+    description: "Técnica inovadora e não invasiva para potencializar resultados em tratamentos operatórios",
+    duration: "5h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Corporal",
+    detailedDescription: "Com o uso correto da bandagem elástica, é possível reduzir edemas, hematomas e fibroses, além de melhorar o conforto do cliente.",
+    whatYouWillLearn: [
+      "Fundamentos, histórico e aplicabilidade da técnica",
+      "Tipos de tensão e direções corretas de aplicação",
+      "Princípios anatomofisiológicos e reações do corpo",
+      "Aplicação facial e corporal",
+      "Métodos específicos para edemas, hematomas, cicatrizes e fibroses",
+      "Variações e adaptações para o intra e pós-operatório",
+      "Indicações, contraindicações e vantagens do uso estético"
+    ],
+    courseInfo: [
+      "Duração: 1 dia — 5h intensivas",
+      "Aulas teóricas e práticas com aplicação real",
+      "Material didático e certificado inclusos"
+    ]
   },
-  { 
+  {
+    id: "ventosaterapia",
+    title: "Ventosaterapia — Técnica de Relaxamento e Equilíbrio Corporal",
+    image: ventosaterapia,
+    description: "Técnica milenar que promove relaxamento profundo e melhora da circulação",
+    duration: "4h",
+    level: "Nível 1 - Fundamentos",
+    category: "Estética Corporal",
+    detailedDescription: "A Ventosaterapia promove relaxamento profundo, melhora da circulação, alívio de tensões musculares, além de auxiliar na redução de inflamações e contraturas.",
+    whatYouWillLearn: [
+      "História e fundamentos da Ventosaterapia",
+      "Mecanismos de ação e respostas fisiológicas",
+      "Tipos de ventosas e níveis de pressão",
+      "Indicações, contraindicações e reações comuns",
+      "Higienização e preparo do ambiente",
+      "Aplicações corporais e benefícios terapêuticos"
+    ],
+    courseInfo: [
+      "Turmas pequenas e modelos reais para prática",
+      "Suporte pós-curso e certificado de conclusão",
+      "Trazer apenas: jaleco, luvas descartáveis e máscara de proteção"
+    ]
+  },
+  {
+    id: "terapias-relaxantes",
+    title: "Terapias Relaxantes",
+    image: terapiasRelaxantes,
+    description: "Técnicas profissionais de massagem e terapias complementares para relaxamento profundo",
+    duration: "24h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Corporal",
+    detailedDescription: "Aprenda técnicas profissionais de massagem e terapias complementares para proporcionar relaxamento profundo, melhora da circulação e bem-estar geral aos seus clientes.",
+    whatYouWillLearn: [
+      "Massagem Relaxante Corporal e Crânio-Facial: estimula pontos específicos do corpo e do rosto",
+      "Pedras Quentes: termoterapia com aplicação em chakras e pontos estratégicos",
+      "Ventosaterapia: técnica milenar para reduzir tensões e dores"
+    ],
+    bonuses: [
+      "Bambuterapia",
+      "Spa para os pés",
+      "Associação de óleos essenciais funcionais"
+    ],
+    courseInfo: [
+      "Duração: 3 dias (24h)",
+      "Turmas pequenas e modelos reais para prática",
+      "Aulas teóricas e práticas",
+      "Suporte pós-curso e certificado",
+      "Trazer: 3 toalhas de banho, luvas e máscara descartável"
+    ]
+  },
+  {
+    id: "capacitacao-estetica",
+    title: "Capacitação em Estética Facial e Corporal",
+    image: capacitacaoCompleta,
+    highlighted: true,
+    description: "Curso completo para dominar técnicas fundamentais da estética regenerativa, oferecendo resultados satisfatórios aos clientes",
+    duration: "56h",
+    level: "Nível 4 - Master",
+    category: "Estética Avançada",
+    cashPrice: 1300,
+    installmentPrice: 1450,
+    detailedDescription: "Este curso é feito para profissionais que querem dominar as técnicas fundamentais da estética regenerativa. Com aulas teóricas e práticas, você aprenderá desde procedimentos faciais até corporais, planejamento estratégico e atendimento de alto padrão.",
+    whatYouWillLearn: [
+      "Limpeza de pele premium",
+      "Multifuncional com extração, peeling de diamante, fototerapia, eletroterapia, cosmetologia",
+      "Peeling químico multinível",
+      "Classificação de ácidos, tratamentos de discromias, protocolos pré e pós",
+      "Microagulhamento facial e Hydra Nutri Gloss Lips",
+      "Técnicas de drug delivery, disfunções estéticas tratadas",
+      "Drenagem linfática corporal e facial",
+      "Massagem modeladora corporal",
+      "Massagem relaxante corporal e crânio facial + Bambuterapia"
+    ],
+    bonuses: [
+      "Kit profissional de limpeza de pele",
+      "Técnicas Lips e Bambuterapia"
+    ],
+    courseInfo: [
+      "Duração: 7 dias (56h), das 9h às 16:30/17h",
+      "Turmas pequenas: máximo 5 alunas",
+      "Modelos para prática, material didático, certificado e suporte pós-curso",
+      "Trazer: jaleco, luvas, máscaras, 3 pacotes de gazes e 3 toalhas de corpo claras"
+    ]
+  },
+  {
+    id: "massagem-relaxante",
+    title: "Massagem Relaxante Corporal e Crânio Facial",
+    image: massagemRelaxante,
+    description: "Uma das técnicas mais procuradas nos atendimentos de estética e bem-estar",
+    duration: "8h",
+    level: "Nível 1 - Fundamentos",
+    category: "Estética Corporal",
+    cashPrice: 500,
+    installmentPrice: 550,
+    detailedDescription: "Esse curso foi criado especialmente para quem deseja iniciar na área da massoterapia e dominar a massagem relaxante corporal e crânio facial — proporcionando alívio de tensões, equilíbrio físico e mental e relaxamento profundo.",
+    whatYouWillLearn: [
+      "Montar o ambiente ideal e postura profissional",
+      "Realizar anamnese e avaliação do cliente",
+      "Executar manobras da técnica sueca corporal e crânio facial",
+      "Entender efeitos fisiológicos, indicações e contraindicações",
+      "Aplicar princípios de biossegurança e relacionamento profissional",
+      "Técnica de Bambuterapia como complemento à massagem"
+    ],
+    courseInfo: [
+      "Duração: 1 dia (8h) — das 9h às 16h30",
+      "Turmas reduzidas (máximo 5 alunas)",
+      "Aulas presenciais teóricas e práticas",
+      "Material didático, certificado e suporte pós-curso inclusos",
+      "Trazer: jaleco, luvas, máscara e 2 toalhas claras"
+    ]
+  },
+  {
     id: "cosmetologia",
-    title: "Cosmetologia Estética", 
+    title: "Cosmetologia Estética",
     image: cosmetologia,
-    description: "Estudo completo de cosméticos e suas aplicações na estética profissional.",
-    duration: "8 horas",
-    level: "Intermediário",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entenda profundamente os cosméticos! Aprenda sobre ativos, princípios ativos, pH, conservantes, e como escolher produtos ideais para cada pele. Em 8 horas você compreenderá formulações, leitura de rótulos, combinações de ativos e como recomendar cosméticos com segurança. Conhecimento essencial para qualquer esteticista profissional que quer se destacar!",
-    personalizedCTA: "Cosmetologia diferencia profissionais! Clientes confiam em quem entende de produtos. Torne-se referência e ganhe autoridade no mercado!"
+    description: "Fundamentos avançados de cosmetologia para estética profissional",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    whatYouWillLearn: [
+      "Estrutura e função da pele em profundidade",
+      "Microbiota cutânea e permeação transdérmica",
+      "Bioquímica e interações cosméticas",
+      "Peptídeos biomiméticos, fatores de crescimento e enzimas",
+      "Nanotecnologia, antioxidantes e despigmentantes de alta performance",
+      "Cosméticos inovadores: lipossomas, nanoemulsões e géis inteligentes",
+      "Cosméticos para rejuvenescimento, clareamento e acne",
+      "Cuidados com peles sensíveis e com rosácea",
+      "Uso de nutricosméticos na estética avançada",
+      "Noções de dermocosmética magistral",
+      "Criação de fórmulas e protocolos conforme biotipo cutâneo"
+    ],
+    courseInfo: [
+      "Duração: 8h",
+      "Aulas teóricas e práticas",
+      "Material didático e certificado inclusos",
+      "Turmas pequenas e suporte pós-curso"
+    ]
   },
-  { 
+  {
+    id: "dermaplaning",
+    title: "Dermaplaning Glow",
+    image: dermaplaning,
+    description: "Técnica não invasiva que remove células mortas, impurezas e penugens da pele",
+    duration: "4h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    detailedDescription: "Aprenda uma das técnicas mais queridinhas da estética moderna e proporcione à sua cliente uma pele lisa, iluminada e com resultados imediatos! É indicado para todos os tipos de pele, inclusive as sensíveis.",
+    whatYouWillLearn: [
+      "História e fundamentos do dermaplaning",
+      "Tipos de lâminas e uso seguro",
+      "Anatomia da pele e ciclo capilar",
+      "Protocolos completos com sugestões de dermocosméticos",
+      "Indicações, contraindicações e frequência ideal",
+      "Esterilização, descarte correto e biossegurança",
+      "Precificação e diferenciais no atendimento"
+    ],
+    courseInfo: [
+      "Duração: 4 horas (presencial)",
+      "Aulas teóricas e práticas",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Turmas reduzidas (máx. 5 alunas)",
+      "Indicado para iniciantes e profissionais da estética",
+      "Materiais necessários: jaleco, luvas descartáveis e máscara de proteção"
+    ]
+  },
+  {
+    id: "epilacao-fio",
+    title: "Epilação Facial Egípcia com Fio",
+    image: epilacaoFio,
+    description: "Técnica tradicional do fio para remover pelos e lanugens faciais com precisão e delicadeza",
+    duration: "6h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    detailedDescription: "A epilação egípcia é um método 100% natural, que proporciona uma pele lisa, sem irritações e com resultados para clientes com pele sensível ou alergias à cera.",
+    whatYouWillLearn: [
+      "Anatomia e fisiologia da pele e dos pelos",
+      "Classificação e ciclo de vida dos pelos",
+      "Técnica egípcia de epilação (fio)",
+      "Cuidados pré e pós-procedimento",
+      "Cosmetologia aplicada à epilação",
+      "Biossegurança e ética profissional",
+      "Avaliação e ficha de anamnese",
+      "Indicações e contraindicações",
+      "Precificação e diferenciais no atendimento"
+    ],
+    courseInfo: [
+      "Duração: 6 horas (presencial)",
+      "Aulas teóricas e práticas",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Turmas reduzidas (máx. 5 alunas)",
+      "Indicado para iniciantes ou profissionais que desejam aperfeiçoar técnicas",
+      "Materiais necessários: jaleco, luvas descartáveis e máscara de proteção"
+    ]
+  },
+  {
+    id: "hydra-nutri-gloss",
+    title: "Hydra Nutri Gloss Lips",
+    image: hydraNutriGloss,
+    description: "Hidratação profunda e regeneração labial com Dermapen",
+    duration: "4h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    detailedDescription: "O Hydra Nutri Gloss é um dos procedimentos mais procurados do momento! Aprenderá a realizar hidratação profunda e regeneração labial, melhorando o aspecto dos lábios promovendo um rejuvenescimento natural com efeito de volume imediato.",
+    whatYouWillLearn: [
+      "O que é e como funciona o Hydra Nutri Gloss",
+      "Indicações e contraindicações",
+      "Anatomia e cuidados específicos com a pele dos lábios",
+      "Funcionamento e aplicação do Dermapen",
+      "Paramentação e preparo do ambiente de atendimento",
+      "Cuidados pré e pós-procedimento",
+      "Home care e fidelização de clientes",
+      "Ficha de anamnese e termo de consentimento",
+      "Precificação e diferenciais no atendimento",
+      "Demonstração prática da professora e prática supervisionada em modelo"
+    ],
+    courseInfo: [
+      "Duração: 4 horas (presencial)",
+      "Turmas pequenas (máx. 5 alunas)",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Aulas teóricas e práticas",
+      "Indicado para iniciantes e profissionais da estética",
+      "Materiais necessários: jaleco, luvas descartáveis e máscara de proteção"
+    ]
+  },
+  {
+    id: "limpeza-iniciante",
+    title: "Limpeza de Pele Iniciante",
+    image: limpezaIniciante,
+    description: "Domine as melhores técnicas de limpeza de pele profissional com eletroterapia e protocolos personalizados",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    whatYouWillLearn: [
+      "Limpeza de pele multifuncional com extração",
+      "Cosmetologia e protocolos associados",
+      "Avaliação clínica e uso de acessórios profissionais (skin detector)",
+      "Eletroterapia com alta frequência",
+      "Tratamentos complementares e consultoria de home care",
+      "Anatomia e fisiologia da pele",
+      "Classificação dos biotipos e fototipos cutâneos",
+      "Afecções e disfunções estéticas",
+      "Técnicas de extração seguras",
+      "Recomendações pré e pós-procedimento",
+      "Precificação e diferenciais no atendimento",
+      "Biossegurança e postura profissional"
+    ],
+    courseInfo: [
+      "Duração: 1 dia (8h)",
+      "Horário: 9h às 17h30",
+      "Aulas presenciais, teóricas e práticas",
+      "Turmas pequenas (máx. 5 alunas)",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Infraestrutura completa e ambiente climatizado"
+    ]
+  },
+  {
+    id: "microagulhamento-facial",
+    title: "Microagulhamento Facial / Hydra Nutri Gloss",
+    image: microagulhamentoFacial,
+    description: "Técnica de Indução Percutânea de Colágeno (IPC) e Drug Delivery para tratamento de flacidez, rugas, manchas e cicatrizes",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    cashPrice: 790,
+    installmentPrice: 890,
+    detailedDescription: "Aprenda a técnica ideal para tratar flacidez, linhas de expressão, poros dilatados, cicatrizes atróficas e hipercromias. O curso inclui também o Hydra Nutri Gloss Lips.",
+    whatYouWillLearn: [
+      "Anatomia, fisiologia e histologia da pele",
+      "História e fundamentos da técnica IPC",
+      "Tipos de indutores (roller e dermapen) e cartuchos/agulhas adequados",
+      "Tratamentos para rugas, flacidez, manchas, cicatrizes e poros dilatados",
+      "Fases do processo inflamatório e regenerativo",
+      "Uso de dermocosméticos específicos e anestésicos",
+      "Contraindicações e intercorrências",
+      "Ficha de anamnese e termo de consentimento",
+      "Home care e estratégias de venda",
+      "Biossegurança e precificação",
+      "Hidratação profunda e rejuvenescimento labial",
+      "Técnicas de aplicação seguras com dermapen"
+    ],
+    courseInfo: [
+      "Duração: 1 dia (8h)",
+      "Horário: 9:00 às 16:30/17:00",
+      "Aulas presenciais, teóricas e práticas",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso",
+      "Indicado para profissionais da estética e saúde",
+      "Materiais necessários: jaleco, luvas descartáveis e máscara de proteção"
+    ]
+  },
+  {
+    id: "peelings-quimicos",
+    title: "Peelings Químicos Estratégicos Multiníveis",
+    image: peelingsQuimicos,
+    description: "Aprenda a realizar peelings químicos de forma segura e estratégica",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial",
+    cashPrice: 790,
+    installmentPrice: 890,
+    detailedDescription: "O curso capacita o profissional a avaliar cada tipo de pele, escolher o peeling adequado e planejar tratamentos com resultados visíveis e duradouros. Trate acne, melasma, envelhecimento cutâneo e discromias.",
+    whatYouWillLearn: [
+      "Tipos e classificação dos peelings químicos",
+      "Disfunções estéticas tratáveis com cada tipo de peeling",
+      "Avaliação clínica e anamnese",
+      "Cosmetologia aplicada e linhas comerciais",
+      "Protocolos completos: preparação, aplicação, manutenção e recomendações pré e pós-peeling",
+      "Associações com outros tratamentos",
+      "Contraindicações e intercorrências",
+      "Planejamento de planos de tratamento estratégicos"
+    ],
+    courseInfo: [
+      "Carga horária: 8h (1 dia)",
+      "Horário: 9:00 às 17:00",
+      "Aulas práticas com modelos disponibilizados",
+      "Material didático e certificado inclusos",
+      "Suporte pós-curso"
+    ]
+  },
+  {
+    id: "limpeza-peeling",
+    title: "Limpeza de Pele Premium + Peeling de Diamante + Fototerapia",
+    image: limpezaPeeling,
+    description: "Técnicas completas de limpeza de pele para resultados visíveis e fidelização de clientes",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Estética Facial",
+    cashPrice: 790,
+    installmentPrice: 890,
+    whatYouWillLearn: [
+      "Limpeza multifuncional com extração",
+      "Peeling de diamante e fototerapia",
+      "Eletroterapia direcionada",
+      "Tratamentos complementares para acne, desidratação e rosácea",
+      "Cosmetologia aplicada e consultoria home care",
+      "Biossegurança e precificação"
+    ],
+    courseInfo: [
+      "2 dias / 16h (9h às 16:30)",
+      "Aulas teóricas e práticas 100% presenciais",
+      "Turmas pequenas, material didático e certificado inclusos",
+      "Modelos disponibilizados"
+    ]
+  },
+  {
+    id: "estetica-facial-master",
+    title: "Estética Facial Master – Pacote Completo",
+    image: esteticaFacialMaster,
+    highlighted: true,
+    description: "Curso intensivo para dominar as principais técnicas de estética facial",
+    duration: "32h",
+    level: "Nível 4 - Master",
+    category: "Estética Facial",
+    cashPrice: 1450,
+    installmentPrice: 1600,
+    whatYouWillLearn: [
+      "Limpeza de pele com extração e protocolos para acne, rosácea, desidratação e envelhecimento",
+      "Peeling de diamante e fototerapia com LED profissional",
+      "Peelings químicos estratégicos (clareadores e renovadores)",
+      "Microagulhamento manual e elétrico (flacidez, manchas, cicatrizes, poros dilatados, rugas)",
+      "Hydra Nutri Gloss (rejuvenescimento labial)"
+    ],
+    bonuses: [
+      "Kit profissional de limpeza de pele",
+      "Técnica Hydra Nutri Gloss"
+    ],
+    courseInfo: [
+      "4 dias de aulas presenciais, 32h",
+      "Turmas pequenas (máx. 5 alunas)",
+      "Modelos disponibilizados",
+      "Material didático, certificado e suporte pós-curso"
+    ]
+  },
+  {
     id: "bioestimulador",
-    title: "Bioestimulador de Colágeno", 
+    title: "Bioestimulador de Colágeno",
     image: bioestimulador,
-    description: "Técnicas de aplicação de bioestimuladores de colágeno para rejuvenescimento.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Entre no mercado premium dos bioestimuladores! Aprenda a aplicar bioestimuladores de colágeno que rejuvenescem a pele de dentro para fora. Em 8 horas você dominará anatomia, pontos de aplicação, diluições e protocolos faciais e corporais. Resultados progressivos e naturais que encantam clientes. Procedimento de alto valor agregado!",
-    personalizedCTA: "Bioestimulador é o futuro do rejuvenescimento! Resultados naturais e duradouros. Alto ticket, clientes premium. Invista na sua especialização!"
+    description: "Curso de bioestimulação com técnicas avançadas de injetáveis",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Injetáveis",
+    cashPrice: 1700,
+    installmentPrice: 1800,
+    detailedDescription: "Aprenda técnicas de bioestimulação de colágeno para rejuvenescimento facial e corporal com resultados duradouros.",
+    courseInfo: [
+      "1 dia presencial, 8h",
+      "Modelos disponibilizados",
+      "Aulas teóricas e práticas",
+      "Material didático, certificado e suporte pós-curso"
+    ]
   },
-  { 
-    id: "botox-full-face",
-    title: "Toxina Botulínica (Full Face)", 
-    image: botoxFullFace,
-    description: "Aplicação de toxina botulínica em face completa com protocolos avançados.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine o procedimento mais procurado da estética! Aprenda aplicação de toxina botulínica em face completa: testa, glabela, pés de galinha, lifting de sobrancelhas e protocolos avançados. Em 8 horas você dominará anatomia facial, dosagens, pontos de aplicação e técnicas para resultados naturais. Procedimento de altíssimo valor que garante retorno constante de clientes!",
-    personalizedCTA: "Botox é o procedimento número 1 mundial! Alta lucratividade, clientes retornam a cada 4-6 meses. Entre neste mercado bilionário agora!"
-  },
-  { 
+  {
     id: "preenchimento-labial",
-    title: "Preenchimento Labial", 
+    title: "Preenchimento Labial – Russian Lips",
     image: preenchimentoLabial,
-    description: "Técnicas de preenchimento labial com ácido hialurônico para resultados naturais.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Especialize-se em preenchimento labial! Aprenda todas as técnicas de aplicação de ácido hialurônico nos lábios: aumento de volume, correção de assimetrias, definição de contorno e russian lips. Em 8 horas você dominará anatomia labial, escolha de densidades, técnicas de aplicação e como criar lábios naturais e harmoniosos. Procedimento premium muito procurado!",
-    personalizedCTA: "Preenchimento labial é desejo de 9 em cada 10 mulheres! Procedimento premium, resultados imediatos. Especialize-se e conquiste o mercado de luxo!"
+    description: "Aprenda a aplicar preenchimento labial com segurança e resultados naturais, volumosos e duradouros",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Injetáveis",
+    cashPrice: 1700,
+    installmentPrice: 1800,
+    whatYouWillLearn: [
+      "Anatomia labial e importância para segurança e resultado",
+      "Técnica exclusiva de preenchimento para lábios femininos e masculinos",
+      "Prevenção e manejo de intercorrências",
+      "Anamnese, documentação fotográfica e cuidados pós-procedimento"
+    ],
+    bonuses: ["Gloss de tratamento profissional"],
+    courseInfo: [
+      "1 dia presencial, 8h (SÁBADO)",
+      "Modelos disponibilizados",
+      "Aulas teóricas e práticas",
+      "Material didático, certificado e suporte pós-curso",
+      "Turmas pequenas para aprendizado personalizado"
+    ]
   },
-  { 
+  {
+    id: "injetaveis-skinbooster-botox",
+    title: "Injetáveis Estéticos (Skinbooster) + Toxina Botulínica Full Face",
+    image: injetaveisBotox,
+    highlighted: true,
+    description: "Aprenda técnicas indispensáveis da estética injetável para tratamentos faciais, corporais e capilares",
+    duration: "16h",
+    level: "Nível 3 - Especialização",
+    category: "Injetáveis",
+    cashPrice: 2499,
+    installmentPrice: 2599,
+    whatYouWillLearn: [
+      "Anatomia e envelhecimento facial aplicados aos injetáveis",
+      "Mesoterapia/skinbooster: hidratação, firmeza, melasma, lifting, papada, flacidez, celulite, estrias e alopecia",
+      "Toxina Botulínica Full Face: aplicação avançada em terço superior, médio, inferior e pescoço",
+      "Planejamento de protocolos seguros e personalizados",
+      "Cuidados pré e pós-procedimento",
+      "Gestão e precificação de atendimentos"
+    ],
+    courseDifferentials: [
+      "Aulas teóricas + prática supervisionada",
+      "Turmas pequenas para aprendizado individual",
+      "Materiais e insumos inclusos",
+      "Certificado, material didático e ebook de mídias sociais"
+    ],
+    courseInfo: [
+      "Carga horária: 16h",
+      "Modalidade: Presencial"
+    ]
+  },
+  {
+    id: "botox-full-face",
+    title: "Toxina Botulínica Full Face",
+    image: botoxFullFace,
+    description: "Aplicar a toxina botulínica com precisão e resultados naturais",
+    duration: "8h",
+    level: "Nível 3 - Especialização",
+    category: "Injetáveis",
+    cashPrice: 2250,
+    installmentPrice: 2500,
+    detailedDescription: "Curso presencial de 8h, com turmas reduzidas (até 3 alunos), voltado para quem quer aplicar a toxina botulínica com precisão e resultados naturais.",
+    whatYouWillLearn: [
+      "Anatomia facial e músculos da expressão",
+      "Classificação e tratamento de rugas (dinâmicas e estáticas)",
+      "Técnicas de marcação full face e profundidade correta da aplicação",
+      "Cuidados pré e pós-procedimento e contraindicações",
+      "Principais marcas de toxina botulínica e durabilidade dos efeitos"
+    ],
+    courseDifferentials: [
+      "Aulas teóricas e práticas",
+      "Prática em simuladores e modelos reais",
+      "Material didático, certificado e suporte pós-curso"
+    ]
+  },
+  {
+    id: "injetaveis-master",
+    title: "Injetáveis Estéticos Master",
+    image: injetaveisMasterCurso,
+    highlighted: true,
+    description: "Formação completa e intensiva em injetáveis: skinbooster, bioestimulador, preenchimento labial e Botox Full Face",
+    duration: "40h",
+    level: "Nível 4 - Master",
+    category: "Injetáveis",
+    cashPrice: 5799,
+    installmentPrice: 5799,
+    detailedDescription: "Formação completa e intensiva para quem quer se destacar na estética avançada! Aprenda, na prática, as principais técnicas injetáveis do mercado.",
+    bonuses: ["Curso de Microagulhamento completo (facial, corporal e capilar)"],
+    courseDifferentials: [
+      "40h presenciais (teoria + prática)",
+      "Técnicas seguras e atualizadas",
+      "Material didático incluso",
+      "Suporte pós-curso"
+    ],
+    courseInfo: [
+      "R$ 5.799 (em até 10x no cartão)",
+      "Para pagamento à vista, garanta seu desconto!"
+    ]
+  },
+  {
     id: "jato-plasma-multi",
-    title: "Jato de Plasma Multifuncional", 
+    title: "Jato de Plasma Multifuncional + Pálpebras Intense",
     image: jatoPlasmaMulti,
-    description: "Protocolos múltiplos com jato de plasma para diversos tratamentos estéticos.",
-    duration: "8 horas",
-    level: "Avançado",
-    category: "Cursos Individuais",
-    videoUrl: "https://www.youtube.com/embed/9cPXgUoy_c4",
-    detailedDescription: "Domine a tecnologia revolucionária do jato de plasma! Aprenda protocolos para blefaroplastia não cirúrgica, remoção de lesões, rejuvenescimento facial e corporal. Em 8 horas você dominará esta tecnologia versátil que substitui procedimentos cirúrgicos. Resultados incríveis sem cortes. Tecnologia de ponta que posiciona você no mercado de estética avançada!",
-    personalizedCTA: "Jato de Plasma é revolução! Substitua cirurgias por procedimentos estéticos. Alto valor, resultados impressionantes. Seja pioneira na sua região!"
-  },
+    description: "Dominar técnicas avançadas com jato de plasma",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Tecnologias e Equipamentos",
+    cashPrice: 790,
+    installmentPrice: 890,
+    detailedDescription: "Curso presencial de 8h, com turmas pequenas (até 3 alunos), voltado para profissionais que querem dominar técnicas avançadas com jato de plasma.",
+    whatYouWillLearn: [
+      "Fundamentos do plasma e ação sobre a pele",
+      "Diferenças entre jato de plasma e eletrocautério",
+      "Segurança, parametrização de equipamentos e biossegurança",
+      "Técnicas de aplicação pontual e por varredura",
+      "Mapeamento personalizado da área de tratamento"
+    ],
+    courseDifferentials: [
+      "Aulas teóricas e práticas em modelos",
+      "Professora especialista (dermaticista)",
+      "Material didático atualizado, certificado e suporte pós-curso"
+    ]
+  }
 ];
 
 export const getCourseById = (id: string): Course | undefined => {
