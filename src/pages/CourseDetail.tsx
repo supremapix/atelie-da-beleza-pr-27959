@@ -5,20 +5,26 @@ import Footer from "@/components/Footer";
 import AdvancedSEO from "@/components/AdvancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, BarChart3, Tag, Phone, CheckCircle2, Users, Award, Star, TrendingUp, Sparkles, Calendar, DollarSign } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FloatingButtons from "@/components/FloatingButtons";
 import FAQ from "@/components/FAQ";
 import { generalFAQ } from "@/data/faq";
 import { courseFAQs, defaultCourseFAQ } from "@/data/courseFAQs";
+import { getRandomTestimonials, type Testimonial } from "@/data/testimonials";
+import { Card } from "@/components/ui/card";
 
 const CourseDetail = () => {
   const { courseId } = useParams<{ courseId: string }>();
   const navigate = useNavigate();
   const course = courseId ? getCourseById(courseId) : undefined;
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    if (course) {
+      setTestimonials(getRandomTestimonials(course.category, 3));
+    }
+  }, [course]);
 
   if (!course) {
     return (
@@ -392,19 +398,57 @@ const CourseDetail = () => {
         </section>
       )}
 
-      {/* Testimonial Simplified Section */}
-      <section className="py-16 md:py-24">
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-8 h-8 text-primary fill-primary" />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+                O Que Nossas Alunas Dizem
+              </h2>
+              <p className="text-lg text-white/70 font-montserrat">
+                Histórias reais de profissionais que transformaram suas carreiras
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {testimonials.map((testimonial) => (
+                <Card 
+                  key={testimonial.id}
+                  className="bg-card/30 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105 p-6"
+                >
+                  <div className="flex flex-col h-full">
+                    <div className="flex justify-center mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-primary fill-primary" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-white/90 font-montserrat italic mb-6 flex-grow text-sm md:text-base leading-relaxed">
+                      "{testimonial.text}"
+                    </p>
+                    
+                    <div className="border-t border-primary/20 pt-4">
+                      <p className="text-white font-semibold font-montserrat mb-1">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-primary/80 text-sm font-montserrat">
+                        {testimonial.profession}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
               ))}
             </div>
-            <p className="text-xl md:text-2xl text-white/90 font-montserrat italic mb-4">
-              "Melhor investimento que fiz na minha carreira! As técnicas são atuais, os professores são incríveis e hoje tenho minha agenda lotada."
-            </p>
-            <p className="text-white/60 font-montserrat">— Ana Paula, Designer de Sobrancelhas</p>
+
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary/20">
+                <Award className="w-5 h-5 text-primary" />
+                <span className="text-white font-montserrat">
+                  +2.000 Profissionais Formadas | 4.9★ de Avaliação
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
