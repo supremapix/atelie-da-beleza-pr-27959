@@ -69,22 +69,22 @@ const Hero = () => {
           </div>
           
           {/* Título Principal */}
-          <h1 className="font-bold tracking-tight leading-[1.1] font-playfair">
-            <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-2 md:mb-3">
+          <h1 className="font-bold tracking-tight leading-[1.15] font-playfair px-2">
+            <span className="block text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-1 sm:mb-2 md:mb-3">
               Torne-se
             </span>
-            <span className="block text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 md:mb-4">
+            <span className="block text-primary text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-2 sm:mb-3 md:mb-4">
               Referência em Estética
             </span>
-            <span className="block text-white/90 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-2 md:mt-4 font-montserrat font-light leading-snug">
+            <span className="block text-white/90 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-1 sm:mt-2 md:mt-4 font-montserrat font-light leading-snug">
               em apenas algumas horas
             </span>
           </h1>
           
           {/* Descrição */}
-          <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-4">
+          <p className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-4">
             Cursos <span className="text-primary font-semibold">rápidos e profissionalizantes</span> com certificação reconhecida.
-            <span className="block mt-2 md:mt-3">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
+            <span className="block mt-1 sm:mt-2 md:mt-3">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
           </p>
           
           {/* Botão CTA */}

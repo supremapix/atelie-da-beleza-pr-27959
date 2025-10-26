@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import FloatingButtons from "@/components/FloatingButtons";
 import FAQ from "@/components/FAQ";
 import { generalFAQ } from "@/data/faq";
+import { courseFAQs, defaultCourseFAQ } from "@/data/courseFAQs";
 
 const CourseDetail = () => {
   const { courseId } = useParams<{ courseId: string }>();
@@ -416,35 +417,104 @@ const CourseDetail = () => {
               Ficha Técnica do Curso
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Pricing Section */}
+              {/* Pricing Section - Destaque no Parcelado */}
               {(course.cashPrice || course.installmentPrice) && (
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 backdrop-blur-sm border-2 border-primary/40 rounded-2xl p-8 hover:border-primary/60 transition-all">
-                  <DollarSign className="w-10 h-10 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-4 font-montserrat">Investimento Profissional</h3>
-                  <div className="space-y-4">
-                    {course.cashPrice && (
-                      <div className="bg-white/10 rounded-lg p-4 border border-primary/30">
-                        <p className="text-white/70 text-sm mb-1">Pagamento à vista</p>
-                        <p className="text-3xl font-bold text-primary">R$ {course.cashPrice}</p>
-                      </div>
-                    )}
+                <div className="md:col-span-2 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 backdrop-blur-sm border-2 border-primary/40 rounded-2xl p-8 hover:border-primary/60 transition-all relative overflow-hidden group">
+                  {/* Efeito de brilho animado */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-shimmer"></div>
+                  
+                  <DollarSign className="w-12 h-12 text-primary mb-4 relative z-10" />
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 font-playfair relative z-10">Investimento Profissional</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 relative z-10">
+                    {/* Parcelado - DESTAQUE PRINCIPAL */}
                     {course.installmentPrice && (
-                      <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-                        <p className="text-white/70 text-sm mb-1">Ou parcelado em até 10x</p>
-                        <p className="text-2xl font-bold text-white">
-                          10x de R$ {(course.installmentPrice / 10).toFixed(2)}
-                        </p>
-                        <p className="text-white/60 text-xs mt-1">
-                          Total: R$ {course.installmentPrice}
-                        </p>
+                      <div className="relative">
+                        {/* Badge de destaque */}
+                        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-green-500 to-green-400 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg z-20">
+                          MAIS ESCOLHIDO
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-white/20 to-white/10 rounded-xl p-6 border-2 border-primary/50 shadow-2xl transform group-hover:scale-105 transition-all duration-300">
+                          <div className="flex items-center gap-2 mb-3">
+                            <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+                            <p className="text-primary font-bold text-sm uppercase tracking-wide">Parcelamento Facilitado</p>
+                          </div>
+                          
+                          <div className="mb-3">
+                            <p className="text-white/80 text-sm mb-1">Em até 10x sem juros</p>
+                            <div className="flex items-end gap-2">
+                              <p className="text-5xl md:text-6xl font-black text-primary leading-none">
+                                {Math.floor(course.installmentPrice / 10)}
+                              </p>
+                              <p className="text-2xl text-primary font-bold mb-1">,{String(((course.installmentPrice / 10) % 1).toFixed(2)).slice(2)}</p>
+                            </div>
+                            <p className="text-white/90 text-lg font-semibold mt-1">por mês</p>
+                          </div>
+                          
+                          <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm">
+                            <p className="text-white/70 text-xs mb-1">Valor total parcelado</p>
+                            <p className="text-white text-xl font-bold">
+                              R$ {course.installmentPrice}
+                            </p>
+                          </div>
+                          
+                          <div className="mt-4 flex items-center gap-2 text-green-400 text-sm">
+                            <CheckCircle2 className="w-4 h-4" />
+                            <span className="font-semibold">Sem juros no cartão</span>
+                          </div>
+                        </div>
                       </div>
                     )}
+                    
+                    {/* À vista */}
+                    {course.cashPrice && (
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-6 border border-primary/30 hover:border-primary/40 transition-all">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Tag className="w-5 h-5 text-primary" />
+                          <p className="text-white font-bold text-sm uppercase tracking-wide">Pagamento à Vista</p>
+                        </div>
+                        
+                        <div className="mb-3">
+                          <p className="text-white/70 text-sm mb-2">Desconto especial</p>
+                          <p className="text-4xl md:text-5xl font-black text-white">
+                            R$ {course.cashPrice}
+                          </p>
+                        </div>
+                        
+                        <div className="bg-green-500/20 border border-green-500/40 rounded-lg p-3 mt-4">
+                          <p className="text-green-400 text-sm font-semibold flex items-center gap-2">
+                            <TrendingUp className="w-4 h-4" />
+                            Economize até 15% no pagamento à vista
+                          </p>
+                        </div>
+                        
+                        <div className="mt-4 flex items-center gap-2 text-white/70 text-sm">
+                          <CheckCircle2 className="w-4 h-4 text-primary" />
+                          <span>PIX, Dinheiro ou Débito</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* CTA Rápido */}
+                  <div className="mt-6 text-center relative z-10">
+                    <Button
+                      variant="hero"
+                      size="lg"
+                      onClick={handleWhatsAppClick}
+                      className="w-full md:w-auto group shadow-xl"
+                    >
+                      <Phone className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                      Consultar Condições Especiais
+                    </Button>
+                    <p className="text-white/60 text-xs mt-2">Respondemos em minutos ⚡</p>
                   </div>
                 </div>
               )}
 
               {/* Course Info Section */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
+              <div className="md:col-span-1 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8">
                 <Calendar className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-bold text-white mb-4 font-montserrat">
                   {course.courseInfo && course.courseInfo.length > 0 ? "Detalhes do Curso" : "Informações do Curso"}
@@ -481,10 +551,10 @@ const CourseDetail = () => {
               </div>
               
               {/* Includes Section */}
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:col-span-2">
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:col-span-1">
                 <Tag className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-bold text-white mb-4 font-montserrat">O Que Está Incluso</h3>
-                <div className="grid md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-white/90">Apostila completa</span>
@@ -516,8 +586,13 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQ items={generalFAQ} className="bg-gradient-to-b from-transparent via-black/50 to-transparent text-white" />
+      {/* FAQ Section - Específico do Curso */}
+      <FAQ 
+        title="Perguntas Frequentes Sobre Este Curso"
+        subtitle="Tire todas as suas dúvidas sobre esta capacitação profissional"
+        items={courseFAQs[courseId || ''] || defaultCourseFAQ} 
+        className="bg-gradient-to-b from-transparent via-black/50 to-transparent text-white" 
+      />
 
       {/* Personalized CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent relative overflow-hidden">
