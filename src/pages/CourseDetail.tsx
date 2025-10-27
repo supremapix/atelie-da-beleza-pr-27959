@@ -85,7 +85,7 @@ const CourseDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black overflow-x-hidden">
       <AdvancedSEO
         title={`${course.title} - Curso de Estética em Curitiba | Ateliê Beleza`}
         description={`${course.description} ${course.duration} • ${course.level} • Material incluso • Certificado reconhecido. Aprenda com os melhores profissionais de Curitiba.`}
@@ -97,28 +97,28 @@ const CourseDetail = () => {
       <FloatingButtons />
       
       {/* Trust Badges Section */}
-      <section className="pt-24 pb-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+      <section className="pt-28 sm:pt-32 md:pt-24 pb-6">
+        <div className="container mx-auto px-4 max-w-full overflow-x-hidden">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-8">
             <div className="flex items-center gap-2 text-white/80">
-              <Users className="w-5 h-5 text-primary" />
-              <span className="text-sm md:text-base font-montserrat">+2.000 Alunas Formadas</span>
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-montserrat whitespace-nowrap">+2.000 Alunas</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
-              <Award className="w-5 h-5 text-primary" />
-              <span className="text-sm md:text-base font-montserrat">Certificado Reconhecido</span>
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-montserrat whitespace-nowrap">Certificado</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
-              <Star className="w-5 h-5 text-primary fill-primary" />
-              <span className="text-sm md:text-base font-montserrat">4.9/5 Avaliação</span>
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-primary flex-shrink-0" />
+              <span className="text-xs sm:text-sm md:text-base font-montserrat whitespace-nowrap">4.9/5</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Hero Section */}
-      <section className="relative pb-12 md:pb-16">
-        <div className="container mx-auto px-4">
+      <section className="relative pb-12 md:pb-16 overflow-x-hidden">
+        <div className="container mx-auto px-4 max-w-full overflow-x-hidden">
           {/* Back Button */}
           <Button
             variant="ghost"
@@ -129,10 +129,10 @@ const CourseDetail = () => {
             Voltar
           </Button>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center max-w-full">
             {/* Image */}
-            <div className="relative group w-full">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 w-full">
+            <div className="relative group w-full max-w-full">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 w-full max-w-full">
                 <img
                   src={course.image}
                   alt={course.title}
@@ -141,27 +141,27 @@ const CourseDetail = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               </div>
               {course.highlighted && (
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-primary/80 text-black px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  CURSO DESTAQUE
+                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-gradient-to-r from-primary to-primary/80 text-black px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold animate-pulse shadow-lg flex items-center gap-1 sm:gap-2">
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span className="whitespace-nowrap">DESTAQUE</span>
                 </div>
               )}
               {/* Urgency Badge */}
-              <div className="absolute bottom-4 left-4 bg-red-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
+              <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 bg-red-600/90 backdrop-blur-sm text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-bold shadow-lg">
                 🔥 Vagas Limitadas
               </div>
             </div>
 
             {/* Info */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6 max-w-full overflow-x-hidden">
               <div>
-                <div className="inline-block bg-primary/20 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/30">
+                <div className="inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-primary/30">
                   {course.category}
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-playfair mb-4 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white font-playfair mb-3 sm:mb-4 leading-tight break-words">
                   {course.title}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white/90 font-montserrat leading-relaxed mb-6">
+                <p className="text-sm sm:text-base md:text-lg text-white/90 font-montserrat leading-relaxed mb-4 sm:mb-6 break-words">
                   {course.description}
                 </p>
                 
@@ -177,66 +177,66 @@ const CourseDetail = () => {
               </div>
 
               {/* Course Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-full">
+                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-3 sm:p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-2 mb-2">
-                    <Clock className="w-5 h-5 text-primary" />
-                    <span className="text-white/60 text-sm font-montserrat">Duração</span>
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                    <span className="text-white/60 text-xs sm:text-sm font-montserrat">Duração</span>
                   </div>
-                  <p className="text-white font-bold text-lg">{course.duration}</p>
+                  <p className="text-white font-bold text-sm sm:text-base break-words">{course.duration}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-3 sm:p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-2 mb-2">
-                    <BarChart3 className="w-5 h-5 text-primary" />
-                    <span className="text-white/60 text-sm font-montserrat">Nível</span>
+                    <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                    <span className="text-white/60 text-xs sm:text-sm font-montserrat">Nível</span>
                   </div>
-                  <p className="text-white font-bold text-lg">{course.level}</p>
+                  <p className="text-white font-bold text-sm sm:text-base break-words">{course.level}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-3 sm:p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <span className="text-white/60 text-sm font-montserrat">Demanda</span>
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                    <span className="text-white/60 text-xs sm:text-sm font-montserrat">Demanda</span>
                   </div>
-                  <p className="text-white font-bold text-lg">Alta 📈</p>
+                  <p className="text-white font-bold text-sm sm:text-base">Alta 📈</p>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-3 sm:pt-4 max-w-full">
                 <Button
                   variant="hero"
                   size="lg"
                   onClick={handleWhatsAppClick}
-                  className="flex-1 group shadow-xl hover:shadow-2xl hover:shadow-primary/20 animate-pulse"
+                  className="w-full sm:flex-1 group shadow-xl hover:shadow-2xl hover:shadow-primary/20 animate-pulse text-xs sm:text-sm md:text-base px-3 sm:px-4 py-3 sm:py-4 h-auto"
                 >
-                  <Phone className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                  Quero Garantir Minha Vaga Agora!
+                  <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
+                  <span className="break-words text-center">Garantir Minha Vaga!</span>
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   onClick={() => navigate('/cursos')}
-                  className="flex-1 border-white/30 text-white hover:bg-white/10 hover:border-primary/50"
+                  className="w-full sm:flex-1 border-white/30 text-white hover:bg-white/10 hover:border-primary/50 text-xs sm:text-sm md:text-base px-3 sm:px-4 py-3 sm:py-4 h-auto"
                 >
-                  Ver Outros Cursos
+                  <span className="break-words">Ver Outros Cursos</span>
                 </Button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                <div className="flex items-center gap-1 text-sm text-white/70">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
-                  <span>Prática supervisionada</span>
+              <div className="flex flex-wrap gap-2 sm:gap-3 pt-2 max-w-full">
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-white/70">
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Prática supervisionada</span>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-white/70">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
-                  <span>Material incluso</span>
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-white/70">
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Material incluso</span>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-white/70">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" />
-                  <span>Certificado ao final</span>
+                <div className="flex items-center gap-1 text-xs sm:text-sm text-white/70">
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <span className="whitespace-nowrap">Certificado</span>
                 </div>
               </div>
             </div>
@@ -246,16 +246,16 @@ const CourseDetail = () => {
 
       {/* Video Section */}
       {course.videoUrl && (
-        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-          <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent overflow-x-hidden">
+          <div className="container mx-auto px-4 max-w-full">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 font-playfair">
+              <div className="text-center mb-6 sm:mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 font-playfair px-4 break-words">
                   Veja Como Funciona o Curso
                 </h2>
-                <p className="text-white/70 text-lg font-montserrat">Assista ao vídeo e descubra como você pode transformar sua carreira</p>
+                <p className="text-white/70 text-sm sm:text-base md:text-lg font-montserrat px-4 break-words">Assista ao vídeo e descubra como você pode transformar sua carreira</p>
               </div>
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/40 hover:border-primary/60 transition-all">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/40 hover:border-primary/60 transition-all max-w-full">
                 <iframe
                   src={course.videoUrl}
                   title={`Vídeo do curso ${course.title}`}
@@ -265,15 +265,15 @@ const CourseDetail = () => {
                 ></iframe>
               </div>
               {/* CTA After Video */}
-              <div className="text-center mt-8">
+              <div className="text-center mt-6 sm:mt-8">
                 <Button
                   variant="hero"
                   size="lg"
                   onClick={handleWhatsAppClick}
-                  className="group shadow-xl"
+                  className="group shadow-xl text-xs sm:text-sm md:text-base px-4 py-3 sm:px-6 sm:py-4 w-full sm:w-auto"
                 >
-                  <Phone className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                  Fale Conosco e Tire Suas Dúvidas
+                  <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
+                  <span className="break-words">Fale Conosco</span>
                 </Button>
               </div>
             </div>
@@ -283,14 +283,14 @@ const CourseDetail = () => {
 
       {/* Detailed Description */}
       {course.detailedDescription && (
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 overflow-x-hidden">
+          <div className="container mx-auto px-4 max-w-full">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 font-playfair">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-6 sm:mb-8 font-playfair px-4 break-words">
                 Por Que Escolher Este Curso?
               </h2>
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 md:p-12 shadow-xl">
-                <p className="text-lg md:text-xl text-white/95 font-montserrat leading-relaxed">
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl max-w-full overflow-hidden">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 font-montserrat leading-relaxed break-words">
                   {course.detailedDescription}
                 </p>
               </div>
@@ -301,17 +301,17 @@ const CourseDetail = () => {
 
       {/* What You Will Learn */}
       {course.whatYouWillLearn && course.whatYouWillLearn.length > 0 && (
-        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-          <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent overflow-x-hidden">
+          <div className="container mx-auto px-4 max-w-full">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 font-playfair px-4">
+              <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 font-playfair px-4 break-words">
                   O Que Você Vai Aprender
                 </h2>
-                <p className="text-white/70 text-base md:text-lg font-montserrat px-4">Conteúdo completo e atualizado do curso</p>
+                <p className="text-white/70 text-sm sm:text-base md:text-lg font-montserrat px-4 break-words">Conteúdo completo e atualizado do curso</p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-3 md:gap-4">
+              <div className="grid md:grid-cols-2 gap-3 md:gap-4 max-w-full">
                 {course.whatYouWillLearn.map((item, index) => (
                   <div
                     key={index}
@@ -333,17 +333,17 @@ const CourseDetail = () => {
 
       {/* Course Differentials */}
       {course.courseDifferentials && course.courseDifferentials.length > 0 && (
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
+        <section className="py-16 md:py-24 overflow-x-hidden">
+          <div className="container mx-auto px-4 max-w-full">
             <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 font-playfair px-4">
+              <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 font-playfair px-4 break-words">
                   Diferenciais do Curso
                 </h2>
-                <p className="text-white/70 text-base md:text-lg font-montserrat px-4">Por que este curso se destaca</p>
+                <p className="text-white/70 text-sm sm:text-base md:text-lg font-montserrat px-4 break-words">Por que este curso se destaca</p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-full">
                 {course.courseDifferentials.map((item, index) => (
                   <div
                     key={index}
@@ -399,19 +399,19 @@ const CourseDetail = () => {
       )}
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent overflow-x-hidden">
+        <div className="container mx-auto px-4 max-w-full">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-playfair">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 font-playfair px-4 break-words">
                 O Que Nossas Alunas Dizem
               </h2>
-              <p className="text-lg text-white/70 font-montserrat">
+              <p className="text-sm sm:text-base md:text-lg text-white/70 font-montserrat px-4 break-words">
                 Histórias reais de profissionais que transformaram suas carreiras
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-full">
               {testimonials.map((testimonial) => (
                 <Card 
                   key={testimonial.id}
@@ -441,11 +441,11 @@ const CourseDetail = () => {
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-6 py-3 rounded-full border border-primary/20">
-                <Award className="w-5 h-5 text-primary" />
-                <span className="text-white font-montserrat">
-                  +2.000 Profissionais Formadas | 4.9★ de Avaliação
+            <div className="text-center mt-8 sm:mt-12">
+              <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-primary/10 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-primary/20">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+                <span className="text-white font-montserrat text-xs sm:text-sm md:text-base break-words">
+                  +2.000 Profissionais | 4.9★
                 </span>
               </div>
             </div>
@@ -454,13 +454,13 @@ const CourseDetail = () => {
       </section>
 
       {/* Course Specs Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent overflow-x-hidden">
+        <div className="container mx-auto px-4 max-w-full">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-playfair">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 font-playfair px-4 break-words">
               Ficha Técnica do Curso
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-full">
               {/* Pricing Section - Destaque no Parcelado */}
               {(course.cashPrice || course.installmentPrice) && (
                 <div className="md:col-span-2 bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 backdrop-blur-sm border-2 border-primary/40 rounded-2xl p-4 md:p-8 hover:border-primary/60 transition-all relative overflow-hidden group w-full">
@@ -542,17 +542,17 @@ const CourseDetail = () => {
                   </div>
                   
                   {/* CTA Rápido */}
-                  <div className="mt-6 text-center relative z-10">
+                  <div className="mt-4 sm:mt-6 text-center relative z-10">
                     <Button
                       variant="hero"
                       size="lg"
                       onClick={handleWhatsAppClick}
-                      className="w-full md:w-auto group shadow-xl"
+                      className="w-full md:w-auto group shadow-xl text-xs sm:text-sm md:text-base px-4 sm:px-6 py-3 sm:py-4"
                     >
-                      <Phone className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                      Consultar Condições Especiais
+                      <Phone className="mr-1 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-bounce flex-shrink-0" />
+                      <span className="break-words">Consultar Condições</span>
                     </Button>
-                    <p className="text-white/60 text-xs mt-2">Respondemos em minutos ⚡</p>
+                    <p className="text-white/60 text-xs mt-2 break-words">Respondemos em minutos ⚡</p>
                   </div>
                 </div>
               )}

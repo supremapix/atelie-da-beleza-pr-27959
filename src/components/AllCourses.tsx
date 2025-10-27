@@ -208,20 +208,20 @@ const AllCourses = () => {
 
         {/* Modal de Detalhes do Curso */}
         <Dialog open={!!selectedCourse} onOpenChange={() => setSelectedCourse(null)}>
-          <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto bg-white p-4 md:p-6">
-            <DialogHeader>
-              <DialogTitle className="text-xl md:text-2xl font-playfair text-primary pr-8">
+          <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden bg-white p-4 md:p-6">
+            <DialogHeader className="max-w-full">
+              <DialogTitle className="text-lg sm:text-xl md:text-2xl font-playfair text-primary pr-8 break-words">
                 {selectedCourse?.title}
               </DialogTitle>
-              <DialogDescription className="text-sm md:text-base text-muted-foreground pt-2">
+              <DialogDescription className="text-xs sm:text-sm md:text-base text-muted-foreground pt-2 break-words">
                 {selectedCourse?.description}
               </DialogDescription>
             </DialogHeader>
 
-            <div className="space-y-4 md:space-y-6 mt-4">
+            <div className="space-y-4 md:space-y-6 mt-4 max-w-full overflow-x-hidden">
               {/* Imagem do Curso */}
-              <div className="relative overflow-hidden rounded-lg w-full">
-                <div className="aspect-video w-full">
+              <div className="relative overflow-hidden rounded-lg w-full max-w-full">
+                <div className="aspect-video w-full max-w-full">
                   <img
                     src={selectedCourse?.image}
                     alt={selectedCourse?.title}
@@ -270,17 +270,17 @@ const AllCourses = () => {
 
               {/* O que você vai aprender */}
               {selectedCourse?.whatYouWillLearn && selectedCourse.whatYouWillLearn.length > 0 && (
-                <div>
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-3">O Que Você Vai Aprender</h3>
-                  <div className="space-y-2">
+                <div className="max-w-full overflow-x-hidden">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-3 break-words">O Que Você Vai Aprender</h3>
+                  <div className="space-y-2 max-w-full">
                     {selectedCourse.whatYouWillLearn.slice(0, 6).map((item, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs md:text-sm">
+                      <div key={index} className="flex items-start gap-2 text-xs md:text-sm max-w-full">
                         <Info className="w-3 h-3 md:w-4 md:h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <p className="text-muted-foreground">{item}</p>
+                        <p className="text-muted-foreground break-words min-w-0">{item}</p>
                       </div>
                     ))}
                     {selectedCourse.whatYouWillLearn.length > 6 && (
-                      <p className="text-xs md:text-sm text-primary font-semibold italic">
+                      <p className="text-xs md:text-sm text-primary font-semibold italic break-words">
                         + {selectedCourse.whatYouWillLearn.length - 6} tópicos adicionais...
                       </p>
                     )}
@@ -308,24 +308,24 @@ const AllCourses = () => {
 
               {/* Descrição Completa */}
               {selectedCourse?.detailedDescription && (
-                <div>
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-3">Sobre o Curso</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{selectedCourse.detailedDescription}</p>
+                <div className="max-w-full overflow-x-hidden">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-3 break-words">Sobre o Curso</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed break-words">{selectedCourse.detailedDescription}</p>
                 </div>
               )}
 
               {/* Botões de Ação */}
-              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 pt-4 border-t">
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 pt-4 border-t max-w-full">
                 <Button 
                   variant="outline"
-                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-background text-sm"
+                  className="w-full sm:flex-1 border-primary text-primary hover:bg-primary hover:text-background text-xs sm:text-sm h-9 sm:h-10"
                   onClick={() => selectedCourse && handleWhatsApp(selectedCourse.title)}
                 >
-                  <Phone className="mr-2 w-3 h-3 md:w-4 md:h-4" />
-                  Tire suas dúvidas
+                  <Phone className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span className="break-words">Tire suas dúvidas</span>
                 </Button>
                 <Button 
-                  className="flex-1 bg-primary hover:bg-primary/90 text-background shadow-md hover:shadow-lg text-sm"
+                  className="w-full sm:flex-1 bg-primary hover:bg-primary/90 text-background shadow-md hover:shadow-lg text-xs sm:text-sm h-9 sm:h-10"
                   onClick={() => {
                     if (selectedCourse) {
                       const message = `Olá! Gostaria de me inscrever no curso: ${selectedCourse.title}`;
@@ -333,8 +333,8 @@ const AllCourses = () => {
                     }
                   }}
                 >
-                  <MessageCircle className="mr-2 w-3 h-3 md:w-4 md:h-4" />
-                  Quero me inscrever
+                  <MessageCircle className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span className="break-words">Quero me inscrever</span>
                 </Button>
               </div>
             </div>

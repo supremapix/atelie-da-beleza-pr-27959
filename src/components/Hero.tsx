@@ -23,9 +23,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 lg:pt-24">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 lg:pt-24">
       {/* Background - Image on Mobile, Video on Desktop */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         {isMobile ? (
           // Mobile: Beautiful Image Background
           <div className="relative w-full h-full">
@@ -58,45 +58,45 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center flex items-center justify-center min-h-screen">
-        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-3 text-center flex items-center justify-center min-h-screen">
+        <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6 md:space-y-10 lg:space-y-12 animate-fade-in">
           {/* Tag Superior */}
           <div className="inline-block">
-            <p className="text-primary text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-3 md:mb-4">
+            <p className="text-primary text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-2 md:mb-4">
               Transforme sua Carreira
             </p>
-            <div className="w-16 md:w-20 h-0.5 bg-primary mx-auto"></div>
+            <div className="w-12 sm:w-16 md:w-20 h-0.5 bg-primary mx-auto"></div>
           </div>
           
           {/* Título Principal */}
-          <h1 className="font-bold tracking-tight leading-[1.15] font-playfair px-2">
-            <span className="block text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-1 sm:mb-2 md:mb-3">
+          <h1 className="font-bold tracking-tight leading-tight font-playfair px-2">
+            <span className="block text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-1 sm:mb-2 md:mb-3">
               Torne-se
             </span>
-            <span className="block text-primary text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-2 sm:mb-3 md:mb-4">
+            <span className="block text-primary text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-3 md:mb-4 break-words">
               Referência em Estética
             </span>
-            <span className="block text-white/90 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-1 sm:mt-2 md:mt-4 font-montserrat font-light leading-snug">
+            <span className="block text-white/90 text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-1 sm:mt-2 md:mt-4 font-montserrat font-light leading-snug">
               em apenas algumas horas
             </span>
           </h1>
           
           {/* Descrição */}
-          <p className="text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-4">
+          <p className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-2 sm:px-4">
             Cursos <span className="text-primary font-semibold">rápidos e profissionalizantes</span> com certificação reconhecida.
             <span className="block mt-1 sm:mt-2 md:mt-3">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
           </p>
           
           {/* Botão CTA */}
-          <div className="pt-6 md:pt-10 lg:pt-12">
+          <div className="pt-4 sm:pt-6 md:pt-10 lg:pt-12">
             <Button 
               variant="outline" 
               size="lg"
               onClick={scrollToCourses}
-              className="group text-base md:text-lg px-8 py-6 md:px-10 md:py-7 w-full max-w-md sm:w-auto bg-[#D4AF37]/20 border-[#D4AF37]/40 text-white hover:bg-[#D4AF37]/30 hover:border-[#D4AF37]/60 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all font-semibold"
+              className="group text-sm sm:text-base md:text-lg px-6 py-5 sm:px-8 sm:py-6 md:px-10 md:py-7 w-full max-w-md sm:w-auto bg-[#D4AF37]/20 border-[#D4AF37]/40 text-white hover:bg-[#D4AF37]/30 hover:border-[#D4AF37]/60 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all font-semibold"
             >
-              Conheça Nossos Cursos
-              <GraduationCap className="ml-2 w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
+              <span className="break-words">Conheça Nossos Cursos</span>
+              <GraduationCap className="ml-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform flex-shrink-0" />
             </Button>
           </div>
         </div>
