@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import AllCourses from "@/components/AllCourses";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
-import AdvancedSEO from "@/components/AdvancedSEO";
+import EnhancedSEO from "@/components/EnhancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, GraduationCap, TrendingUp, Users, Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +48,7 @@ const TodosCursos = () => {
 
   return (
     <div className="min-h-screen">
-      <AdvancedSEO
+      <EnhancedSEO
         title="Todos os Cursos de Estética - Curitiba | Ateliê Beleza"
         description="Explore mais de 42 cursos profissionalizantes em estética e beleza. Micropigmentação, design de sobrancelhas, lash lifting, estética facial e corporal. Certificação reconhecida."
         canonical="https://ateliebeleza.app.br/cursos"

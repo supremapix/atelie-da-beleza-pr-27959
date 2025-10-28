@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import LiveNotifications from "@/components/LiveNotifications";
-import AdvancedSEO from "@/components/AdvancedSEO";
+import EnhancedSEO from "@/components/EnhancedSEO";
 import FAQ from "@/components/FAQ";
 import { generalFAQ } from "@/data/faq";
 import CourseSearch from "@/components/CourseSearch";
@@ -51,10 +51,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <AdvancedSEO
+      <EnhancedSEO
         title="Ateliê Beleza - Cursos de Estética em Curitiba | Capacitação Profissional"
         description="Cursos de estética em Curitiba com instrutores renomados. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais. Preços acessíveis e certificado reconhecido."
         canonical="https://ateliebeleza.app.br/"
+        keywords="cursos de estética Curitiba, micropigmentação Curitiba, design de sobrancelhas, lash lifting, estética facial, estética corporal, curso profissionalizante, capacitação estética"
         structuredData={structuredData}
       />
       <SchemaMarkup />

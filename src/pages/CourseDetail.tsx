@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getCourseById } from "@/data/courses";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import AdvancedSEO from "@/components/AdvancedSEO";
+import EnhancedSEO from "@/components/EnhancedSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Clock, BarChart3, Tag, Phone, CheckCircle2, Users, Award, Star, TrendingUp, Sparkles, Calendar, DollarSign } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -86,12 +86,13 @@ const CourseDetail = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black overflow-x-hidden">
-      <AdvancedSEO
+      <EnhancedSEO
         title={`${course.title} - Curso de Estética em Curitiba | Ateliê Beleza`}
         description={`${course.description} ${course.duration} • ${course.level} • Material incluso • Certificado reconhecido. Aprenda com os melhores profissionais de Curitiba.`}
         canonical={`https://ateliebeleza.app.br/curso/${courseId}`}
         keywords={`${course.title}, curso ${course.title.toLowerCase()}, estética Curitiba, capacitação profissional, ${course.category.toLowerCase()}`}
         structuredData={structuredData}
+        type="product"
       />
       <Navigation />
       <FloatingButtons />

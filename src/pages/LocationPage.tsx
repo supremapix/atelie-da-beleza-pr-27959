@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
-import AdvancedSEO from "@/components/AdvancedSEO";
+import EnhancedSEO from "@/components/EnhancedSEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, MapPin, Phone, Clock, Award, Users, Star, TrendingUp } from "lucide-react";
@@ -96,7 +96,7 @@ const LocationPage = ({
 
   return (
     <>
-      <AdvancedSEO
+      <EnhancedSEO
         title={`Cursos de Estética em ${neighborhood} - Curitiba | Ateliê Beleza`}
         description={`${description} Cursos profissionalizantes em micropigmentação, design de sobrancelhas, lash lifting e muito mais. Atendemos ${neighborhood} e região.`}
         canonical={`https://ateliebeleza.app.br/${neighborhood.toLowerCase().replace(/\s+/g, '-')}`}

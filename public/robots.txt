@@ -1,8 +1,27 @@
 User-agent: *
 Allow: /
+
+# Disallow admin or sensitive paths
 Disallow: /admin/
 Disallow: /private/
+Disallow: /api/
+Disallow: /*.json$
 
+# Sitemap
 Sitemap: https://ateliebeleza.app.br/sitemap.xml
 
-Crawl-delay: 1
+# Crawl-delay
+Crawl-delay: 0
+
+# Popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
