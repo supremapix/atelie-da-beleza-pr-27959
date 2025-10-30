@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Award, Users, GraduationCap, Heart } from "lucide-react";
+import julianaPerussiImage from "@/assets/juliana-perussi.png";
 
 const About = () => {
   const highlights = [
@@ -43,7 +44,7 @@ const About = () => {
           <div className="relative order-2 lg:order-1">
             <div className="relative aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden shadow-elegant group">
               <img
-                src="https://ateliebeleza.com.br/wp-content/uploads/2025/08/juliana_perussi_atelie_da_beleza.webp"
+                src={julianaPerussiImage}
                 alt="Juliana Perussi - Instrutora Ateliê Beleza"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
