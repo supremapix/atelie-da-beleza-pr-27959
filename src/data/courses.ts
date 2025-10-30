@@ -467,6 +467,8 @@ export const courses: Course[] = [
     duration: "5h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Corporal",
+    cashPrice: 790,
+    installmentPrice: 890,
     detailedDescription: "Com o uso correto da bandagem elástica, é possível reduzir edemas, hematomas e fibroses, além de melhorar o conforto do cliente.",
     whatYouWillLearn: [
       "Fundamentos, histórico e aplicabilidade da técnica",
@@ -491,6 +493,8 @@ export const courses: Course[] = [
     duration: "4h",
     level: "Nível 1 - Fundamentos",
     category: "Estética Corporal",
+    cashPrice: 500,
+    installmentPrice: 600,
     detailedDescription: "A Ventosaterapia promove relaxamento profundo, melhora da circulação, alívio de tensões musculares, além de auxiliar na redução de inflamações e contraturas.",
     whatYouWillLearn: [
       "História e fundamentos da Ventosaterapia",
@@ -514,6 +518,8 @@ export const courses: Course[] = [
     duration: "24h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Corporal",
+    cashPrice: 1200,
+    installmentPrice: 1300,
     detailedDescription: "Aprenda técnicas profissionais de massagem e terapias complementares para proporcionar relaxamento profundo, melhora da circulação e bem-estar geral aos seus clientes.",
     whatYouWillLearn: [
       "Massagem Relaxante Corporal e Crânio-Facial: estimula pontos específicos do corpo e do rosto",
@@ -602,6 +608,8 @@ export const courses: Course[] = [
     duration: "8h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Facial",
+    cashPrice: 990,
+    installmentPrice: 1090,
     whatYouWillLearn: [
       "Estrutura e função da pele em profundidade",
       "Microbiota cutânea e permeação transdérmica",
@@ -630,6 +638,8 @@ export const courses: Course[] = [
     duration: "4h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Facial",
+    cashPrice: 400,
+    installmentPrice: 500,
     detailedDescription: "Aprenda uma das técnicas mais queridinhas da estética moderna e proporcione à sua cliente uma pele lisa, iluminada e com resultados imediatos! É indicado para todos os tipos de pele, inclusive as sensíveis.",
     whatYouWillLearn: [
       "História e fundamentos do dermaplaning",
@@ -658,6 +668,8 @@ export const courses: Course[] = [
     duration: "6h",
     level: "Nível 2 - Desenvolvimento",
     category: "Beleza e Design",
+    cashPrice: 400,
+    installmentPrice: 450,
     detailedDescription: "A epilação egípcia é um método 100% natural, que proporciona uma pele lisa, sem irritações e com resultados para clientes com pele sensível ou alergias à cera.",
     whatYouWillLearn: [
       "Anatomia e fisiologia da pele e dos pelos",
@@ -688,6 +700,8 @@ export const courses: Course[] = [
     duration: "4h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Facial",
+    cashPrice: 400,
+    installmentPrice: 500,
     detailedDescription: "O Hydra Nutri Gloss é um dos procedimentos mais procurados do momento! Aprenderá a realizar hidratação profunda e regeneração labial, melhorando o aspecto dos lábios promovendo um rejuvenescimento natural com efeito de volume imediato.",
     whatYouWillLearn: [
       "O que é e como funciona o Hydra Nutri Gloss",
@@ -719,6 +733,8 @@ export const courses: Course[] = [
     duration: "8h",
     level: "Nível 2 - Desenvolvimento",
     category: "Estética Facial",
+    cashPrice: 590,
+    installmentPrice: 690,
     whatYouWillLearn: [
       "Limpeza de pele multifuncional com extração",
       "Cosmetologia e protocolos associados",
