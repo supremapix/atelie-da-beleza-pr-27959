@@ -192,7 +192,7 @@ const CourseDetail = () => {
                     <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                     <span className="text-white/60 text-xs sm:text-sm font-montserrat">Nível</span>
                   </div>
-                  <p className="text-white font-bold text-sm sm:text-base break-words">{course.level}</p>
+                  <p className="text-white font-bold text-sm sm:text-base break-words">Consulte-nos!</p>
                 </div>
 
                 <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-3 sm:p-4 hover:bg-white/15 hover:border-primary/40 transition-all duration-300 hover:scale-105">
