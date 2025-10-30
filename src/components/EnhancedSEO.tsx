@@ -27,6 +27,8 @@ const EnhancedSEO = ({
   publishedTime,
   modifiedTime,
 }: EnhancedSEOProps) => {
+  // Normalizar canonical URL para sempre usar https://www.ateliebeleza.com.br/
+  const normalizedCanonical = canonical.replace(/^https?:\/\/(www\.)?/, 'https://www.');
   // Garante que structuredData seja sempre um array
   const structuredDataArray = structuredData 
     ? (Array.isArray(structuredData) ? structuredData : [structuredData])
@@ -39,7 +41,7 @@ const EnhancedSEO = ({
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={normalizedCanonical} />
       
       {/* Robots */}
       {noindex ? (
@@ -54,7 +56,7 @@ const EnhancedSEO = ({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={normalizedCanonical} />
       <meta property="og:site_name" content="Ateliê Beleza - Cursos de Estética em Curitiba" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -70,7 +72,7 @@ const EnhancedSEO = ({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={canonical} />
+      <meta name="twitter:url" content={normalizedCanonical} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
@@ -123,8 +125,8 @@ const EnhancedSEO = ({
       ))}
 
       {/* Alternative Links */}
-      <link rel="alternate" hrefLang="pt-BR" href={canonical} />
-      <link rel="alternate" hrefLang="x-default" href={canonical} />
+      <link rel="alternate" hrefLang="pt-BR" href={normalizedCanonical} />
+      <link rel="alternate" hrefLang="x-default" href={normalizedCanonical} />
     </Helmet>
   );
 };

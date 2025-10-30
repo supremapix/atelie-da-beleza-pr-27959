@@ -148,14 +148,31 @@ export const courses: Course[] = [
     category: "Beleza e Design",
     cashPrice: 1800,
     installmentPrice: 1950,
-    detailedDescription: "Entre no mercado mais lucrativo da beleza! A micropigmentação de sobrancelhas é uma das técnicas mais procuradas e bem remuneradas.",
+    detailedDescription: "Entre no mercado mais lucrativo da beleza! A micropigmentação de sobrancelhas é uma das técnicas mais procuradas e bem remuneradas. Domine as técnicas de Nanoblading e Shadow para criar sobrancelhas perfeitas e naturais.",
+    whatYouWillLearn: [
+      "Técnica Nanoblading: fios hiper-realistas e naturais",
+      "Técnica Shadow: efeito sombreado e maquiado",
+      "Visagismo e medidas estratégicas personalizadas",
+      "Colorimetria e pigmentologia avançada",
+      "Anatomia da pele e cicatrização",
+      "Uso seguro de anestésicos",
+      "Biossegurança e esterilização de materiais",
+      "Cuidados pré e pós-procedimento",
+      "Ficha de anamnese e termo de consentimento",
+      "Precificação e posicionamento profissional"
+    ],
+    bonuses: [
+      "DESPIGMENTAÇÃO QUÍMICA - Técnica para correção e remoção de pigmentos indesejados",
+      "KIT PROFISSIONAL - Materiais completos para iniciar seus atendimentos"
+    ],
     courseInfo: [
       "Duração: 2 dias (8:30 às 17:00) – 16h",
       "Aulas teóricas e práticas",
       "Treino inicial em pele sintética + prática em modelos reais",
       "Turmas pequenas e suporte pós-curso",
-      "Kit incluso",
-      "Certificado incluso"
+      "Kit profissional incluso",
+      "Certificado incluso",
+      "Bônus: Despigmentação Química + Kit Profissional"
     ]
   },
   {
@@ -254,7 +271,7 @@ export const courses: Course[] = [
     description: "Aprenda a dominar uma das técnicas mais procuradas na estética com resultados na redução de pelos faciais e corporais",
     duration: "8h",
     level: "Nível 2 - Desenvolvimento",
-    category: "Beleza e Design",
+    category: "Estética Facial e Corporal",
     cashPrice: 990,
     installmentPrice: 1100,
     detailedDescription: "Esse curso é voltado para Profissionais da área da saúde e estética, e ensina tudo — da teoria à prática clínica para atuar com segurança, precisão e alto desempenho.",
@@ -353,7 +370,20 @@ export const courses: Course[] = [
     category: "Beleza e Design",
     cashPrice: 900,
     installmentPrice: 999,
-    detailedDescription: "Você vai dominar desde o clássico fio a fio, até os volumes mais sofisticados e buscados atualmente. Aprenda anatomia ocular, contraindicações e cuidados, técnicas de preparação e finalização profissional, retenção e manutenção correta, remoção mecânica e química, precificação, marketing e fotos profissionais, ética e postura profissional.",
+    detailedDescription: "Você vai dominar desde o clássico fio a fio, até os volumes mais sofisticados e buscados atualmente. A formação completa para quem quer se destacar no mercado de extensão de cílios.",
+    whatYouWillLearn: [
+      "Fio a Fio Clássico: técnica básica e essencial",
+      "Volume Russo: 2D, 3D, 4D até 8D",
+      "Efeitos Personalizados: Doll Eyes, Cat Eyes (Gatinho) e Squirrel (Esquilo)",
+      "Anatomia ocular e estrutura dos cílios",
+      "Contraindicações e cuidados específicos",
+      "Técnicas de preparação e finalização profissional",
+      "Retenção e manutenção correta dos fios",
+      "Remoção mecânica e química segura",
+      "Precificação estratégica",
+      "Marketing e fotografia profissional para redes sociais",
+      "Ética e postura profissional"
+    ],
     courseInfo: [
       "Duração: 2 dias — 16h (9h às 17h)",
       "2 modelos por aluna (fornecidos pelo centro de formação)",
@@ -363,7 +393,7 @@ export const courses: Course[] = [
       "Aulas teóricas e práticas com materiais premium",
       "Suporte pós-curso e loja com todos os produtos disponíveis"
     ],
-    personalizedCTA: "Ao final, você sairá pronta para atuar profissionalmente, dominando todos os fios tecnológicos, entregando resultados elegantes e de longa duração."
+    personalizedCTA: "Ao final, você sairá pronta para atuar profissionalmente, dominando todos os efeitos tecnológicos, entregendo resultados elegantes e de longa duração."
   },
   {
     id: "massagem-modeladora",
@@ -511,7 +541,7 @@ export const courses: Course[] = [
     description: "Curso completo para dominar técnicas fundamentais da estética regenerativa, oferecendo resultados satisfatórios aos clientes",
     duration: "56h",
     level: "Nível 4 - Master",
-    category: "Estética Avançada",
+    category: "Estética Facial e Corporal",
     cashPrice: 1300,
     installmentPrice: 1450,
     detailedDescription: "Este curso é feito para profissionais que querem dominar as técnicas fundamentais da estética regenerativa. Com aulas teóricas e práticas, você aprenderá desde procedimentos faciais até corporais, planejamento estratégico e atendimento de alto padrão.",
@@ -627,7 +657,7 @@ export const courses: Course[] = [
     description: "Técnica tradicional do fio para remover pelos e lanugens faciais com precisão e delicadeza",
     duration: "6h",
     level: "Nível 2 - Desenvolvimento",
-    category: "Estética Facial",
+    category: "Beleza e Design",
     detailedDescription: "A epilação egípcia é um método 100% natural, que proporciona uma pele lisa, sem irritações e com resultados para clientes com pele sensível ou alergias à cera.",
     whatYouWillLearn: [
       "Anatomia e fisiologia da pele e dos pelos",
@@ -959,7 +989,7 @@ export const courses: Course[] = [
     description: "Dominar técnicas avançadas com jato de plasma",
     duration: "8h",
     level: "Nível 2 - Desenvolvimento",
-    category: "Tecnologias e Equipamentos",
+    category: "Estética Facial e Corporal",
     cashPrice: 790,
     installmentPrice: 890,
     detailedDescription: "Curso presencial de 8h, com turmas pequenas (até 3 alunos), voltado para profissionais que querem dominar técnicas avançadas com jato de plasma.",
@@ -975,6 +1005,76 @@ export const courses: Course[] = [
       "Professora especialista (dermaticista)",
       "Material didático atualizado, certificado e suporte pós-curso"
     ]
+  },
+  {
+    id: "estetica-olhar",
+    title: "Estética do Olhar",
+    image: esteticaOlhar,
+    highlighted: true,
+    description: "Design de sobrancelhas + Extensão de cílios completo em 3 dias intensivos",
+    duration: "24h",
+    level: "Nível 1 - Fundamentos",
+    category: "Beleza e Design",
+    cashPrice: 1200,
+    installmentPrice: 1300,
+    detailedDescription: "O curso Estética do Olhar é a porta de entrada perfeita para quem sonha em começar na área da beleza e conquistar independência profissional. Em 3 dias intensos de imersão prática, você aprenderá as principais técnicas que valorizam o olhar, unindo Design de sobrancelhas e Extensão de cílios. Mesmo que você nunca tenha trabalhado na área, o conteúdo foi desenvolvido passo a passo, com acompanhamento individual, modelos reais e materiais inclusos.",
+    whatYouWillLearn: [
+      "Design de sobrancelhas com pinça, linha e tesoura",
+      "Aplicação de henna e coloração",
+      "Spa das sobrancelhas",
+      "Extensão de cílios fio a fio",
+      "Volumes 2D ao 8D",
+      "Mapeamento personalizado",
+      "Técnicas de retenção",
+      "Efeitos: Doll Eyes, Cat Eyes (Gatinho) e Squirrel (Esquilo)"
+    ],
+    bonuses: [
+      "Material didático e suporte pós-curso",
+      "Kit profissional de design"
+    ],
+    courseInfo: [
+      "Duração: 3 dias intensivos — 24h",
+      "Turmas reduzidas: máximo 5 alunas",
+      "Modelos reais para prática",
+      "Acompanhamento individualizado",
+      "Material didático incluso",
+      "Kit profissional de design incluso",
+      "Certificado de conclusão",
+      "Suporte pós-curso"
+    ],
+    personalizedCTA: "Ao final do curso, você sairá preparada para iniciar seus atendimentos, com conhecimento atualizado e segurança para atuar profissionalmente no mercado da beleza."
+  },
+  {
+    id: "ultrassom-hifu",
+    title: "Ultrassom Microfocado (HIFU)",
+    image: herusHifu,
+    description: "Domine a tecnologia HIFU para rejuvenescimento facial e corporal sem cirurgia",
+    duration: "8h",
+    level: "Nível 2 - Desenvolvimento",
+    category: "Estética Facial e Corporal",
+    cashPrice: 1600,
+    installmentPrice: 1700,
+    detailedDescription: "O curso de Ultrassom Microfocado (HIFU) foi desenvolvido para capacitar profissionais e iniciantes da estética que desejam dominar uma das tecnologias mais avançadas em rejuvenescimento facial e corporal. Durante as aulas, você aprenderá desde os fundamentos teóricos até a aplicação prática, entendendo como o HIFU atua nas diferentes camadas da pele, estimulando o colágeno e proporcionando resultados visíveis de lifting sem cirurgia.",
+    whatYouWillLearn: [
+      "Princípios físicos do ultrassom microfocado (HIFU)",
+      "Anatomia facial e corporal aplicada ao procedimento",
+      "Indicações e contraindicações clínicas",
+      "Protocolos faciais e corporais completos",
+      "Ajuste de parâmetros, profundidades e cartuchos",
+      "Técnicas para lifting, contorno e firmeza da pele",
+      "Cuidados pré e pós-procedimento",
+      "Associação com outras terapias estéticas para resultados potencializados"
+    ],
+    courseInfo: [
+      "Duração: 1 dia — 8h",
+      "Aulas teóricas e práticas",
+      "Prática em modelos reais",
+      "Material didático incluso",
+      "Certificado de conclusão",
+      "Suporte pós-curso",
+      "Turmas reduzidas para melhor aprendizado"
+    ],
+    personalizedCTA: "Ao final do curso, a aluna estará apta a realizar procedimentos com segurança, compreender a individualidade de cada pele e oferecer resultados reais e duradouros com técnica, confiança e excelência."
   }
 ];
 
