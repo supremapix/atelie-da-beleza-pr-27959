@@ -9,6 +9,7 @@ import CoursesShowcase from "@/components/CoursesShowcase";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import LocationLinks from "@/components/LocationLinks";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import SchemaMarkup from "@/components/SchemaMarkup";
@@ -203,6 +204,7 @@ const Index = () => {
         <About />
         <Testimonials />
         <FAQ items={generalFAQ} />
+        <LocationLinks />
         <Contact />
       </main>
       <Footer />

@@ -9,21 +9,7 @@ import TodosCursos from "./pages/TodosCursos";
 import CourseDetail from "./pages/CourseDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-
-// Neighborhood Pages
-import Centro from "./pages/neighborhoods/Centro";
-import Batel from "./pages/neighborhoods/Batel";
-import AguaVerde from "./pages/neighborhoods/AguaVerde";
-import Cabral from "./pages/neighborhoods/Cabral";
-import Reboucas from "./pages/neighborhoods/Reboucas";
-import Bigorrilho from "./pages/neighborhoods/Bigorrilho";
-import Merces from "./pages/neighborhoods/Merces";
-import CristoRei from "./pages/neighborhoods/CristoRei";
-import Portao from "./pages/neighborhoods/Portao";
-import SantaFelicidade from "./pages/neighborhoods/SantaFelicidade";
-import Cajuru from "./pages/neighborhoods/Cajuru";
-import BoaVista from "./pages/neighborhoods/BoaVista";
-import AltoDaXV from "./pages/neighborhoods/AltoDaXV";
+import DynamicLocation from "./pages/DynamicLocation";
 
 const queryClient = new QueryClient();
 
@@ -39,21 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/cursos" element={<TodosCursos />} />
             <Route path="/curso/:courseId" element={<CourseDetail />} />
-            
-            {/* Neighborhood Pages */}
-            <Route path="/centro" element={<Centro />} />
-            <Route path="/batel" element={<Batel />} />
-            <Route path="/agua-verde" element={<AguaVerde />} />
-            <Route path="/cabral" element={<Cabral />} />
-            <Route path="/reboucas" element={<Reboucas />} />
-            <Route path="/bigorrilho" element={<Bigorrilho />} />
-            <Route path="/merces" element={<Merces />} />
-            <Route path="/cristo-rei" element={<CristoRei />} />
-            <Route path="/portao" element={<Portao />} />
-            <Route path="/santa-felicidade" element={<SantaFelicidade />} />
-            <Route path="/cajuru" element={<Cajuru />} />
-            <Route path="/boa-vista" element={<BoaVista />} />
-            <Route path="/alto-da-xv" element={<AltoDaXV />} />
+            <Route path="/:slug" element={<DynamicLocation />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
