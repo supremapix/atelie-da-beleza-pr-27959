@@ -14,7 +14,7 @@ export const locations: Location[] = [
     slug: "curitiba",
     name: "Curitiba",
     type: "city",
-    description: "Capital paranaense e polo de estética e beleza do Sul do Brasil. Curitiba se destaca como um centro de excelência em capacitação profissional, com demanda crescente por profissionais qualificados em estética facial, corporal, micropigmentação e design de sobrancelhas. Nossa escola está estrategicamente localizada para atender toda a cidade com fácil acesso.",
+    description: "Capital paranaense e polo de estética e beleza do Sul do Brasil. Curitiba se destaca como um centro de excelência em capacitação profissional, com demanda crescente por profissionais qualificados em estética facial, corporal, micropigmentação e design de sobrancelhas. Nossa escola está estrategicamente localizada no Pilarzinho (R. Alexandre Von Humboldt, 306) com fácil acesso de todas as regiões da cidade via transporte público e carro.",
     highlights: [
       "Capital do Paraná e polo de beleza",
       "Mercado aquecido com alta demanda",
@@ -538,7 +538,7 @@ export const locations: Location[] = [
     slug: "centro",
     name: "Centro",
     type: "neighborhood",
-    description: "Coração pulsante de Curitiba, o Centro é o principal polo comercial e empresarial da cidade. Com fluxo intenso de pessoas diariamente, oferece oportunidades excepcionais para profissionais de estética que buscam clientela diversificada e constante. Nossa escola está estrategicamente localizada com fácil acesso via transporte público e próxima aos principais pontos comerciais.",
+    description: "Coração pulsante de Curitiba, o Centro é o principal polo comercial e empresarial da cidade. Com fluxo intenso de pessoas diariamente, oferece oportunidades excepcionais para profissionais de estética que buscam clientela diversificada e constante. Nossa escola no Pilarzinho (R. Alexandre Von Humboldt, 306) está a poucos minutos do Centro com fácil acesso via transporte público.",
     highlights: [
       "Localização central privilegiada",
       "Fácil acesso via transporte público",
@@ -556,7 +556,7 @@ export const locations: Location[] = [
     slug: "batel",
     name: "Batel",
     type: "neighborhood",
-    description: "Bairro mais sofisticado de Curitiba, o Batel é sinônimo de luxo e alto padrão. Com público exigente e disposto a investir em serviços premium, oferece as melhores oportunidades para profissionais de estética especializados. Nossa capacitação prepara para atender esta clientela exclusiva com excelência e técnicas avançadas.",
+    description: "Bairro mais sofisticado de Curitiba, o Batel é sinônimo de luxo e alto padrão. Com público exigente e disposto a investir em serviços premium, oferece as melhores oportunidades para profissionais de estética especializados. Nossa capacitação no Pilarzinho (R. Alexandre Von Humboldt, 306 - CEP 80060-150) prepara para atender esta clientela exclusiva, com fácil acesso desde o Batel.",
     highlights: [
       "Bairro mais nobre de Curitiba",
       "Público de altíssimo poder aquisitivo",
@@ -574,7 +574,7 @@ export const locations: Location[] = [
     slug: "agua-verde",
     name: "Água Verde",
     type: "neighborhood",
-    description: "Bairro charmoso e consolidado, o Água Verde combina perfil residencial com forte presença comercial. Próximo a universidades e com excelente infraestrutura, oferece mercado diversificado e constante para profissionais de estética. Público jovem, universitário e familiar garantem demanda variada.",
+    description: "Bairro charmoso e consolidado, o Água Verde combina perfil residencial com forte presença comercial. Próximo a universidades e com excelente infraestrutura, oferece mercado diversificado e constante para profissionais de estética. Nossa escola fica no Pilarzinho (R. Alexandre Von Humboldt, 306), região com fácil acesso do Água Verde. Público jovem, universitário e familiar garantem demanda variada.",
     highlights: [
       "Bairro consolidado e valorizado",
       "Próximo a universidades renomadas",

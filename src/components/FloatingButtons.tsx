@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, ArrowUp } from "lucide-react";
+import { MessageCircle, Phone, Mail, ArrowUp, Navigation } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const FloatingButtons = () => {
@@ -30,10 +30,14 @@ const FloatingButtons = () => {
     window.location.href = 'mailto:cursosateliedabeleza@gmail.com';
   };
 
+  const handleRoute = () => {
+    window.open('https://maps.app.goo.gl/ETYAaHw3CJvMgjPf7', '_blank');
+  };
+
   return (
     <>
-      {/* Floating Action Buttons - Bottom Left */}
-      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 flex flex-col gap-2 md:gap-3">
+      {/* Floating Action Buttons - Bottom Right */}
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 md:gap-3">
         <Button
           variant="floating"
           size="icon"
@@ -52,6 +56,16 @@ const FloatingButtons = () => {
           className="h-12 w-12 md:h-14 md:w-14"
         >
           <Phone className="w-5 h-5 md:w-6 md:h-6" />
+        </Button>
+
+        <Button
+          variant="floating"
+          size="icon"
+          onClick={handleRoute}
+          aria-label="Como Chegar"
+          className="bg-blue-600 hover:bg-blue-700 h-12 w-12 md:h-14 md:w-14"
+        >
+          <Navigation className="w-5 h-5 md:w-6 md:h-6" />
         </Button>
 
         <Button
