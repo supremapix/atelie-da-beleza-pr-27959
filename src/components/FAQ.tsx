@@ -41,12 +41,12 @@ const FAQ = ({
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border border-primary/20 rounded-lg px-6 bg-card/50 backdrop-blur-sm hover:border-primary/40 transition-colors"
+                className="border-2 border-primary/30 rounded-lg px-6 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors data-[state=open]:bg-primary data-[state=open]:text-black"
               >
-                <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5 data-[state=open]:text-black">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm md:text-base leading-relaxed pt-2 pb-5 opacity-90">
+                <AccordionContent className="text-sm md:text-base leading-relaxed pt-2 pb-5 data-[state=open]:text-black/90">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -2,10 +2,23 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap } from "lucide-react";
 import { useState, useEffect } from "react";
 import heroMobileImage from "@/assets/hero-mobile-portrait.jpg";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  
+  const { displayedText: torneSe, isComplete: torneSeComplete } = useTypewriter({ 
+    text: "Torne-se", 
+    speed: 150, 
+    delay: 500 
+  });
+  
+  const { displayedText: referencia } = useTypewriter({ 
+    text: "Referência em Estética", 
+    speed: 100, 
+    delay: torneSeComplete ? 800 : 99999 
+  });
   
   useEffect(() => {
     const checkMobile = () => {
@@ -68,13 +81,13 @@ const Hero = () => {
             <div className="w-12 sm:w-16 md:w-20 h-0.5 bg-primary mx-auto"></div>
           </div>
           
-          {/* Título Principal */}
+          {/* Título Principal com Efeito Typewriter */}
           <h1 className="font-bold tracking-tight leading-tight font-playfair px-2">
             <span className="block text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-1 sm:mb-2 md:mb-3">
-              Torne-se
+              {torneSe}<span className="animate-pulse">|</span>
             </span>
             <span className="block text-primary text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-3 md:mb-4 break-words">
-              Referência em Estética
+              {referencia}{torneSeComplete && <span className="animate-pulse">|</span>}
             </span>
             <span className="block text-white/90 text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-1 sm:mt-2 md:mt-4 font-montserrat font-light leading-snug">
               em apenas algumas horas

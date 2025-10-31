@@ -64,7 +64,10 @@ const Index = () => {
       <main>
         <Hero />
         
-        {/* Busca de Cursos na Home */}
+        <SectionDivider />
+        <Courses />
+        
+        {/* Busca de Cursos na Home - MOVIDA PARA DEPOIS DE CURSOS EM DESTAQUE */}
         <section className="py-12 bg-gradient-to-b from-background to-[#E8DCC4]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 font-playfair text-foreground">
@@ -196,9 +199,6 @@ const Index = () => {
             )}
           </div>
         </section>
-        
-        <SectionDivider />
-        <Courses />
         <VideoSection />
         <CoursesShowcase />
         <About />

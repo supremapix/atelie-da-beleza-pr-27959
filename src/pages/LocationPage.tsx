@@ -220,14 +220,14 @@ const LocationPage = ({
                     </div>
                   </div>
 
-                  {/* Botão Como Chegar */}
+                  {/* Botão Como Chegar - Responsivo */}
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg md:text-xl px-6 sm:px-8 py-4 sm:py-6 h-auto bg-blue-600 hover:bg-blue-700"
+                    className="w-full text-sm sm:text-base md:text-lg lg:text-xl px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 h-auto bg-blue-600 hover:bg-blue-700"
                     onClick={handleRoute}
                   >
-                    <Navigation2 className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
-                    Como Chegar - Abrir no Google Maps
+                    <Navigation2 className="mr-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 flex-shrink-0" />
+                    <span className="truncate">Como Chegar - Google Maps</span>
                   </Button>
                   
                   <p className="text-xs sm:text-sm text-center text-muted-foreground mt-3 sm:mt-4">
