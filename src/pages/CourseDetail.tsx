@@ -245,7 +245,102 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* YouTube Shorts Video Section with Persuasive CTA */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-x-hidden">
+        <div className="container mx-auto px-4 max-w-full">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Video Column */}
+              <div className="order-2 lg:order-1">
+                <div className="relative aspect-[9/16] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/40 hover:border-primary/60 transition-all bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/GquzgnqO7x0"
+                    title="Conheça o Ateliê Beleza - Transforme sua Carreira"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Persuasive Content Column */}
+              <div className="order-1 lg:order-2 text-center lg:text-left">
+                <div className="inline-block bg-primary/20 border border-primary/50 text-primary px-6 py-2 rounded-full text-sm font-bold mb-4">
+                  ✨ TRANSFORME SUA VIDA
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-playfair leading-tight">
+                  {course.category === "Micropigmentação" && "Domine a Arte da Micropigmentação e Fature Alto!"}
+                  {course.category === "Design de Sobrancelhas" && "Torne-se Expert em Design de Sobrancelhas!"}
+                  {course.category === "Lash & Brow" && "Conquiste Clientes Fiéis com Técnicas de Cílios Perfeitos!"}
+                  {course.category === "Depilação" && "Especialize-se em Depilação e Tenha uma Agenda Lotada!"}
+                  {course.category === "Estética Facial" && "Revolucione sua Carreira com Estética Facial de Alto Padrão!"}
+                  {course.category === "Estética Corporal" && "Transforme Corpos e Vidas com Estética Corporal Avançada!"}
+                  {course.category === "Injetáveis" && "Entre no Mercado de Estética Avançada com Injetáveis!"}
+                  {!["Micropigmentação", "Design de Sobrancelhas", "Lash & Brow", "Depilação", "Estética Facial", "Estética Corporal", "Injetáveis"].includes(course.category) && "Transforme Sua Paixão em Profissão de Sucesso!"}
+                </h2>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-lg md:text-xl text-white/90 font-montserrat leading-relaxed">
+                    {course.category === "Micropigmentação" && "Aprenda com quem tem mais de 6.000 alunas formadas! Técnicas exclusivas, prática intensiva e suporte completo para você começar a faturar rápido."}
+                    {course.category === "Design de Sobrancelhas" && "Descubra os segredos das sobrancelhas perfeitas! Curso completo com técnicas modernas e certificado reconhecido nacionalmente."}
+                    {course.category === "Lash & Brow" && "Do básico ao avançado: domine todas as técnicas de extensão de cílios e tenha uma clientela fiel e recorrente."}
+                    {course.category === "Depilação" && "Aprenda métodos seguros e eficazes que vão te destacar no mercado. Material incluso e certificação profissional."}
+                    {course.category === "Estética Facial" && "Domine os tratamentos faciais mais procurados do mercado. Aulas práticas com produtos profissionais de primeira linha."}
+                    {course.category === "Estética Corporal" && "Técnicas comprovadas para resultados visíveis. Aprenda massagens modeladoras, drenagem e muito mais com quem é referência."}
+                    {course.category === "Injetáveis" && "Capacitação completa em procedimentos estéticos avançados. Metodologia exclusiva com foco em segurança e resultados naturais."}
+                    {!["Micropigmentação", "Design de Sobrancelhas", "Lash & Brow", "Depilação", "Estética Facial", "Estética Corporal", "Injetáveis"].includes(course.category) && `Aprenda ${course.title.toLowerCase()} com a melhor escola de estética de Curitiba. Mais de 6.000 alunas formadas e prontas para o mercado!`}
+                  </p>
+                  
+                  {/* Key Benefits */}
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p className="text-white/80 font-montserrat text-left">
+                        <strong className="text-white">Prática desde o 1º dia:</strong> Você vai aprender fazendo, com supervisão de especialistas
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p className="text-white/80 font-montserrat text-left">
+                        <strong className="text-white">Material profissional incluso:</strong> Tudo que você precisa para começar sua carreira
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                      <p className="text-white/80 font-montserrat text-left">
+                        <strong className="text-white">Suporte contínuo:</strong> Mesmo após o curso, você terá nosso apoio profissional
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Urgency CTA */}
+                <div className="space-y-4">
+                  <div className="inline-block bg-red-600/20 border border-red-500/50 text-red-300 px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
+                    ⏰ Últimas vagas disponíveis para esta turma!
+                  </div>
+                  
+                  <Button
+                    variant="hero"
+                    size="lg"
+                    onClick={handleWhatsAppClick}
+                    className="w-full lg:w-auto group shadow-2xl hover:shadow-primary/40 scale-105 hover:scale-110 transition-all text-lg px-10 py-7"
+                  >
+                    <Phone className="mr-2 h-6 w-6 group-hover:animate-bounce" />
+                    Garantir Minha Vaga Agora!
+                  </Button>
+                  
+                  <p className="text-white/60 text-sm font-montserrat">
+                    💬 Atendimento imediato via WhatsApp
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {course.videoUrl && (
         <section className="py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-transparent overflow-x-hidden">
           <div className="container mx-auto px-4 max-w-full">
