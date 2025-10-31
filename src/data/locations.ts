@@ -989,9 +989,567 @@ export const locations: Location[] = [
     highlights: ["Centro boêmio cultural", "Ambiente criativo", "Público antenado", "Abordagem artística", "Foco em inovação", "Networking cultural", "Proximidade com arte", "Desenvolvimento criativo"],
     nearbyPlaces: ["Batel", "Boa Vista", "Cabral", "São Francisco"],
     popularCourses: ["Micropigmentação Artística", "Design Criativo", "Colorimetria", "Estética Alternativa"]
-  }
+  },
 
-  // Continuará com todos os outros bairros...
+  // Todos os bairros restantes de Curitiba
+  {
+    slug: "ahu",
+    name: "Ahú",
+    type: "neighborhood",
+    description: "Bairro nobre e tradicional de Curitiba, o Ahú combina charme histórico com modernidade. Próximo ao Alto da Glória e com infraestrutura completa, oferece mercado sofisticado para profissionais de estética que buscam clientela de alto padrão.",
+    highlights: ["Bairro nobre tradicional", "Arquitetura histórica preservada", "População de alto padrão", "Demanda por serviços premium", "Proximidade com centro cultural", "Oportunidades em clínicas de luxo", "Público exigente e fiel", "Networking exclusivo"],
+    nearbyPlaces: ["Alto da Glória", "Juvevê", "Guaíra", "Centro"],
+    popularCourses: ["Estética Facial Premium", "Micropigmentação VIP", "Harmonização Facial", "Drenagem Linfática"]
+  },
+  {
+    slug: "alto-boqueirao",
+    name: "Alto Boqueirão",
+    type: "neighborhood",
+    description: "Uma das regiões mais populosas de Curitiba, o Alto Boqueirão oferece mercado amplo e diversificado. Com crescimento acelerado e infraestrutura moderna, apresenta oportunidades abundantes para profissionais de estética de todos os níveis.",
+    highlights: ["Região altamente populosa", "Crescimento acelerado", "Mercado diversificado e amplo", "Shopping Mueller próximo", "Demanda intensa por serviços", "Oportunidades para todos os níveis", "Comércio forte consolidado", "Alto volume de atendimentos"],
+    nearbyPlaces: ["Boqueirão", "Xaxim", "Capão Raso", "Hauer"],
+    popularCourses: ["Design de Sobrancelhas", "Micropigmentação", "Estética Facial", "Lash Lifting"]
+  },
+  {
+    slug: "alto-da-gloria",
+    name: "Alto da Glória",
+    type: "neighborhood",
+    description: "Bairro histórico e charmoso, o Alto da Glória é um dos mais tradicionais de Curitiba. Com casarões preservados e público sofisticado, oferece mercado premium para profissionais de estética que valorizam qualidade e exclusividade.",
+    highlights: ["Bairro histórico preservado", "Casarões e arquitetura única", "População de alto padrão", "Mercado sofisticado", "Proximidade com pontos turísticos", "Demanda por serviços exclusivos", "Ambiente cultural rico", "Networking de qualidade"],
+    nearbyPlaces: ["Centro", "Cabral", "Batel", "Ahú"],
+    popularCourses: ["Estética Facial de Luxo", "Micropigmentação Premium", "Harmonização", "Massagem Relaxante"]
+  },
+  {
+    slug: "atuba",
+    name: "Atuba",
+    type: "neighborhood",
+    description: "Bairro em desenvolvimento na região norte de Curitiba, o Atuba apresenta mercado emergente com oportunidades para pioneiros. Com crescimento populacional e novos empreendimentos, oferece excelente potencial de retorno.",
+    highlights: ["Região em desenvolvimento", "Mercado emergente promissor", "Baixa concorrência qualificada", "Crescimento populacional", "Novos empreendimentos", "Oportunidades para pioneiros", "Investimento acessível", "Alto potencial de retorno"],
+    nearbyPlaces: ["Bacacheri", "Santa Cândida", "Bairro Alto"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "augusta",
+    name: "Augusta",
+    type: "neighborhood",
+    description: "Região próxima à Cidade Industrial, Augusta oferece mercado consolidado com população trabalhadora. Ideal para profissionais que buscam atender grande volume com eficiência e qualidade.",
+    highlights: ["Próximo à CIC", "População trabalhadora grande", "Mercado consolidado", "Demanda constante", "Alto volume de atendimentos", "Horários flexíveis importantes", "Investimento acessível", "Retorno garantido"],
+    nearbyPlaces: ["CIC", "Riviera", "Vila Tecnológica"],
+    popularCourses: ["Manicure Express", "Design de Sobrancelhas", "Depilação", "Estética Facial Básica"]
+  },
+  {
+    slug: "bacacheri",
+    name: "Bacacheri",
+    type: "neighborhood",
+    description: "Bairro tradicional da região norte com perfil residencial consolidado. O Bacacheri oferece mercado estável para profissionais de estética, com comunidade fiel e demanda constante por serviços de qualidade.",
+    highlights: ["Bairro tradicional consolidado", "Perfil residencial forte", "Comunidade fidelizada", "Demanda estável constante", "Comércio local ativo", "Oportunidades em salões estabelecidos", "Público de todas as idades", "Ambiente familiar"],
+    nearbyPlaces: ["Boa Vista", "Santa Cândida", "Barreirinha"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Depilação", "Drenagem Linfática"]
+  },
+  {
+    slug: "bairro-alto",
+    name: "Bairro Alto",
+    type: "neighborhood",
+    description: "Região norte de Curitiba em crescimento, o Bairro Alto apresenta mercado emergente com população jovem. Oferece oportunidades para profissionais que buscam crescer junto com o desenvolvimento da região.",
+    highlights: ["Região em crescimento", "População jovem moderna", "Mercado emergente", "Baixa concorrência", "Novos empreendimentos", "Oportunidades para pioneiros", "Investimento com futuro", "Demanda crescente"],
+    nearbyPlaces: ["Santa Cândida", "Atuba", "Tingui"],
+    popularCourses: ["Design de Sobrancelhas", "Lash Lifting", "Estética Facial", "Micropigmentação"]
+  },
+  {
+    slug: "barreirinha",
+    name: "Barreirinha",
+    type: "neighborhood",
+    description: "Bairro charmoso com perfil residencial, a Barreirinha oferece mercado consolidado próximo ao Parque Tingui. Com população de classe média alta e valorização da qualidade de vida, apresenta ótimas oportunidades.",
+    highlights: ["Próximo ao Parque Tingui", "Bairro residencial charmoso", "População classe média alta", "Valorização de bem-estar", "Demanda por qualidade", "Ambiente tranquilo", "Mercado estável", "Público fidelizado"],
+    nearbyPlaces: ["Bacacheri", "Tingui", "Tanguá"],
+    popularCourses: ["Estética Facial Natural", "Drenagem Linfática", "Massagem Relaxante", "Design de Sobrancelhas"]
+  },
+  {
+    slug: "bom-retiro",
+    name: "Bom Retiro",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Centro, o Bom Retiro combina residencial e comercial. Oferece mercado diversificado para profissionais de estética, com público variado e demanda constante.",
+    highlights: ["Próximo ao Centro", "Bairro tradicional", "Perfil misto residencial/comercial", "Público diversificado", "Demanda constante", "Fácil acesso transporte", "Oportunidades variadas", "Mercado estável"],
+    nearbyPlaces: ["Centro", "Cabral", "São Francisco"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "boqueirao",
+    name: "Boqueirão",
+    type: "neighborhood",
+    description: "Um dos maiores e mais populosos bairros de Curitiba, o Boqueirão oferece mercado gigante e diversificado. Com shopping centers, comércio forte e população de todas as classes, apresenta oportunidades ilimitadas.",
+    highlights: ["Maior bairro de Curitiba", "População massiva", "Shopping Palladium", "Comércio muito forte", "Demanda gigantesca", "Mercado para todos os nichos", "Alto volume garantido", "Oportunidades ilimitadas"],
+    nearbyPlaces: ["Alto Boqueirão", "Xaxim", "Portão", "Hauer"],
+    popularCourses: ["Design de Sobrancelhas", "Micropigmentação", "Estética Facial", "Depilação a Laser"]
+  },
+  {
+    slug: "butiatuvinha",
+    name: "Butiatuvinha",
+    type: "neighborhood",
+    description: "Bairro afastado do centro com características rurais e urbanas. Butiatuvinha apresenta mercado em desenvolvimento, ideal para profissionais que buscam mercado com baixa concorrência e comunidade fiel.",
+    highlights: ["Bairro com perfil único", "Mercado em desenvolvimento", "Baixíssima concorrência", "Comunidade muito unida", "Oportunidades para pioneiros", "Investimento baixo", "Clientela fidelizada", "Ambiente tranquilo"],
+    nearbyPlaces: ["Santa Felicidade", "Orleans", "Campo Comprido"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "cachoeira",
+    name: "Cachoeira",
+    type: "neighborhood",
+    description: "Bairro próximo ao Batel e Mercês, a Cachoeira oferece mercado sofisticado em região valorizada. Com público de alto padrão e infraestrutura completa, apresenta oportunidades premium para profissionais especializados.",
+    highlights: ["Região valorizada", "Próximo a bairros nobres", "População de alto padrão", "Demanda por serviços premium", "Oportunidades em clínicas modernas", "Público exigente", "Mercado sofisticado", "Networking de qualidade"],
+    nearbyPlaces: ["Batel", "Mercês", "Cristo Rei"],
+    popularCourses: ["Estética Facial Avançada", "Micropigmentação Premium", "Harmonização", "Botox"]
+  },
+  {
+    slug: "campina-do-siqueira",
+    name: "Campina do Siqueira",
+    type: "neighborhood",
+    description: "Bairro residencial tradicional próximo à região central, a Campina do Siqueira oferece mercado consolidado com população fiel. Ideal para profissionais que buscam estabilidade e clientela de longo prazo.",
+    highlights: ["Bairro residencial tradicional", "População fidelizada", "Mercado consolidado", "Demanda estável", "Comércio local forte", "Ambiente familiar", "Oportunidades em salões estabelecidos", "Público de todas as idades"],
+    nearbyPlaces: ["Juvevê", "Ahú", "Bigorrilho"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Depilação", "Manicure e Pedicure"]
+  },
+  {
+    slug: "campo-comprido",
+    name: "Campo Comprido",
+    type: "neighborhood",
+    description: "Bairro extenso na região oeste de Curitiba, Campo Comprido apresenta mercado amplo com população diversificada. Oferece oportunidades para profissionais de todos os níveis com alto potencial de volume.",
+    highlights: ["Bairro extenso populoso", "Mercado amplo diversificado", "População de todas as classes", "Demanda variada", "Alto volume potencial", "Oportunidades para iniciantes", "Comércio em crescimento", "Investimento acessível"],
+    nearbyPlaces: ["Orleans", "Santa Felicidade", "Butiatuvinha"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "campo-de-santana",
+    name: "Campo de Santana",
+    type: "neighborhood",
+    description: "Bairro tradicional da zona leste, Campo de Santana oferece mercado consolidado com perfil familiar. Apresenta oportunidades para profissionais que valorizam comunidade local e atendimento personalizado.",
+    highlights: ["Bairro tradicional familiar", "Comunidade muito unida", "Mercado consolidado", "Demanda estável", "Público fidelizado", "Ambiente acolhedor", "Oportunidades locais", "Investimento com segurança"],
+    nearbyPlaces: ["Uberaba", "Capão Raso", "Jardim das Américas"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Drenagem Linfática"]
+  },
+  {
+    slug: "capao-da-imbuia",
+    name: "Capão da Imbuia",
+    type: "neighborhood",
+    description: "Bairro extenso da zona leste com mercado em crescimento. O Capão da Imbuia oferece oportunidades para profissionais que buscam atender população trabalhadora com serviços de qualidade e preços justos.",
+    highlights: ["Bairro extenso populoso", "Mercado em crescimento", "População trabalhadora", "Demanda crescente", "Baixa concorrência qualificada", "Oportunidades para iniciantes", "Alto volume potencial", "Retorno rápido"],
+    nearbyPlaces: ["Jardim das Américas", "Capão Raso", "Uberaba"],
+    popularCourses: ["Manicure e Pedicure", "Design de Sobrancelhas", "Depilação", "Estética Facial"]
+  },
+  {
+    slug: "capao-raso",
+    name: "Capão Raso",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul com comércio forte. O Capão Raso oferece mercado amplo e diversificado, ideal para profissionais que buscam alto volume de atendimentos e clientela variada.",
+    highlights: ["Bairro muito populoso", "Comércio forte consolidado", "Mercado amplo diversificado", "Demanda intensa", "Alto volume garantido", "Oportunidades variadas", "Público de todas as classes", "Mercado estável"],
+    nearbyPlaces: ["Xaxim", "Boqueirão", "Cajuru", "Jardim das Américas"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Micropigmentação", "Depilação"]
+  },
+  {
+    slug: "cascatinha",
+    name: "Cascatinha",
+    type: "neighborhood",
+    description: "Bairro charmoso próximo a Santa Felicidade, a Cascatinha oferece mercado diferenciado com público que valoriza qualidade. Ambiente tranquilo e boa infraestrutura garantem ótimas oportunidades.",
+    highlights: ["Bairro charmoso tranquilo", "Próximo a Santa Felicidade", "Público valoriza qualidade", "Ambiente diferenciado", "Demanda por serviços premium", "Oportunidades em spas", "Mercado estável", "Networking local"],
+    nearbyPlaces: ["Santa Felicidade", "Vista Alegre", "Orleans"],
+    popularCourses: ["Estética Facial Premium", "Drenagem Linfática", "Massagem Relaxante", "Micropigmentação"]
+  },
+  {
+    slug: "caximba",
+    name: "Caximba",
+    type: "neighborhood",
+    description: "Bairro residencial na região sul de Curitiba, a Caximba apresenta mercado em desenvolvimento com população trabalhadora. Oferece oportunidades para profissionais que buscam mercado emergente com baixa concorrência.",
+    highlights: ["Mercado em desenvolvimento", "População trabalhadora", "Baixa concorrência", "Oportunidades emergentes", "Investimento acessível", "Comunidade em formação", "Potencial de crescimento", "Retorno progressivo"],
+    nearbyPlaces: ["Umbará", "Tatuquara", "Ganchinho"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "centro-civico",
+    name: "Centro Cívico",
+    type: "neighborhood",
+    description: "Coração administrativo de Curitiba com prédios governamentais e empresariais. O Centro Cívico oferece mercado corporativo diferenciado, ideal para profissionais especializados em atendimento executivo e express.",
+    highlights: ["Centro administrativo oficial", "Público executivo", "Demanda por serviços express", "Alto poder aquisitivo", "Horários comerciais estratégicos", "Oportunidades corporativas", "Networking profissional", "Mercado premium"],
+    nearbyPlaces: ["Centro", "Batel", "Cabral", "Alto da Glória"],
+    popularCourses: ["Design de Sobrancelhas Express", "Estética Facial Rápida", "Micropigmentação", "Manicure Executiva"]
+  },
+  {
+    slug: "cidade-industrial-de-curitiba",
+    name: "Cidade Industrial de Curitiba",
+    type: "neighborhood",
+    description: "Maior polo industrial de Curitiba, a CIC oferece mercado massivo com população trabalhadora. Com mais de 100 mil trabalhadores diariamente, apresenta oportunidades ilimitadas para profissionais de estética.",
+    highlights: ["Maior polo industrial", "100 mil trabalhadores/dia", "Demanda massiva", "Mercado gigantesco", "Alto volume garantido", "Oportunidades para todos", "Horários estratégicos", "Retorno rápido garantido"],
+    nearbyPlaces: ["Augusta", "Riviera", "Sítio Cercado"],
+    popularCourses: ["Manicure Express", "Design de Sobrancelhas", "Depilação", "Estética Facial Rápida"]
+  },
+  {
+    slug: "fanny",
+    name: "Fanny",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Portão, o Fanny oferece mercado consolidado com população de classe média. Comércio forte e comunidade fiel garantem oportunidades estáveis para profissionais de estética.",
+    highlights: ["Bairro tradicional consolidado", "Próximo ao Portão", "População classe média", "Comércio forte", "Comunidade fidelizada", "Demanda estável", "Oportunidades em salões locais", "Mercado previsível"],
+    nearbyPlaces: ["Portão", "Guabirotuba", "Água Verde"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure e Pedicure"]
+  },
+  {
+    slug: "fazendinha",
+    name: "Fazendinha",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul, a Fazendinha oferece mercado amplo com demanda crescente. População trabalhadora e comércio em desenvolvimento garantem oportunidades para profissionais de todos os níveis.",
+    highlights: ["Bairro populoso", "Mercado em crescimento", "População trabalhadora grande", "Demanda crescente", "Comércio em desenvolvimento", "Oportunidades variadas", "Investimento acessível", "Alto potencial"],
+    nearbyPlaces: ["Sítio Cercado", "Ganchinho", "CIC"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "ganchinho",
+    name: "Ganchinho",
+    type: "neighborhood",
+    description: "Bairro da zona sul com perfil residencial e comercial. O Ganchinho apresenta mercado estável com população fiel, ideal para profissionais que buscam construir clientela de longo prazo.",
+    highlights: ["Bairro residencial consolidado", "Mercado estável", "População fidelizada", "Comércio local ativo", "Demanda constante", "Oportunidades em salões", "Ambiente familiar", "Investimento seguro"],
+    nearbyPlaces: ["Sítio Cercado", "Fazendinha", "Umbará"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Drenagem Linfática"]
+  },
+  {
+    slug: "guabirotuba",
+    name: "Guabirotuba",
+    type: "neighborhood",
+    description: "Bairro tradicional com forte comércio e proximidade ao Portão. O Guabirotuba oferece mercado consolidado e diversificado, com oportunidades para profissionais de todos os segmentos de estética.",
+    highlights: ["Bairro tradicional forte", "Comércio muito consolidado", "Próximo ao Portão", "Mercado diversificado", "Demanda constante", "População de todas as classes", "Oportunidades variadas", "Fácil acesso"],
+    nearbyPlaces: ["Portão", "Fanny", "Água Verde", "Parolin"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Micropigmentação", "Depilação"]
+  },
+  {
+    slug: "guaira",
+    name: "Guaíra",
+    type: "neighborhood",
+    description: "Bairro nobre próximo ao Centro e Batel, o Guaíra oferece mercado sofisticado com público de alto padrão. Região valorizada com infraestrutura completa garante oportunidades premium.",
+    highlights: ["Bairro nobre valorizado", "Próximo ao Batel", "População de alto padrão", "Mercado sofisticado", "Demanda por serviços premium", "Oportunidades em clínicas de luxo", "Público exigente", "Networking exclusivo"],
+    nearbyPlaces: ["Batel", "Ahú", "Alto da Glória", "Cabral"],
+    popularCourses: ["Estética Facial Premium", "Harmonização Facial", "Micropigmentação VIP", "Botox"]
+  },
+  {
+    slug: "hauer",
+    name: "Hauer",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul próximo ao Boqueirão. O Hauer oferece mercado amplo com demanda crescente, ideal para profissionais que buscam alto volume de atendimentos.",
+    highlights: ["Bairro populoso", "Mercado amplo", "Demanda crescente", "Alto volume potencial", "Comércio em crescimento", "Oportunidades variadas", "Investimento acessível", "Retorno rápido"],
+    nearbyPlaces: ["Boqueirão", "Cajuru", "Guabirotuba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure Express"]
+  },
+  {
+    slug: "hugo-lange",
+    name: "Hugo Lange",
+    type: "neighborhood",
+    description: "Bairro nobre próximo ao Jardim Botânico, o Hugo Lange oferece mercado exclusivo com público de altíssimo padrão. Ambiente sofisticado e clientela exigente garantem faturamento premium.",
+    highlights: ["Bairro mais nobre", "Próximo ao Jardim Botânico", "Público ultra premium", "Mercado exclusivo", "Demanda por luxo", "Oportunidades VIP", "Faturamento máximo", "Networking de elite"],
+    nearbyPlaces: ["Jardim Botânico", "Jardim Social", "Mercês"],
+    popularCourses: ["Harmonização Facial", "Estética Facial de Luxo", "Micropigmentação VIP", "Spa Therapy"]
+  },
+  {
+    slug: "jardim-botanico",
+    name: "Jardim Botânico",
+    type: "neighborhood",
+    description: "Região nobre ao redor do cartão-postal de Curitiba. O Jardim Botânico oferece mercado sofisticado com turismo e população de alto padrão, ideal para profissionais especializados em serviços premium.",
+    highlights: ["Região nobilíssima", "Cartão-postal de Curitiba", "Turismo intenso", "População de elite", "Demanda por exclusividade", "Oportunidades em spas de luxo", "Público internacional", "Mercado premium"],
+    nearbyPlaces: ["Hugo Lange", "Jardim Social", "Capão da Imbuia"],
+    popularCourses: ["Estética Facial de Luxo", "Spa Treatments", "Micropigmentação Premium", "Massagem Holística"]
+  },
+  {
+    slug: "jardim-das-americas",
+    name: "Jardim das Américas",
+    type: "neighborhood",
+    description: "Bairro populoso da zona leste com crescimento acelerado. O Jardim das Américas oferece mercado amplo e dinâmico, com população jovem e demanda crescente por serviços modernos.",
+    highlights: ["Bairro em crescimento", "População jovem", "Mercado dinâmico", "Demanda crescente", "Comércio em expansão", "Oportunidades modernas", "Alto volume potencial", "Público antenado"],
+    nearbyPlaces: ["Cajuru", "Capão Raso", "Uberaba"],
+    popularCourses: ["Micropigmentação", "Lash Lifting", "Design de Sobrancelhas", "Estética Facial Moderna"]
+  },
+  {
+    slug: "jardim-social",
+    name: "Jardim Social",
+    type: "neighborhood",
+    description: "Bairro nobre próximo ao Jardim Botânico, o Jardim Social oferece mercado sofisticado com infraestrutura completa. Público de alto padrão e ambiente exclusivo garantem oportunidades premium.",
+    highlights: ["Bairro nobre exclusivo", "Próximo ao Jardim Botânico", "População de alto padrão", "Infraestrutura completa", "Demanda por serviços premium", "Oportunidades em clínicas modernas", "Público exigente", "Mercado estável"],
+    nearbyPlaces: ["Jardim Botânico", "Hugo Lange", "Cristo Rei"],
+    popularCourses: ["Estética Facial Avançada", "Harmonização", "Micropigmentação Premium", "Drenagem Linfática"]
+  },
+  {
+    slug: "juveve",
+    name: "Juvevê",
+    type: "neighborhood",
+    description: "Bairro tradicional e valorizado próximo ao Centro, o Juvevê oferece mercado consolidado com público diversificado. Mistura de residencial e comercial garante demanda constante e variada.",
+    highlights: ["Bairro tradicional valorizado", "Próximo ao Centro", "Mercado consolidado", "Público diversificado", "Mistura residencial/comercial", "Demanda constante", "Oportunidades variadas", "Fácil acesso"],
+    nearbyPlaces: ["Cabral", "Ahú", "Bigorrilho", "Campina do Siqueira"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Micropigmentação", "Depilação a Laser"]
+  },
+  {
+    slug: "lamenha-pequena",
+    name: "Lamenha Pequena",
+    type: "neighborhood",
+    description: "Bairro residencial tranquilo da zona leste. Lamenha Pequena oferece mercado consolidado com comunidade fiel, ideal para profissionais que valorizam atendimento personalizado.",
+    highlights: ["Bairro residencial tranquilo", "Comunidade muito fiel", "Mercado consolidado", "Ambiente familiar", "Demanda estável", "Oportunidades locais", "Público de longo prazo", "Investimento seguro"],
+    nearbyPlaces: ["Cajuru", "Uberaba", "Tarumã"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "lindoia",
+    name: "Lindóia",
+    type: "neighborhood",
+    description: "Bairro populoso próximo ao Portão com comércio forte. A Lindóia oferece mercado amplo e diversificado, ideal para profissionais que buscam alto volume de atendimentos.",
+    highlights: ["Bairro populoso", "Comércio forte", "Próximo ao Portão", "Mercado amplo", "Demanda intensa", "Alto volume garantido", "Oportunidades variadas", "Público de todas as classes"],
+    nearbyPlaces: ["Portão", "Novo Mundo", "Guabirotuba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "mossungue",
+    name: "Mossunguê",
+    type: "neighborhood",
+    description: "Bairro nobre com casarões e ambiente sofisticado. O Mossunguê oferece mercado premium com público exigente, ideal para profissionais especializados em estética de alto padrão.",
+    highlights: ["Bairro nobre sofisticado", "Casarões e arquitetura única", "População de elite", "Mercado premium", "Demanda por exclusividade", "Oportunidades VIP", "Ambiente diferenciado", "Networking de qualidade"],
+    nearbyPlaces: ["Hugo Lange", "Jardim Botânico", "Bigorrilho"],
+    popularCourses: ["Estética Facial de Luxo", "Harmonização Facial", "Micropigmentação Premium", "Spa Therapy"]
+  },
+  {
+    slug: "novo-mundo",
+    name: "Novo Mundo",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Portão com perfil familiar. O Novo Mundo oferece mercado consolidado com população fiel, ideal para profissionais que buscam estabilidade.",
+    highlights: ["Bairro tradicional familiar", "Próximo ao Portão", "População muito fiel", "Mercado consolidado", "Demanda estável", "Comércio local forte", "Ambiente acolhedor", "Oportunidades duradouras"],
+    nearbyPlaces: ["Portão", "Lindóia", "Guabirotuba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure e Pedicure", "Depilação"]
+  },
+  {
+    slug: "orleans",
+    name: "Orleans",
+    type: "neighborhood",
+    description: "Bairro charmoso próximo a Santa Felicidade, Orleans oferece mercado diferenciado com perfil sofisticado. Ambiente tranquilo e público de bom gosto garantem oportunidades de qualidade.",
+    highlights: ["Bairro charmoso", "Próximo a Santa Felicidade", "Perfil sofisticado", "Ambiente tranquilo", "Público de bom gosto", "Demanda por qualidade", "Oportunidades diferenciadas", "Mercado estável"],
+    nearbyPlaces: ["Santa Felicidade", "Campo Comprido", "Cascatinha"],
+    popularCourses: ["Estética Facial Premium", "Micropigmentação", "Drenagem Linfática", "Design de Sobrancelhas"]
+  },
+  {
+    slug: "parolin",
+    name: "Parolin",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Portão com forte comércio. O Parolin oferece mercado consolidado e diversificado, com oportunidades para profissionais de todos os níveis.",
+    highlights: ["Bairro tradicional forte", "Comércio consolidado", "Próximo ao Portão", "Mercado diversificado", "Demanda constante", "Oportunidades variadas", "Fácil acesso", "Público fiel"],
+    nearbyPlaces: ["Portão", "Guabirotuba", "Água Verde"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "pilarzinho",
+    name: "Pilarzinho",
+    type: "neighborhood",
+    description: "Bairro próximo ao Parque Tanguá com ambiente tranquilo. O Pilarzinho oferece mercado diferenciado com público que valoriza bem-estar e qualidade de vida.",
+    highlights: ["Próximo ao Parque Tanguá", "Ambiente muito tranquilo", "Público valoriza bem-estar", "Demanda por qualidade", "Oportunidades em wellness", "Mercado diferenciado", "Clientela fidelizada", "Ambiente inspirador"],
+    nearbyPlaces: ["Tanguá", "Tingui", "Barreirinha"],
+    popularCourses: ["Drenagem Linfática", "Massagem Relaxante", "Estética Facial Natural", "Aromaterapia"]
+  },
+  {
+    slug: "pinheirinho",
+    name: "Pinheirinho",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul com crescimento acelerado. O Pinheirinho oferece mercado amplo e dinâmico, com demanda crescente por serviços de beleza de qualidade.",
+    highlights: ["Bairro muito populoso", "Crescimento acelerado", "Mercado amplo dinâmico", "Demanda crescente", "Comércio forte", "Alto volume potencial", "Oportunidades variadas", "Público diversificado"],
+    nearbyPlaces: ["Tatuquara", "Sítio Cercado", "Ganchinho"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Micropigmentação", "Depilação"]
+  },
+  {
+    slug: "prado-velho",
+    name: "Prado Velho",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Centro com charme histórico. O Prado Velho oferece mercado consolidado com público diversificado, ideal para profissionais versáteis.",
+    highlights: ["Bairro histórico charmoso", "Próximo ao Centro", "Mercado consolidado", "Público diversificado", "Mistura de perfis", "Demanda variada", "Oportunidades múltiplas", "Fácil acesso"],
+    nearbyPlaces: ["Centro", "Rebouças", "Água Verde"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "riviera",
+    name: "Riviera",
+    type: "neighborhood",
+    description: "Bairro próximo à CIC com perfil industrial e comercial. A Riviera oferece mercado trabalhador com demanda constante, ideal para serviços práticos e eficientes.",
+    highlights: ["Próximo à CIC", "Perfil industrial forte", "População trabalhadora", "Demanda constante", "Horários estratégicos", "Alto volume potencial", "Oportunidades express", "Retorno garantido"],
+    nearbyPlaces: ["CIC", "Augusta", "Vila Tecnológica"],
+    popularCourses: ["Manicure Express", "Design de Sobrancelhas", "Depilação", "Estética Rápida"]
+  },
+  {
+    slug: "santa-candida",
+    name: "Santa Cândida",
+    type: "neighborhood",
+    description: "Bairro populoso da zona norte com mercado em crescimento. Santa Cândida oferece oportunidades amplas para profissionais que buscam atender grande volume com qualidade.",
+    highlights: ["Bairro muito populoso", "Zona norte consolidada", "Mercado em crescimento", "Demanda alta", "Alto volume garantido", "Comércio forte", "Oportunidades variadas", "Investimento acessível"],
+    nearbyPlaces: ["Bacacheri", "Bairro Alto", "Atuba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "santa-quiteria",
+    name: "Santa Quitéria",
+    type: "neighborhood",
+    description: "Bairro da zona sul com perfil residencial. Santa Quitéria oferece mercado consolidado com comunidade fiel, ideal para profissionais que valorizam relacionamento de longo prazo.",
+    highlights: ["Bairro residencial", "Comunidade muito fiel", "Mercado consolidado", "Demanda estável", "Ambiente familiar", "Oportunidades locais", "Público duradouro", "Investimento seguro"],
+    nearbyPlaces: ["Xaxim", "Capão Raso", "Boqueirão"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "santo-inacio",
+    name: "Santo Inácio",
+    type: "neighborhood",
+    description: "Bairro tradicional com perfil residencial tranquilo. Santo Inácio oferece mercado estável com público fiel, ideal para profissionais que buscam trabalhar com comunidade local.",
+    highlights: ["Bairro tradicional tranquilo", "Perfil residencial forte", "Público muito fiel", "Mercado estável", "Demanda constante", "Ambiente acolhedor", "Oportunidades duradouras", "Comunidade unida"],
+    nearbyPlaces: ["Bacacheri", "Boa Vista", "Cabral"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Depilação", "Manicure"]
+  },
+  {
+    slug: "sao-braz",
+    name: "São Braz",
+    type: "neighborhood",
+    description: "Bairro da zona oeste próximo a Santa Felicidade. São Braz oferece mercado em crescimento com oportunidades para profissionais que buscam região em desenvolvimento.",
+    highlights: ["Próximo a Santa Felicidade", "Mercado em crescimento", "Oportunidades emergentes", "Baixa concorrência", "Público receptivo", "Investimento com futuro", "Demanda crescente", "Potencial alto"],
+    nearbyPlaces: ["Santa Felicidade", "Butiatuvinha", "Orleans"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Micropigmentação"]
+  },
+  {
+    slug: "sao-francisco",
+    name: "São Francisco",
+    type: "neighborhood",
+    description: "Bairro boêmio e cultural próximo ao Centro. São Francisco oferece mercado diferenciado com público jovem e criativo, ideal para profissionais com visão moderna.",
+    highlights: ["Bairro boêmio cultural", "Próximo ao Centro", "Público jovem criativo", "Mercado diferenciado", "Demanda por tendências", "Ambiente artístico", "Networking cultural", "Oportunidades inovadoras"],
+    nearbyPlaces: ["Centro", "Alto da XV", "Cabral"],
+    popularCourses: ["Micropigmentação Artística", "Design Criativo", "Estética Alternativa", "Colorimetria"]
+  },
+  {
+    slug: "sao-joao",
+    name: "São João",
+    type: "neighborhood",
+    description: "Bairro residencial da zona norte. São João oferece mercado consolidado com comunidade tradicional, ideal para profissionais que valorizam estabilidade.",
+    highlights: ["Bairro residencial consolidado", "Comunidade tradicional", "Mercado estável", "Demanda constante", "Público fiel", "Ambiente familiar", "Oportunidades duradouras", "Investimento seguro"],
+    nearbyPlaces: ["Bacacheri", "Atuba", "Santa Cândida"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "sao-lourenco",
+    name: "São Lourenço",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Centro. São Lourenço oferece mercado consolidado com público diversificado e fácil acesso, garantindo demanda constante.",
+    highlights: ["Bairro tradicional", "Próximo ao Centro", "Público diversificado", "Fácil acesso", "Mercado consolidado", "Demanda constante", "Oportunidades variadas", "Transporte fácil"],
+    nearbyPlaces: ["Centro", "Cabral", "Alto da Glória"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "sao-miguel",
+    name: "São Miguel",
+    type: "neighborhood",
+    description: "Bairro da zona sul com perfil residencial. São Miguel oferece mercado em crescimento com população jovem, ideal para profissionais que buscam região em desenvolvimento.",
+    highlights: ["Mercado em crescimento", "População jovem", "Perfil residencial", "Demanda crescente", "Baixa concorrência", "Oportunidades emergentes", "Investimento com futuro", "Potencial alto"],
+    nearbyPlaces: ["Umbará", "Tatuquara", "Sítio Cercado"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Lash Lifting", "Depilação"]
+  },
+  {
+    slug: "vila-pantanal",
+    name: "Vila Pantanal",
+    type: "neighborhood",
+    description: "Região da zona leste com perfil residencial. Vila Pantanal oferece mercado consolidado com comunidade unida, ideal para profissionais que valorizam clientela fiel.",
+    highlights: ["Comunidade muito unida", "Mercado consolidado", "Perfil residencial", "Demanda estável", "Público fiel", "Ambiente familiar", "Oportunidades locais", "Investimento seguro"],
+    nearbyPlaces: ["Jardim das Américas", "Capão da Imbuia", "Uberaba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "seminario",
+    name: "Seminário",
+    type: "neighborhood",
+    description: "Bairro próximo ao Centro com perfil residencial. O Seminário oferece mercado tranquilo com público tradicional, ideal para profissionais que buscam estabilidade.",
+    highlights: ["Próximo ao Centro", "Bairro tranquilo", "Público tradicional", "Mercado estável", "Demanda constante", "Ambiente familiar", "Oportunidades duradouras", "Fácil acesso"],
+    nearbyPlaces: ["Centro", "Rebouças", "Prado Velho"],
+    popularCourses: ["Estética Facial", "Design de Sobrancelhas", "Manicure", "Depilação"]
+  },
+  {
+    slug: "sitio-cercado",
+    name: "Sítio Cercado",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul com mercado amplo. Sítio Cercado oferece oportunidades abundantes para profissionais que buscam alto volume de atendimentos.",
+    highlights: ["Bairro muito populoso", "Mercado amplo", "Demanda intensa", "Alto volume garantido", "Comércio forte", "Oportunidades variadas", "Investimento acessível", "Retorno rápido"],
+    nearbyPlaces: ["Pinheirinho", "Ganchinho", "Fazendinha"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure Express", "Depilação"]
+  },
+  {
+    slug: "taboao",
+    name: "Taboão",
+    type: "neighborhood",
+    description: "Bairro próximo ao Parque Tanguá com ambiente tranquilo. O Taboão oferece mercado diferenciado com público que valoriza qualidade de vida e bem-estar.",
+    highlights: ["Próximo ao Parque Tanguá", "Ambiente tranquilo", "Público valoriza bem-estar", "Demanda por qualidade", "Oportunidades em wellness", "Mercado diferenciado", "Clientela fiel", "Ambiente natural"],
+    nearbyPlaces: ["Tanguá", "Tingui", "Pilarzinho"],
+    popularCourses: ["Drenagem Linfática", "Massagem Relaxante", "Estética Natural", "Aromaterapia"]
+  },
+  {
+    slug: "taruma",
+    name: "Tarumã",
+    type: "neighborhood",
+    description: "Bairro extenso da zona norte com mercado diversificado. O Tarumã oferece oportunidades variadas para profissionais que buscam atender público amplo.",
+    highlights: ["Bairro extenso", "Mercado diversificado", "População variada", "Demanda ampla", "Oportunidades múltiplas", "Comércio crescente", "Investimento acessível", "Alto potencial"],
+    nearbyPlaces: ["Tingui", "Santa Felicidade", "Cajuru"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Depilação", "Manicure"]
+  },
+  {
+    slug: "tatuquara",
+    name: "Tatuquara",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul com mercado em crescimento. Tatuquara oferece oportunidades amplas para profissionais que buscam região em desenvolvimento.",
+    highlights: ["Bairro populoso", "Mercado em crescimento", "Demanda crescente", "Baixa concorrência qualificada", "Oportunidades para pioneiros", "Investimento acessível", "Alto volume potencial", "Retorno progressivo"],
+    nearbyPlaces: ["Pinheirinho", "Umbará", "Caximba"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "tingui",
+    name: "Tingui",
+    type: "neighborhood",
+    description: "Bairro ao redor do Parque Tingui, um dos principais de Curitiba. Oferece mercado diferenciado com público que valoriza qualidade de vida, bem-estar e contato com a natureza.",
+    highlights: ["Ao redor do Parque Tingui", "Público valoriza bem-estar", "Mercado diferenciado", "Demanda por qualidade", "Oportunidades em wellness", "Ambiente inspirador", "Clientela fidelizada", "Conexão com natureza"],
+    nearbyPlaces: ["Barreirinha", "Tanguá", "Pilarzinho", "Tarumã"],
+    popularCourses: ["Drenagem Linfática", "Massagem Relaxante", "Estética Natural", "Yoga Facial"]
+  },
+  {
+    slug: "uberaba",
+    name: "Uberaba",
+    type: "neighborhood",
+    description: "Bairro populoso da zona leste com mercado consolidado. Uberaba oferece oportunidades amplas com demanda constante e público diversificado.",
+    highlights: ["Bairro muito populoso", "Mercado consolidado", "Demanda constante", "Público diversificado", "Comércio forte", "Alto volume garantido", "Oportunidades variadas", "Investimento seguro"],
+    nearbyPlaces: ["Cajuru", "Capão Raso", "Jardim das Américas"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Micropigmentação", "Depilação"]
+  },
+  {
+    slug: "umbara",
+    name: "Umbará",
+    type: "neighborhood",
+    description: "Bairro da zona sul com perfil residencial. O Umbará oferece mercado em desenvolvimento com oportunidades para profissionais pioneiros.",
+    highlights: ["Mercado em desenvolvimento", "Perfil residencial", "Baixa concorrência", "Oportunidades para pioneiros", "Investimento acessível", "Demanda crescente", "Potencial alto", "Retorno progressivo"],
+    nearbyPlaces: ["Tatuquara", "Caximba", "São Miguel"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure", "Depilação"]
+  },
+  {
+    slug: "vila-izabel",
+    name: "Vila Izabel",
+    type: "neighborhood",
+    description: "Bairro tradicional próximo ao Portão. Vila Izabel oferece mercado consolidado com comunidade fiel, ideal para profissionais que valorizam relacionamento duradouro.",
+    highlights: ["Bairro tradicional", "Próximo ao Portão", "Comunidade fiel", "Mercado consolidado", "Demanda estável", "Ambiente familiar", "Oportunidades duradouras", "Público leal"],
+    nearbyPlaces: ["Portão", "Lindóia", "Novo Mundo"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Manicure e Pedicure", "Depilação"]
+  },
+  {
+    slug: "vista-alegre",
+    name: "Vista Alegre",
+    type: "neighborhood",
+    description: "Bairro charmoso próximo a Santa Felicidade. Vista Alegre oferece mercado diferenciado com público sofisticado, ideal para serviços de qualidade superior.",
+    highlights: ["Bairro charmoso", "Próximo a Santa Felicidade", "Público sofisticado", "Mercado diferenciado", "Demanda por qualidade", "Oportunidades premium", "Ambiente agradável", "Clientela exigente"],
+    nearbyPlaces: ["Santa Felicidade", "Cascatinha", "Orleans"],
+    popularCourses: ["Estética Facial Premium", "Micropigmentação", "Drenagem Linfática", "Design de Sobrancelhas"]
+  },
+  {
+    slug: "xaxim",
+    name: "Xaxim",
+    type: "neighborhood",
+    description: "Bairro populoso da zona sul próximo ao Boqueirão. O Xaxim oferece mercado massivo com demanda intensa, ideal para profissionais que buscam alto volume.",
+    highlights: ["Bairro muito populoso", "Próximo ao Boqueirão", "Mercado massivo", "Demanda intensa", "Alto volume garantido", "Comércio muito forte", "Oportunidades ilimitadas", "Público diversificado"],
+    nearbyPlaces: ["Boqueirão", "Alto Boqueirão", "Capão Raso", "Santa Quitéria"],
+    popularCourses: ["Design de Sobrancelhas", "Estética Facial", "Micropigmentação", "Depilação"]
+  }
 ];
 
 export const getLocationBySlug = (slug: string): Location | undefined => {
