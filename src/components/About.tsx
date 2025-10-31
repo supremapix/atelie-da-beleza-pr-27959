@@ -16,8 +16,8 @@ const About = () => {
     },
     {
       icon: Users,
-      value: "1000+",
-      label: "alunos formados"
+      value: "+6.000",
+      label: "alunas formadas"
     }
   ];
 

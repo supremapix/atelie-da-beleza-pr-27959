@@ -690,7 +690,7 @@ const CourseDetail = () => {
             {/* Trust indicators */}
             <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto pt-8 border-t border-white/10">
               <div>
-                <p className="text-3xl font-bold text-primary mb-1">+2.000</p>
+                <p className="text-3xl font-bold text-primary mb-1">+6.000</p>
                 <p className="text-sm text-white/60">Alunas Formadas</p>
               </div>
               <div>

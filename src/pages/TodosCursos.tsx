@@ -16,7 +16,7 @@ const TodosCursos = () => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Cursos de Estética - Ateliê Beleza",
-    "description": "Mais de 42 cursos profissionalizantes em estética e beleza oferecidos pelo Ateliê Beleza em Curitiba",
+    "description": "Mais de 42 cursos profissionalizantes em estética e beleza oferecidos pelo Ateliê Beleza em Curitiba. Mais de 6.000 alunas formadas.",
     "numberOfItems": 42,
     "itemListElement": [
       {
@@ -50,7 +50,7 @@ const TodosCursos = () => {
     <div className="min-h-screen">
       <EnhancedSEO
         title="Todos os Cursos de Estética - Curitiba | Ateliê Beleza"
-        description="Explore mais de 42 cursos profissionalizantes em estética e beleza. Micropigmentação, design de sobrancelhas, lash lifting, estética facial e corporal. Certificação reconhecida."
+        description="Explore mais de 42 cursos profissionalizantes em estética e beleza. Mais de 6.000 alunas formadas. Micropigmentação, design de sobrancelhas, lash lifting, estética facial e corporal. Certificação reconhecida."
         canonical="https://ateliebeleza.app.br/cursos"
         keywords="cursos de estética, cursos de beleza Curitiba, micropigmentação, design sobrancelhas, lash lifting, estética facial, estética corporal, capacitação profissional"
         structuredData={structuredData}

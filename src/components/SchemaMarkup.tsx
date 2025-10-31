@@ -9,7 +9,7 @@ const SchemaMarkup = () => {
       "name": "Ateliê Beleza",
       "url": "https://ateliebeleza.app.br",
       "logo": "https://ateliebeleza.app.br/logo.png",
-      "description": "Cursos de estética em Curitiba com instrutores renomados. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais.",
+      "description": "Cursos de estética em Curitiba com mais de 6.000 alunas formadas. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Curitiba",

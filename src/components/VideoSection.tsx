@@ -109,7 +109,7 @@ const VideoSection = () => {
               <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mt-6 md:mt-8 text-xs md:text-sm text-foreground/70 font-montserrat font-semibold">
                 <div className="flex items-center gap-2">
                   <span className="text-lg md:text-xl">⭐</span>
-                  <span>Mais de 1.000 alunos formados</span>
+                  <span>Mais de 6.000 alunas formadas</span>
                 </div>
                 <span className="hidden md:inline">•</span>
                 <div className="flex items-center gap-2">

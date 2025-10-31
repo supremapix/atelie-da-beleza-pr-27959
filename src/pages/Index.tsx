@@ -31,7 +31,7 @@ const Index = () => {
     "name": "Ateliê Beleza",
     "url": "https://ateliebeleza.app.br",
     "logo": "https://storage.googleapis.com/gpt-engineer-file-uploads/z3uM9QrEiaZcmzxCWIVMCntcMQg2/social-images/social-1761135543473-atelie-da-beleza-cursos-profissionalizantes-em-curitiba-parana-brasil.png",
-    "description": "Cursos de estética em Curitiba com instrutores renomados. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais.",
+    "description": "Cursos de estética em Curitiba com instrutores renomados. Mais de 6.000 alunas formadas. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Curitiba",
@@ -53,7 +53,7 @@ const Index = () => {
     <div className="min-h-screen">
       <EnhancedSEO
         title="Ateliê Beleza - Cursos de Estética em Curitiba | Capacitação Profissional"
-        description="Cursos de estética em Curitiba com instrutores renomados. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais. Preços acessíveis e certificado reconhecido."
+        description="Cursos de estética em Curitiba com mais de 6.000 alunas formadas. Capacitação em micropigmentação, design de sobrancelhas, lash lifting e muito mais. Instrutores renomados, preços acessíveis e certificado reconhecido."
         canonical="https://ateliebeleza.app.br/"
         keywords="cursos de estética Curitiba, micropigmentação Curitiba, design de sobrancelhas, lash lifting, estética facial, estética corporal, curso profissionalizante, capacitação estética"
         structuredData={structuredData}

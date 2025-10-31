@@ -88,7 +88,7 @@ const LocationPage = ({
   };
 
   const stats = [
-    { icon: Users, value: "2.500+", label: "Alunas Formadas" },
+    { icon: Users, value: "+6.000", label: "Alunas Formadas" },
     { icon: Award, value: "21 Anos", label: "de Experiência" },
     { icon: Star, value: "4.9/5", label: "Avaliação" },
     { icon: TrendingUp, value: "95%", label: "Taxa de Sucesso" }
