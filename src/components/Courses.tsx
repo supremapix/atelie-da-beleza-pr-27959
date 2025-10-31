@@ -119,12 +119,13 @@ const Courses = () => {
           >
             <CarouselContent className="-ml-4">
               {courses.map((course, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3">
                   <Card 
-                    className="group hover-lift overflow-hidden bg-white border-2 border-border hover:border-primary/30 h-full"
+                    className="group hover-lift overflow-hidden bg-white border-2 border-border hover:border-primary/30 h-full cursor-pointer"
+                    onClick={() => navigate(`/curso/${course.id}`)}
                   >
                     {/* Course Image */}
-                    <div className="relative overflow-hidden h-56 md:h-56">
+                    <div className="relative overflow-hidden h-48 sm:h-52 md:h-56">
                       <img
                         src={course.image}
                         alt={course.title}
@@ -139,45 +140,48 @@ const Courses = () => {
                       </Badge>
                     </div>
 
-                    <CardHeader className="pb-3 bg-white px-4 md:px-6 pt-4 md:pt-6">
+                    <CardHeader className="pb-3 bg-white px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
                       <div className="flex items-start justify-between gap-2 md:gap-3 mb-2">
-                        <CardTitle className="text-xl md:text-3xl font-playfair text-foreground group-hover:text-primary transition-colors flex-1 leading-tight">
+                        <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl font-playfair text-foreground group-hover:text-primary transition-colors flex-1 leading-tight">
                           {course.title}
                         </CardTitle>
                         {course.highlight && (
-                          <Badge className="bg-primary text-background font-semibold shadow-lg shrink-0 text-[10px] md:text-xs px-2 md:px-3 py-0.5 md:py-1">
+                          <Badge className="bg-primary text-background font-semibold shadow-lg shrink-0 text-[9px] sm:text-[10px] md:text-xs px-1.5 sm:px-2 md:px-3 py-0.5 md:py-1">
                             ⭐ Destaque
                           </Badge>
                         )}
                       </div>
-                      <CardDescription className="text-sm md:text-sm leading-relaxed font-montserrat text-muted-foreground">
+                      <CardDescription className="text-xs sm:text-sm leading-relaxed font-montserrat text-muted-foreground line-clamp-2">
                         {course.description}
                       </CardDescription>
                     </CardHeader>
                     
-                    <CardContent className="space-y-3 md:space-y-4 bg-white px-4 md:px-6 pb-4 md:pb-6">
-                      <div className="flex items-center justify-between text-xs md:text-sm border-t pt-3 md:pt-4">
-                        <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground">
-                          <Clock className="w-4 h-4 text-primary" />
-                          <span className="font-montserrat font-semibold text-foreground">{course.hours}</span>
+                    <CardContent className="space-y-2 sm:space-y-3 md:space-y-4 bg-white px-3 sm:px-4 md:px-6 pb-3 sm:pb-4 md:pb-6">
+                      <div className="flex items-center justify-between text-xs md:text-sm border-t pt-2 sm:pt-3 md:pt-4">
+                        <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 text-muted-foreground">
+                          <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                          <span className="font-montserrat font-semibold text-foreground text-xs sm:text-sm">{course.hours}</span>
                         </div>
-                        <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground">
-                          <Award className="w-4 h-4 text-primary" />
-                          <span className="font-montserrat text-xs md:text-sm text-foreground font-medium">Certificado</span>
+                        <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 text-muted-foreground">
+                          <Award className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                          <span className="font-montserrat text-[10px] sm:text-xs md:text-sm text-foreground font-medium">Certificado</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between pt-2 gap-2 md:gap-3">
+                      <div className="flex items-center justify-between pt-1 sm:pt-2 gap-2 md:gap-3">
                         <div className="flex flex-col">
-                          <span className="text-[10px] md:text-xs text-muted-foreground font-montserrat mb-0.5">À vista:</span>
-                          <span className="text-xl md:text-2xl font-bold text-primary font-montserrat animate-pulse">{course.price}</span>
+                          <span className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground font-montserrat mb-0.5">À vista:</span>
+                          <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary font-montserrat">{course.price}</span>
                         </div>
                         <Button 
                           size="sm"
-                          onClick={() => navigate(`/curso/${course.id}`)}
-                          className="group/btn bg-primary hover:bg-primary/90 text-background font-semibold shadow-md hover:shadow-lg shrink-0 text-xs md:text-sm px-3 md:px-4 h-8 md:h-9"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/curso/${course.id}`);
+                          }}
+                          className="group/btn bg-primary hover:bg-primary/90 text-background font-semibold shadow-md hover:shadow-lg shrink-0 text-[10px] sm:text-xs md:text-sm px-2 sm:px-3 md:px-4 h-7 sm:h-8 md:h-9"
                         >
                           Saiba Mais
-                          <ChevronRight className="w-3 h-3 md:w-4 md:h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                          <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 ml-0.5 sm:ml-1 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
                       </div>
                     </CardContent>
