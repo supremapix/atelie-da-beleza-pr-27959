@@ -246,13 +246,13 @@ const CourseDetail = () => {
       </section>
 
       {/* YouTube Shorts Video Section with Persuasive CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-x-hidden">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-x-hidden">
         <div className="container mx-auto px-4 max-w-full">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
               {/* Video Column */}
               <div className="order-2 lg:order-1">
-                <div className="relative aspect-[9/16] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/40 hover:border-primary/60 transition-all bg-black">
+                <div className="relative aspect-[9/16] max-w-[280px] sm:max-w-sm md:max-w-md mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-primary/40 hover:border-primary/60 transition-all bg-black">
                   <iframe
                     src="https://www.youtube.com/embed/GquzgnqO7x0"
                     title="Conheça o Ateliê Beleza - Transforme sua Carreira"
@@ -264,12 +264,12 @@ const CourseDetail = () => {
               </div>
 
               {/* Persuasive Content Column */}
-              <div className="order-1 lg:order-2 text-center lg:text-left">
-                <div className="inline-block bg-primary/20 border border-primary/50 text-primary px-6 py-2 rounded-full text-sm font-bold mb-4">
+              <div className="order-1 lg:order-2 text-center lg:text-left px-2 sm:px-0">
+                <div className="inline-block bg-primary/20 border border-primary/50 text-primary px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                   ✨ TRANSFORME SUA VIDA
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-playfair leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 font-playfair leading-tight break-words">
                   {course.category === "Micropigmentação" && "Domine a Arte da Micropigmentação e Fature Alto!"}
                   {course.category === "Design de Sobrancelhas" && "Torne-se Expert em Design de Sobrancelhas!"}
                   {course.category === "Lash & Brow" && "Conquiste Clientes Fiéis com Técnicas de Cílios Perfeitos!"}
@@ -280,8 +280,8 @@ const CourseDetail = () => {
                   {!["Micropigmentação", "Design de Sobrancelhas", "Lash & Brow", "Depilação", "Estética Facial", "Estética Corporal", "Injetáveis"].includes(course.category) && "Transforme Sua Paixão em Profissão de Sucesso!"}
                 </h2>
                 
-                <div className="space-y-4 mb-8">
-                  <p className="text-lg md:text-xl text-white/90 font-montserrat leading-relaxed">
+                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-montserrat leading-relaxed break-words">
                     {course.category === "Micropigmentação" && "Aprenda com quem tem mais de 6.000 alunas formadas! Técnicas exclusivas, prática intensiva e suporte completo para você começar a faturar rápido."}
                     {course.category === "Design de Sobrancelhas" && "Descubra os segredos das sobrancelhas perfeitas! Curso completo com técnicas modernas e certificado reconhecido nacionalmente."}
                     {course.category === "Lash & Brow" && "Do básico ao avançado: domine todas as técnicas de extensão de cílios e tenha uma clientela fiel e recorrente."}
@@ -293,22 +293,22 @@ const CourseDetail = () => {
                   </p>
                   
                   {/* Key Benefits */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p className="text-white/80 font-montserrat text-left">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
+                      <p className="text-xs sm:text-sm md:text-base text-white/80 font-montserrat text-left break-words">
                         <strong className="text-white">Prática desde o 1º dia:</strong> Você vai aprender fazendo, com supervisão de especialistas
                       </p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p className="text-white/80 font-montserrat text-left">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
+                      <p className="text-xs sm:text-sm md:text-base text-white/80 font-montserrat text-left break-words">
                         <strong className="text-white">Material profissional incluso:</strong> Tudo que você precisa para começar sua carreira
                       </p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                      <p className="text-white/80 font-montserrat text-left">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
+                      <p className="text-xs sm:text-sm md:text-base text-white/80 font-montserrat text-left break-words">
                         <strong className="text-white">Suporte contínuo:</strong> Mesmo após o curso, você terá nosso apoio profissional
                       </p>
                     </div>
@@ -316,8 +316,8 @@ const CourseDetail = () => {
                 </div>
 
                 {/* Urgency CTA */}
-                <div className="space-y-4">
-                  <div className="inline-block bg-red-600/20 border border-red-500/50 text-red-300 px-4 py-2 rounded-lg text-sm font-bold animate-pulse">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="inline-block bg-red-600/20 border border-red-500/50 text-red-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold animate-pulse">
                     ⏰ Últimas vagas disponíveis para esta turma!
                   </div>
                   
@@ -325,13 +325,13 @@ const CourseDetail = () => {
                     variant="hero"
                     size="lg"
                     onClick={handleWhatsAppClick}
-                    className="w-full lg:w-auto group shadow-2xl hover:shadow-primary/40 scale-105 hover:scale-110 transition-all text-lg px-10 py-7"
+                    className="w-full lg:w-auto group shadow-2xl hover:shadow-primary/40 scale-105 hover:scale-110 transition-all text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-7 h-auto"
                   >
-                    <Phone className="mr-2 h-6 w-6 group-hover:animate-bounce" />
-                    Garantir Minha Vaga Agora!
+                    <Phone className="mr-1.5 sm:mr-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 group-hover:animate-bounce flex-shrink-0" />
+                    <span className="break-words">Garantir Minha Vaga Agora!</span>
                   </Button>
                   
-                  <p className="text-white/60 text-sm font-montserrat">
+                  <p className="text-white/60 text-xs sm:text-sm font-montserrat">
                     💬 Atendimento imediato via WhatsApp
                   </p>
                 </div>
