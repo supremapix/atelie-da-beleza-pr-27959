@@ -2,10 +2,91 @@ import { useState, useEffect } from "react";
 import { X, Tag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+
+const Confetti = () => {
+  const particles = Array.from({ length: 50 });
+  
+  return (
+    <div className="fixed inset-0 pointer-events-none z-[60] overflow-hidden">
+      {particles.map((_, i) => (
+        <div
+          key={i}
+          className="absolute animate-fall"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `-${Math.random() * 20}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            animationDuration: `${3 + Math.random() * 2}s`,
+          }}
+        >
+          <div
+            className="w-2 h-2 md:w-3 md:h-3"
+            style={{
+              backgroundColor: ['#C4A574', '#D4AF37', '#FFD700', '#FFA500'][Math.floor(Math.random() * 4)],
+              transform: `rotate(${Math.random() * 360}deg)`,
+              opacity: 0.8,
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = targetDate.getTime() - new Date().getTime();
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return (
+    <div className="flex justify-center gap-2 md:gap-4 mt-4">
+      {[
+        { label: 'Dias', value: timeLeft.days },
+        { label: 'Horas', value: timeLeft.hours },
+        { label: 'Min', value: timeLeft.minutes },
+        { label: 'Seg', value: timeLeft.seconds },
+      ].map((item) => (
+        <div key={item.label} className="flex flex-col items-center bg-black/30 rounded-lg p-2 md:p-3 min-w-[60px] md:min-w-[80px]">
+          <span className="text-2xl md:text-4xl font-bold text-white tabular-nums">
+            {String(item.value).padStart(2, '0')}
+          </span>
+          <span className="text-xs md:text-sm text-white/80 font-semibold">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const BlackFridayBanner = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const navigate = useNavigate();
+  const targetDate = new Date('2025-12-17T23:59:59');
 
   useEffect(() => {
     // Show banner automatically after 3 seconds on first visit
@@ -21,6 +102,10 @@ const BlackFridayBanner = () => {
   }, []);
 
   const toggleBanner = () => {
+    if (!isOpen) {
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 5000);
+    }
     setIsOpen(!isOpen);
   };
 
@@ -28,11 +113,14 @@ const BlackFridayBanner = () => {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Confetti Animation */}
+      {showConfetti && <Confetti />}
+
+      {/* Floating Button - LEFT SIDE */}
       {showFloatingButton && !isOpen && (
         <button
           onClick={toggleBanner}
-          className="fixed bottom-24 right-4 z-40 bg-gradient-to-r from-[#C4A574] to-[#D4AF37] text-background p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-pulse"
+          className="fixed bottom-24 left-4 z-40 bg-gradient-to-r from-[#C4A574] to-[#D4AF37] text-background p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 animate-pulse"
           aria-label="Abrir ofertas Black Friday"
         >
           <Tag className="w-6 h-6" />
@@ -69,12 +157,10 @@ const BlackFridayBanner = () => {
                   </h2>
                   <Sparkles className="w-8 h-8 text-black animate-pulse" />
                 </div>
-                <p className="text-black font-semibold text-lg">
-                  Campanha válida até 17/12/2025
-                </p>
                 <p className="text-black/90 font-bold mt-2 text-sm md:text-base">
                   🎁 Garanta este pacote agora e realize seu curso até março de 2026!
                 </p>
+                <CountdownTimer targetDate={targetDate} />
               </div>
 
               {/* Offers */}
@@ -173,6 +259,12 @@ const BlackFridayBanner = () => {
                     className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-6 text-lg shadow-lg"
                   >
                     Garantir Desconto no WhatsApp
+                  </Button>
+                  <Button
+                    onClick={() => navigate('/black-friday')}
+                    className="flex-1 bg-gradient-to-r from-[#C4A574] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#C4A574] text-black font-bold py-6 text-lg shadow-lg"
+                  >
+                    Ver Todas as Ofertas
                   </Button>
                   <Button
                     onClick={toggleBanner}

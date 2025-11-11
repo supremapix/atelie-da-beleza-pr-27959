@@ -10,6 +10,7 @@ import CourseDetail from "./pages/CourseDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import DynamicLocation from "./pages/DynamicLocation";
+import BlackFriday from "./pages/BlackFriday";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/cursos" element={<TodosCursos />} />
             <Route path="/curso/:courseId" element={<CourseDetail />} />
+            <Route path="/black-friday" element={<BlackFriday />} />
             <Route path="/:slug" element={<DynamicLocation />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

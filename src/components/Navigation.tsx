@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, Sparkles, ChevronDown } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, Sparkles, ChevronDown, Tag } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoWhite from "@/assets/logo-white-transparent.png";
 import { courses } from "@/data/courses";
@@ -134,6 +134,18 @@ const Navigation = () => {
                 Todos os Cursos
               </button>
               
+              {/* Black Friday Link - Mobile */}
+              <button
+                onClick={() => {
+                  navigate('/black-friday');
+                  setIsMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-3 w-full text-left bg-gradient-to-r from-[#C4A574] to-[#D4AF37] text-black hover:from-[#D4AF37] hover:to-[#C4A574] transition-all text-base font-bold py-3 px-4 rounded-lg shadow-lg animate-pulse"
+              >
+                <Tag className="h-5 w-5" />
+                BLACK FRIDAY 🔥
+              </button>
+
               {/* Mobile Categories */}
               <div className="border-t border-border/50 pt-3 mt-3">
                 <p className="text-xs font-semibold text-muted-foreground px-4 mb-2 uppercase tracking-wider">Áreas</p>
@@ -293,6 +305,16 @@ const Navigation = () => {
                 Sobre Nós
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </button>
+              
+              {/* Black Friday Link - Desktop */}
+              <button
+                onClick={() => navigate('/black-friday')}
+                className="flex items-center gap-2 bg-gradient-to-r from-[#C4A574] to-[#D4AF37] text-black hover:from-[#D4AF37] hover:to-[#C4A574] transition-all text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-lg shadow-lg hover:shadow-xl animate-pulse"
+              >
+                <Tag className="h-4 w-4" />
+                BLACK FRIDAY 🔥
+              </button>
+
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button
