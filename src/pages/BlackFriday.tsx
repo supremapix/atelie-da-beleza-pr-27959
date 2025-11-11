@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import EnhancedSEO from "@/components/EnhancedSEO";
+import BlackFridayUrgency from "@/components/BlackFridayUrgency";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -129,6 +130,7 @@ const BlackFriday = () => {
         keywords="black friday estética, cursos com desconto, promoção cursos Curitiba, ofertas estética, micropigmentação desconto"
       />
       <Navigation />
+      <BlackFridayUrgency />
 
       <main className="pt-24 pb-16">
         {/* Hero Section */}
@@ -174,8 +176,8 @@ const BlackFriday = () => {
             {offers.map((offer) => (
               <Card 
                 key={offer.id} 
-                className={`overflow-hidden bg-gradient-to-br from-white/10 to-white/5 border-2 ${
-                  offer.featured ? 'border-[#D4AF37] shadow-2xl shadow-[#C4A574]/30' : 'border-[#C4A574]'
+                className={`overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black border-2 ${
+                  offer.featured ? 'border-[#D4AF37] shadow-2xl shadow-[#C4A574]/50' : 'border-[#C4A574]'
                 } hover:scale-105 transition-all duration-300`}
               >
                 {offer.featured && (
@@ -195,7 +197,7 @@ const BlackFriday = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-[#C4A574] text-black text-sm px-3 py-1">
+                    <Badge className="bg-[#C4A574] text-black text-sm px-3 py-1 font-bold">
                       <Tag className="w-4 h-4 mr-1" />
                       BLACK FRIDAY
                     </Badge>
@@ -206,37 +208,37 @@ const BlackFriday = () => {
                   <CardTitle className="text-2xl text-white font-playfair">
                     {offer.title}
                   </CardTitle>
-                  <p className="text-white/80 mt-2">{offer.description}</p>
+                  <p className="text-gray-300 mt-2 font-medium">{offer.description}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <div className="bg-gradient-to-r from-[#C4A574]/20 to-[#D4AF37]/10 rounded-lg p-4 border border-[#C4A574]/30">
-                    <p className="text-[#C4A574] font-bold text-lg mb-2">{offer.highlight}</p>
+                  <div className="bg-gradient-to-r from-[#C4A574] to-[#D4AF37] rounded-lg p-4 border-2 border-white/20">
+                    <p className="text-black font-bold text-lg mb-3">{offer.highlight}</p>
                     
                     {offer.bonus && (
-                      <div className="flex items-start gap-2 text-white">
-                        <Gift className="w-5 h-5 text-[#C4A574] mt-1 flex-shrink-0" />
+                      <div className="flex items-start gap-2 text-black mb-2">
+                        <Gift className="w-5 h-5 mt-1 flex-shrink-0" />
                         <div>
-                          <p className="font-semibold">{offer.bonus}</p>
-                          <p className="text-[#C4A574] font-bold">{offer.bonusValue}</p>
+                          <p className="font-bold text-base">{offer.bonus}</p>
+                          <p className="font-bold text-xl">{offer.bonusValue}</p>
                         </div>
                       </div>
                     )}
 
                     {offer.price && (
-                      <p className="text-white text-2xl font-bold">{offer.price}</p>
+                      <p className="text-black text-3xl font-bold mb-1">{offer.price}</p>
                     )}
 
                     {offer.installmentPrice && (
-                      <p className="text-white/80 text-sm mt-1">ou {offer.installmentPrice}</p>
+                      <p className="text-black font-semibold text-sm">ou {offer.installmentPrice}</p>
                     )}
 
                     {offer.prerequisites && (
-                      <div className="mt-3 space-y-1">
-                        <p className="text-white/80 text-sm font-semibold">Pré-requisito:</p>
+                      <div className="mt-3 space-y-1 bg-black/20 p-3 rounded-lg">
+                        <p className="text-black text-sm font-bold">Pré-requisito:</p>
                         {offer.prerequisites.map((prereq, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-white/70 text-sm">
-                            <CheckCircle className="w-4 h-4 text-[#C4A574]" />
+                          <div key={idx} className="flex items-center gap-2 text-black text-sm font-medium">
+                            <CheckCircle className="w-4 h-4" />
                             <span>{prereq}</span>
                           </div>
                         ))}
@@ -247,14 +249,14 @@ const BlackFriday = () => {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button
                       onClick={() => window.open('https://wa.me/5541996439389?text=Olá! Quero garantir a oferta Black Friday de ' + offer.title, '_blank')}
-                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold"
+                      className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold shadow-lg hover:shadow-xl"
                     >
                       Garantir Oferta
                     </Button>
                     <Button
                       onClick={() => navigate(`/curso/${offer.courseId}`)}
                       variant="outline"
-                      className="border-2 border-[#C4A574] text-white hover:bg-[#C4A574]/20"
+                      className="border-2 border-[#C4A574] text-[#C4A574] hover:bg-[#C4A574] hover:text-black font-bold"
                     >
                       Ver Curso
                     </Button>
