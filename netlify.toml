@@ -63,5 +63,19 @@
 
 [[redirects]]
   from = "/*"
+  to = "https://www.ateliebeleza.com.br/:splat"
+  status = 301
+  force = true
+  conditions = { Host = "ateliebeleza.app.br" }
+
+[[redirects]]
+  from = "/*"
+  to = "https://www.ateliebeleza.com.br/:splat"
+  status = 301
+  force = true
+  conditions = { Host = "ateliebeleza.com.br" }
+
+[[redirects]]
+  from = "/*"
   to = "/index.html"
   status = 200

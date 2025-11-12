@@ -8,7 +8,7 @@ Disallow: /api/
 Disallow: /*.json$
 
 # Sitemap
-Sitemap: https://ateliebeleza.app.br/sitemap.xml
+Sitemap: https://www.ateliebeleza.com.br/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 0
