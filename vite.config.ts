@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import vitePrerender from "vite-plugin-prerender";
-import generateRoutes from "./prerender.config.js";
+import { createRequire } from "module";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
