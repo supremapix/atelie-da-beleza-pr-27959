@@ -5,6 +5,11 @@ import vitePrerender from "vite-plugin-prerender";
 import { createRequire } from "module";
 import { componentTagger } from "lovable-tagger";
 
+// Load prerender routes from JS file safely in ESM
+const require = createRequire(import.meta.url);
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { generateRoutes } = require("./prerender.config.js");
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
