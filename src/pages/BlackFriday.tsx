@@ -98,7 +98,7 @@ const BlackFriday = () => {
   const { toast } = useToast();
   const targetDate = new Date('2025-12-17T23:59:59');
 
-  const shareUrl = "https://ateliebeleza.app.br/black-friday";
+  const shareUrl = "https://www.ateliebeleza.com.br/black-friday";
   const shareTitle = "Black Friday Ateliê Beleza - Ofertas até 17/12!";
   const shareText = "🔥 Aproveite descontos imperdíveis em cursos de estética! Compre agora e faça até março de 2026. Confira as ofertas!";
 
@@ -206,9 +206,9 @@ const BlackFriday = () => {
       <EnhancedSEO
         title="Black Friday - Ateliê Beleza | Ofertas Exclusivas até 17/12"
         description="Aproveite as ofertas exclusivas da Black Friday do Ateliê Beleza. Garanta descontos especiais em cursos de estética até 17/12/2025. Compre agora e faça seu curso até março de 2026!"
-        canonical="https://ateliebeleza.app.br/black-friday"
+        canonical="https://www.ateliebeleza.com.br/black-friday"
         keywords="black friday estética, cursos com desconto, promoção cursos Curitiba, ofertas estética, micropigmentação desconto"
-        ogImage="https://ateliebeleza.app.br/og-black-friday.jpg"
+        ogImage="https://www.ateliebeleza.com.br/og-black-friday.jpg"
       />
       <Navigation />
       <BlackFridayUrgency />
