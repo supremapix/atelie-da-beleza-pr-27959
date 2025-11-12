@@ -4,8 +4,19 @@ import { Eye, TrendingUp } from "lucide-react";
 const BlackFridayUrgency = () => {
   const [viewers, setViewers] = useState(127);
   const [recentPurchases, setRecentPurchases] = useState(3);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Show notification after a brief delay
+    const showTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+
+    // Hide notification after 5 seconds
+    const hideTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 6000);
+
     // Simular visualizações aumentando
     const viewerInterval = setInterval(() => {
       setViewers(prev => {
@@ -15,19 +26,25 @@ const BlackFridayUrgency = () => {
       });
     }, 8000);
 
-    // Simular compras recentes
+    // Simular compras recentes e re-mostrar notificação
     const purchaseInterval = setInterval(() => {
       setRecentPurchases(Math.floor(Math.random() * 5) + 1); // 1 a 5
+      setIsVisible(true);
+      setTimeout(() => setIsVisible(false), 5000);
     }, 15000);
 
     return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
       clearInterval(viewerInterval);
       clearInterval(purchaseInterval);
     };
   }, []);
 
   return (
-    <div className="fixed top-24 left-4 z-30 space-y-3 animate-in slide-in-from-left duration-500">
+    <div className={`fixed top-24 left-4 z-30 space-y-3 transition-all duration-700 ${
+      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+    }`}>
       {/* Visualizações ao vivo */}
       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-3 rounded-lg shadow-xl border-2 border-red-400 backdrop-blur-sm animate-pulse">
         <div className="flex items-center gap-2">

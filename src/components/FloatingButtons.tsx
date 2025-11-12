@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Mail, ArrowUp, Navigation } from "lucide-react";
+import { MessageCircle, Phone, Mail, ArrowUp, Navigation, Plus, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +39,7 @@ const FloatingButtons = () => {
     <>
       {/* Floating Action Buttons - Bottom Right */}
       <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 md:gap-3">
+        {/* WhatsApp - Always visible */}
         <Button
           variant="floating"
           size="icon"
@@ -48,48 +50,68 @@ const FloatingButtons = () => {
           <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
         </Button>
 
-        <Button
-          variant="floating"
-          size="icon"
-          onClick={handlePhone}
-          aria-label="Ligar"
-          className="h-12 w-12 md:h-14 md:w-14"
-        >
-          <Phone className="w-5 h-5 md:w-6 md:h-6" />
-        </Button>
-
-        <Button
-          variant="floating"
-          size="icon"
-          onClick={handleRoute}
-          aria-label="Como Chegar"
-          className="bg-blue-600 hover:bg-blue-700 h-12 w-12 md:h-14 md:w-14"
-        >
-          <Navigation className="w-5 h-5 md:w-6 md:h-6" />
-        </Button>
-
-        <Button
-          variant="floating"
-          size="icon"
-          onClick={handleEmail}
-          aria-label="Email"
-          className="h-12 w-12 md:h-14 md:w-14"
-        >
-          <Mail className="w-5 h-5 md:w-6 md:h-6" />
-        </Button>
-
-        {/* Scroll to Top - Below other buttons */}
-        {showScrollTop && (
+        {/* Expandable buttons */}
+        <div className={`flex flex-col gap-2 md:gap-3 transition-all duration-300 ${
+          isExpanded ? 'opacity-100 scale-100' : 'opacity-0 scale-0 h-0'
+        }`}>
           <Button
             variant="floating"
             size="icon"
-            onClick={scrollToTop}
-            className="animate-bounce h-12 w-12 md:h-14 md:w-14"
-            aria-label="Voltar ao topo"
+            onClick={handlePhone}
+            aria-label="Ligar"
+            className="h-12 w-12 md:h-14 md:w-14"
           >
-            <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />
+            <Phone className="w-5 h-5 md:w-6 md:h-6" />
           </Button>
-        )}
+
+          <Button
+            variant="floating"
+            size="icon"
+            onClick={handleRoute}
+            aria-label="Como Chegar"
+            className="bg-blue-600 hover:bg-blue-700 h-12 w-12 md:h-14 md:w-14"
+          >
+            <Navigation className="w-5 h-5 md:w-6 md:h-6" />
+          </Button>
+
+          <Button
+            variant="floating"
+            size="icon"
+            onClick={handleEmail}
+            aria-label="Email"
+            className="h-12 w-12 md:h-14 md:w-14"
+          >
+            <Mail className="w-5 h-5 md:w-6 md:h-6" />
+          </Button>
+
+          {/* Scroll to Top - Below other buttons */}
+          {showScrollTop && (
+            <Button
+              variant="floating"
+              size="icon"
+              onClick={scrollToTop}
+              className="animate-bounce h-12 w-12 md:h-14 md:w-14"
+              aria-label="Voltar ao topo"
+            >
+              <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />
+            </Button>
+          )}
+        </div>
+
+        {/* Expand/Collapse Button */}
+        <Button
+          variant="floating"
+          size="icon"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="bg-gradient-to-r from-[#C4A574] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#C4A574] h-12 w-12 md:h-14 md:w-14"
+          aria-label={isExpanded ? "Fechar menu" : "Expandir menu"}
+        >
+          {isExpanded ? (
+            <X className="w-5 h-5 md:w-6 md:h-6 text-black" />
+          ) : (
+            <Plus className="w-5 h-5 md:w-6 md:h-6 text-black" />
+          )}
+        </Button>
       </div>
 
     </>

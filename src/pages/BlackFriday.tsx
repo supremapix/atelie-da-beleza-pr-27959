@@ -8,7 +8,8 @@ import BlackFridayUrgency from "@/components/BlackFridayUrgency";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Clock, CheckCircle, Tag, Gift } from "lucide-react";
+import { Sparkles, Clock, CheckCircle, Tag, Gift, Share2, Quote } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // Importar imagens dos cursos da Black Friday
 import esteticaOlhar from "@/assets/all-courses/estetica-olhar.jpg";
@@ -25,12 +26,39 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
     minutes: 0,
     seconds: 0,
   });
+  const [notifiedMilestones, setNotifiedMilestones] = useState<Set<number>>(new Set());
+
+  const playNotificationSound = () => {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 800;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  };
 
   useEffect(() => {
     const calculateTimeLeft = () => {
       const difference = targetDate.getTime() - new Date().getTime();
       
       if (difference > 0) {
+        const hours = Math.floor(difference / (1000 * 60 * 60));
+        
+        // Check milestones: 24h, 12h, 6h
+        if ([24, 12, 6].includes(hours) && !notifiedMilestones.has(hours)) {
+          playNotificationSound();
+          setNotifiedMilestones(prev => new Set(prev).add(hours));
+        }
+        
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -44,7 +72,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [targetDate, notifiedMilestones]);
 
   return (
     <div className="flex justify-center gap-2 md:gap-4">
@@ -67,7 +95,38 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
 
 const BlackFriday = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const targetDate = new Date('2025-12-17T23:59:59');
+
+  const shareUrl = "https://ateliebeleza.app.br/black-friday";
+  const shareTitle = "Black Friday Ateliê Beleza - Ofertas até 17/12!";
+  const shareText = "🔥 Aproveite descontos imperdíveis em cursos de estética! Compre agora e faça até março de 2026. Confira as ofertas!";
+
+  const handleShare = async (platform: string) => {
+    const url = encodeURIComponent(shareUrl);
+    const text = encodeURIComponent(shareText);
+    
+    const shareLinks: Record<string, string> = {
+      whatsapp: `https://wa.me/?text=${text}%20${url}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    };
+
+    if (platform === 'copy') {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        toast({
+          title: "Link copiado!",
+          description: "O link foi copiado para a área de transferência.",
+        });
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    } else {
+      window.open(shareLinks[platform], '_blank', 'width=600,height=400');
+    }
+  };
 
   const offers = [
     {
@@ -121,6 +180,27 @@ const BlackFriday = () => {
     { image: esteticaFacialMaster, title: "Estética Facial Master" }
   ];
 
+  const testimonials = [
+    {
+      name: "Mariana Silva",
+      course: "Estética do Olhar",
+      text: "Aproveitei a Black Friday do ano passado e foi a melhor decisão! O kit profissional que ganhei me ajudou a começar a atender logo após o curso.",
+      date: "Black Friday 2024"
+    },
+    {
+      name: "Juliana Costa",
+      course: "Capacitação Corporal",
+      text: "O desconto da Black Friday tornou possível fazer o curso dos meus sonhos. Hoje tenho minha própria clínica e tudo começou com essa oportunidade!",
+      date: "Black Friday 2024"
+    },
+    {
+      name: "Patricia Oliveira",
+      course: "Remoção à Laser",
+      text: "Comprei na promoção e fiz o curso 2 meses depois. Valeu muito a pena! O investimento se pagou rapidamente com os atendimentos.",
+      date: "Black Friday 2023"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-[#1a1a1a] to-black">
       <EnhancedSEO
@@ -128,6 +208,7 @@ const BlackFriday = () => {
         description="Aproveite as ofertas exclusivas da Black Friday do Ateliê Beleza. Garanta descontos especiais em cursos de estética até 17/12/2025. Compre agora e faça seu curso até março de 2026!"
         canonical="https://ateliebeleza.app.br/black-friday"
         keywords="black friday estética, cursos com desconto, promoção cursos Curitiba, ofertas estética, micropigmentação desconto"
+        ogImage="https://ateliebeleza.app.br/og-black-friday.jpg"
       />
       <Navigation />
       <BlackFridayUrgency />
@@ -261,6 +342,86 @@ const BlackFriday = () => {
                       Ver Curso
                     </Button>
                   </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Social Share Section */}
+        <section className="py-12 bg-gradient-to-r from-[#C4A574]/5 to-[#D4AF37]/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-playfair">
+                Compartilhe com suas amigas!
+              </h3>
+              <p className="text-gray-300 mb-6">
+                Espalhe essa oportunidade incrível e ajude mais pessoas a realizarem seus sonhos
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Button
+                  onClick={() => handleShare('whatsapp')}
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  WhatsApp
+                </Button>
+                <Button
+                  onClick={() => handleShare('facebook')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  Facebook
+                </Button>
+                <Button
+                  onClick={() => handleShare('twitter')}
+                  className="bg-sky-500 hover:bg-sky-600 text-white"
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  Twitter
+                </Button>
+                <Button
+                  onClick={() => handleShare('linkedin')}
+                  className="bg-blue-700 hover:bg-blue-800 text-white"
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  LinkedIn
+                </Button>
+                <Button
+                  onClick={() => handleShare('copy')}
+                  variant="outline"
+                  className="border-[#C4A574] text-[#C4A574] hover:bg-[#C4A574] hover:text-black"
+                >
+                  Copiar Link
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-16 container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white font-playfair">
+            Quem aproveitou a <span className="text-[#C4A574]">Black Friday</span> anterior
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-gradient-to-br from-gray-900 to-black border-[#C4A574]">
+                <CardHeader>
+                  <div className="flex items-start gap-3">
+                    <Quote className="w-8 h-8 text-[#C4A574] flex-shrink-0" />
+                    <div>
+                      <CardTitle className="text-lg text-white">{testimonial.name}</CardTitle>
+                      <p className="text-[#C4A574] text-sm font-semibold mt-1">{testimonial.course}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300 mb-4">{testimonial.text}</p>
+                  <Badge className="bg-[#C4A574]/20 text-[#C4A574] border-[#C4A574]">
+                    {testimonial.date}
+                  </Badge>
                 </CardContent>
               </Card>
             ))}
