@@ -6,6 +6,7 @@ export function generateRoutes() {
   const routes = [
     '/',
     '/cursos',
+    '/black-friday',
   ];
 
   // Adiciona rotas de bairros
