@@ -206,5 +206,21 @@ export const neighborhoods = [
       "Espaço para desenvolvimento criativo"
     ],
     nearbyPlaces: ["Batel", "Boa Vista", "Cabral", "São Francisco", "Centro"]
+  },
+  {
+    slug: "pilarzinho",
+    name: "Pilarzinho",
+    description: "No tradicional bairro do Pilarzinho, onde está localizado nosso ateliê na R. Alexandre Von Humboldt, 306, oferecemos cursos completos de estética com toda infraestrutura necessária para sua formação profissional.",
+    highlights: [
+      "Sede do Ateliê Beleza",
+      "Estrutura completa e moderna",
+      "Fácil acesso de toda Curitiba",
+      "Estacionamento disponível",
+      "Salas climatizadas e equipadas",
+      "Materiais profissionais inclusos",
+      "Professores com experiência de mercado",
+      "Certificação reconhecida nacionalmente"
+    ],
+    nearbyPlaces: ["Centro", "Bacacheri", "Bairro Alto", "Tarumã", "Boa Vista"]
   }
 ];
