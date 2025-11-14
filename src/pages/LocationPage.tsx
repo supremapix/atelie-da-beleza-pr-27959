@@ -7,9 +7,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, MapPin, Phone, Clock, Award, Users, Star, TrendingUp, Navigation2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import FAQ from "@/components/FAQ";
-import { neighborhoodFAQ } from "@/data/faq";
+import { getNeighborhoodFAQ } from "@/data/neighborhoodFaqs";
 
 interface LocationPageProps {
+  slug?: string;
   neighborhood: string;
   region?: string;
   description: string;
@@ -22,7 +23,8 @@ const LocationPage = ({
   region = "Curitiba",
   description, 
   highlights,
-  nearbyPlaces = []
+  nearbyPlaces = [],
+  slug,
 }: LocationPageProps) => {
   const navigate = useNavigate();
   
@@ -40,7 +42,7 @@ const LocationPage = ({
     },
     "telephone": "+55-41-99643-9389",
     "email": "cursosateliedabeleza@gmail.com",
-    "url": `https://ateliebeleza.app.br/${neighborhood.toLowerCase().replace(/\s+/g, '-')}`,
+    "url": `https://www.ateliebeleza.com.br/${slug || neighborhood.toLowerCase().replace(/\s+/g, '-')}`,
     "priceRange": "$$",
     "areaServed": {
       "@type": "City",
@@ -103,7 +105,7 @@ const LocationPage = ({
       <EnhancedSEO
         title={`Cursos de Estética em ${neighborhood} - Curitiba | Ateliê Beleza`}
         description={`${description} Cursos profissionalizantes em micropigmentação, design de sobrancelhas, lash lifting e muito mais. Atendemos ${neighborhood} e região.`}
-        canonical={`https://ateliebeleza.app.br/${neighborhood.toLowerCase().replace(/\s+/g, '-')}`}
+        canonical={`https://www.ateliebeleza.com.br/${slug || neighborhood.toLowerCase().replace(/\s+/g, '-')}`}
         keywords={`cursos estética ${neighborhood}, micropigmentação ${neighborhood}, design sobrancelhas ${neighborhood}, cursos beleza ${neighborhood} Curitiba`}
         structuredData={structuredData}
       />
@@ -306,7 +308,7 @@ const LocationPage = ({
         )}
 
         {/* FAQ Section */}
-        <FAQ items={neighborhoodFAQ} title={`Dúvidas sobre Cursos em ${neighborhood}`} />
+        <FAQ items={faqItems} title={`Dúvidas sobre Cursos em ${neighborhood}`} />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5">

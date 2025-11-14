@@ -89,7 +89,7 @@ const CourseDetail = () => {
       <EnhancedSEO
         title={`${course.title} - Curso de Estética em Curitiba | Ateliê Beleza`}
         description={`${course.description} ${course.duration} • ${course.level} • Material incluso • Certificado reconhecido. Aprenda com os melhores profissionais de Curitiba.`}
-        canonical={`https://ateliebeleza.app.br/curso/${courseId}`}
+        canonical={`https://www.ateliebeleza.com.br/curso/${courseId}`}
         keywords={`${course.title}, curso ${course.title.toLowerCase()}, estética Curitiba, capacitação profissional, ${course.category.toLowerCase()}`}
         structuredData={structuredData}
         type="product"
