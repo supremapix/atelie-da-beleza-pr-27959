@@ -28,7 +28,17 @@ const EnhancedSEO = ({
   modifiedTime,
 }: EnhancedSEOProps) => {
   // Normalizar canonical URL para sempre usar https://www.ateliebeleza.com.br/
-  const normalizedCanonical = canonical.replace(/^https?:\/\/(www\.)?/, 'https://www.');
+  const normalizedCanonical = (() => {
+    try {
+      const url = new URL(canonical, 'https://www.ateliebeleza.com.br');
+      url.hostname = 'www.ateliebeleza.com.br';
+      url.protocol = 'https:';
+      return url.toString().replace(/\/$/, '') || 'https://www.ateliebeleza.com.br';
+    } catch {
+      const path = canonical.startsWith('/') ? canonical : `/${canonical}`;
+      return `https://www.ateliebeleza.com.br${path}`;
+    }
+  })();
   // Garante que structuredData seja sempre um array
   const structuredDataArray = structuredData 
     ? (Array.isArray(structuredData) ? structuredData : [structuredData])
