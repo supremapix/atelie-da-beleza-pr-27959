@@ -28,6 +28,8 @@ const LocationPage = ({
 }: LocationPageProps) => {
   const navigate = useNavigate();
   
+  const faqItems = getNeighborhoodFAQ(slug || neighborhood.toLowerCase().replace(/\s+/g, '-'), neighborhood);
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
