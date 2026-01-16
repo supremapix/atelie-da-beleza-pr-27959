@@ -15,7 +15,8 @@ import FloatingButtons from "@/components/FloatingButtons";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import LiveNotifications from "@/components/LiveNotifications";
 import EnhancedSEO from "@/components/EnhancedSEO";
-import BlackFridayBanner from "@/components/BlackFridayBanner";
+// BlackFridayBanner desativado temporariamente
+// import BlackFridayBanner from "@/components/BlackFridayBanner";
 import FAQ from "@/components/FAQ";
 import { generalFAQ } from "@/data/faq";
 import CourseSearch from "@/components/CourseSearch";
@@ -211,7 +212,7 @@ const Index = () => {
       <Footer />
       <FloatingButtons />
       <LiveNotifications />
-      <BlackFridayBanner />
+      {/* <BlackFridayBanner /> - Black Friday desativado */}
     </div>
   );
 };
