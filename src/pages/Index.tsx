@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import SectionDivider from "@/components/SectionDivider";
+
 import Courses from "@/components/Courses";
 import VideoSection from "@/components/VideoSection";
 import CoursesShowcase from "@/components/CoursesShowcase";
@@ -54,7 +54,6 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <SectionDivider />
         <Courses />
         <VideoSection />
         <CoursesShowcase />
