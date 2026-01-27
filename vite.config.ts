@@ -14,6 +14,9 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
+    // Prevent duplicate copies of React / React Router in the bundle.
+    // Duplicates can break hooks (e.g. useNavigate/useLocation) by losing context.
+    dedupe: ["react", "react-dom", "react-router", "react-router-dom"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
