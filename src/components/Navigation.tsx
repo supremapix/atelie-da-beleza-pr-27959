@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, Sparkles, ChevronDown } from "lucide-react";
+import { MessageCircle, Instagram, Facebook, Menu, X, Home, Users, GraduationCap, Mail, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoWhite from "@/assets/logo-white-transparent.png";
 import { courses } from "@/data/courses";
@@ -50,15 +50,12 @@ const Navigation = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Se estiver no topo, sempre mostrar
       if (currentScrollY < 10) {
         setIsVisible(true);
       } 
-      // Se rolar para baixo, esconder
       else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } 
-      // Se rolar para cima, mostrar
       else if (currentScrollY < lastScrollY) {
         setIsVisible(true);
       }
@@ -71,25 +68,23 @@ const Navigation = () => {
   }, [lastScrollY]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 bg-black shadow-elegant transition-transform duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-md transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       {/* Mobile Header */}
       <div className="md:hidden">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20 py-3">
-            {/* Mobile Logo */}
             <button onClick={() => navigate('/')} className="flex items-center">
               <img 
                 src={logoWhite} 
                 alt="Ateliê da Beleza" 
-                className="h-32 w-auto"
+                className="h-28 w-auto"
               />
             </button>
             
-            {/* Mobile Menu Button */}
             <button
-              className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="text-background p-2.5 hover:bg-background/10 rounded-full transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Menu"
             >
@@ -100,15 +95,15 @@ const Navigation = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="bg-white backdrop-blur-lg border-t border-primary/20 shadow-lg animate-fade-in max-h-[calc(100vh-5rem)] overflow-y-auto">
-            <div className="container mx-auto px-4 py-6 space-y-3">
+          <div className="bg-background border-t border-border shadow-warm animate-fade-in-up max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="container mx-auto px-4 py-6 space-y-2">
               <button
                 onClick={() => {
                   navigate('/');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-lg hover:bg-muted"
+                className="flex items-center gap-3 w-full text-left text-foreground hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-xl hover:bg-secondary"
               >
                 <Home className="h-5 w-5" />
                 Início
@@ -118,7 +113,7 @@ const Navigation = () => {
                   handleNavigation('sobre-nos');
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-lg hover:bg-muted"
+                className="flex items-center gap-3 w-full text-left text-foreground hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-xl hover:bg-secondary"
               >
                 <Users className="h-5 w-5" />
                 Sobre Nós
@@ -128,37 +123,38 @@ const Navigation = () => {
                   navigate('/cursos');
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-lg hover:bg-muted"
+                className="flex items-center gap-3 w-full text-left text-foreground hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-xl hover:bg-secondary"
               >
                 <GraduationCap className="h-5 w-5" />
                 Todos os Cursos
               </button>
               
               {/* Mobile Categories */}
-              <div className="border-t border-border/50 pt-3 mt-3">
-                <p className="text-xs font-semibold text-muted-foreground px-4 mb-2 uppercase tracking-wider">Áreas</p>
+              <div className="border-t border-border pt-4 mt-4">
+                <p className="text-xs font-medium text-muted-foreground px-4 mb-3 uppercase tracking-wider">Áreas</p>
                 {categories.map((category) => (
-                  <div key={category} className="mb-2">
-                    <div className="flex items-center justify-between px-4 py-2">
-                      <button
-                        onClick={() => {
-                          navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`);
-                          setIsMobileMenuOpen(false);
-                        }}
-                        className="flex items-center gap-3 text-left text-black hover:text-primary transition-colors text-sm font-medium"
-                      >
-                        {category} ({coursesByCategory[category].length})
-                      </button>
-                    </div>
-                    <div className="pl-8 space-y-1">
-                      {coursesByCategory[category].map((course) => (
+                  <div key={category} className="mb-3">
+                    <button
+                      onClick={() => {
+                        navigate(`/cursos#${category.toLowerCase().replace(/\s+/g, '-')}`);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="flex items-center justify-between w-full px-4 py-2 text-left text-foreground hover:text-primary transition-colors text-sm font-medium"
+                    >
+                      <span>{category}</span>
+                      <span className="text-xs text-muted-foreground bg-secondary px-2 py-0.5 rounded-full">
+                        {coursesByCategory[category].length}
+                      </span>
+                    </button>
+                    <div className="pl-6 space-y-1 mt-1">
+                      {coursesByCategory[category].slice(0, 3).map((course) => (
                         <button
                           key={course.id}
                           onClick={() => {
                             navigate(`/curso/${course.id}`);
                             setIsMobileMenuOpen(false);
                           }}
-                          className="block w-full text-left text-xs text-muted-foreground hover:text-primary transition-colors py-1.5 px-2 rounded hover:bg-muted"
+                          className="block w-full text-left text-xs text-muted-foreground hover:text-primary transition-colors py-1.5 px-4 rounded-lg hover:bg-secondary"
                         >
                           {course.title}
                         </button>
@@ -167,22 +163,22 @@ const Navigation = () => {
                   </div>
                 ))}
               </div>
+              
               <button
                 onClick={() => {
                   handleNavigation('contato');
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-3 w-full text-left text-black hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-lg hover:bg-muted"
+                className="flex items-center gap-3 w-full text-left text-foreground hover:text-primary transition-colors text-base font-medium py-3 px-4 rounded-xl hover:bg-secondary"
               >
                 <Mail className="h-5 w-5" />
                 Contato
               </button>
 
               {/* Mobile Social Buttons */}
-              <div className="flex gap-3 pt-4 border-t border-border/50">
+              <div className="flex gap-3 pt-6 border-t border-border">
                 <Button
-                  variant="default"
-                  className="flex-1 bg-primary text-background hover:bg-primary/90 shadow-md"
+                  className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
                   onClick={() => window.open('https://wa.me/5541996439389?text=Olá!%20Gostaria%20de%20conhecer%20os%20cursos%20do%20Ateliê%20da%20Beleza', '_blank')}
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
@@ -191,7 +187,7 @@ const Navigation = () => {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="border-primary text-primary hover:bg-primary hover:text-background"
+                  className="border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary rounded-full"
                   onClick={() => window.open('https://www.instagram.com/ateliedabelezacuritiba', '_blank')}
                 >
                   <Instagram className="h-5 w-5" />
@@ -199,7 +195,7 @@ const Navigation = () => {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="border-primary text-primary hover:bg-primary hover:text-background"
+                  className="border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary rounded-full"
                   onClick={() => window.open('https://www.facebook.com/ateliedabelezacuritiba', '_blank')}
                 >
                   <Facebook className="h-5 w-5" />
@@ -213,15 +209,12 @@ const Navigation = () => {
       {/* Desktop Header */}
       <div className="hidden md:block">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24 lg:h-28">
-            {/* Left - Subtitle */}
+          <div className="flex items-center justify-between h-20 lg:h-24">
+            {/* Left - Tagline */}
             <div className="flex items-center gap-3 flex-1">
-              <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-                <span className="text-white text-sm lg:text-base font-medium tracking-wider">
-                  Cursos de Estética em Curitiba
-                </span>
-              </div>
+              <span className="text-background/80 text-sm font-medium tracking-wide">
+                Cursos de Estética em Curitiba
+              </span>
             </div>
 
             {/* Center - Logo */}
@@ -230,7 +223,7 @@ const Navigation = () => {
                 <img 
                   src={logoWhite} 
                   alt="Ateliê da Beleza - Juliana Perussi" 
-                  className="h-40 lg:h-48 w-auto"
+                  className="h-36 lg:h-44 w-auto"
                 />
               </button>
             </div>
@@ -238,9 +231,8 @@ const Navigation = () => {
             {/* Right - Social & WhatsApp */}
             <div className="flex items-center gap-3 flex-1 justify-end">
               <Button
-                variant="default"
                 size="sm"
-                className="bg-primary text-black hover:bg-primary/90 font-medium shadow-md hover:shadow-lg transition-all"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-soft rounded-full"
                 onClick={() => window.open('https://wa.me/5541996439389?text=Olá!%20Gostaria%20de%20conhecer%20os%20cursos%20do%20Ateliê%20da%20Beleza', '_blank')}
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
@@ -250,7 +242,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-primary/90 text-black hover:bg-primary hover:scale-110 h-10 w-10 transition-all shadow-md"
+                className="rounded-full bg-background/10 text-background hover:bg-primary hover:text-primary-foreground h-10 w-10 transition-all"
                 onClick={() => window.open('https://www.instagram.com/ateliedabelezacuritiba', '_blank')}
                 aria-label="Instagram"
               >
@@ -260,7 +252,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-primary/90 text-black hover:bg-primary hover:scale-110 h-10 w-10 transition-all shadow-md"
+                className="rounded-full bg-background/10 text-background hover:bg-primary hover:text-primary-foreground h-10 w-10 transition-all"
                 onClick={() => window.open('https://www.facebook.com/ateliedabelezacuritiba', '_blank')}
                 aria-label="Facebook"
               >
@@ -270,80 +262,75 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Secondary Navigation Bar - Desktop Only */}
-        <div className="bg-white border-t border-gray-200">
+        {/* Secondary Navigation Bar */}
+        <div className="bg-background border-t border-border/50">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center h-14 gap-12">
+            <div className="flex items-center justify-center h-12 gap-10">
               <button
                 onClick={() => {
                   navigate('/');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-all text-sm font-medium tracking-wide relative group"
               >
-                <Home className="h-4 w-4" />
                 Início
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full"></span>
               </button>
               <button
                 onClick={() => handleNavigation('sobre-nos')}
-                className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-all text-sm font-medium tracking-wide relative group"
               >
-                <Users className="h-4 w-4" />
                 Sobre Nós
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full"></span>
               </button>
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button
-                    className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
-                  >
-                    <GraduationCap className="h-4 w-4" />
+                  <button className="flex items-center gap-1.5 text-foreground hover:text-primary transition-all text-sm font-medium tracking-wide relative group">
                     Cursos
-                    <ChevronDown className="h-3 w-3" />
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    <ChevronDown className="h-3.5 w-3.5" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full"></span>
                   </button>
                 </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64 max-h-96 overflow-y-auto bg-white z-50">
-              <DropdownMenuItem onClick={() => navigate('/cursos')} className="cursor-pointer">
-                <GraduationCap className="h-4 w-4 mr-2" />
-                Ver Todos os Cursos
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel>Áreas</DropdownMenuLabel>
-              {categories.map((category) => (
-                <DropdownMenuSub key={category}>
-                  <DropdownMenuSubTrigger className="cursor-pointer">
-                    <span className="flex justify-between w-full">
-                      <span>{category}</span>
-                      <span className="text-xs text-muted-foreground">({coursesByCategory[category].length})</span>
-                    </span>
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="w-56 bg-white z-50">
-                      {coursesByCategory[category].map((course) => (
-                        <DropdownMenuItem
-                          key={course.id}
-                          onClick={() => navigate(`/curso/${course.id}`)}
-                          className="cursor-pointer"
-                        >
-                          {course.title}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-              ))}
-            </DropdownMenuContent>
+                <DropdownMenuContent className="w-64 max-h-96 overflow-y-auto bg-background z-50 rounded-xl border-border shadow-warm">
+                  <DropdownMenuItem onClick={() => navigate('/cursos')} className="cursor-pointer rounded-lg">
+                    <GraduationCap className="h-4 w-4 mr-2 text-primary" />
+                    Ver Todos os Cursos
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">Áreas</DropdownMenuLabel>
+                  {categories.map((category) => (
+                    <DropdownMenuSub key={category}>
+                      <DropdownMenuSubTrigger className="cursor-pointer rounded-lg">
+                        <span className="flex justify-between w-full">
+                          <span>{category}</span>
+                          <span className="text-xs text-muted-foreground">({coursesByCategory[category].length})</span>
+                        </span>
+                      </DropdownMenuSubTrigger>
+                      <DropdownMenuPortal>
+                        <DropdownMenuSubContent className="w-56 bg-background z-50 rounded-xl border-border shadow-warm">
+                          {coursesByCategory[category].map((course) => (
+                            <DropdownMenuItem
+                              key={course.id}
+                              onClick={() => navigate(`/curso/${course.id}`)}
+                              className="cursor-pointer rounded-lg"
+                            >
+                              {course.title}
+                            </DropdownMenuItem>
+                          ))}
+                        </DropdownMenuSubContent>
+                      </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                  ))}
+                </DropdownMenuContent>
               </DropdownMenu>
+              
               <button
                 onClick={() => handleNavigation('contato')}
-                className="flex items-center gap-2 text-black hover:text-primary transition-all text-sm font-medium uppercase tracking-widest relative group"
+                className="flex items-center gap-2 text-foreground hover:text-primary transition-all text-sm font-medium tracking-wide relative group"
               >
-                <Mail className="h-4 w-4" />
                 Contato
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full rounded-full"></span>
               </button>
             </div>
           </div>
