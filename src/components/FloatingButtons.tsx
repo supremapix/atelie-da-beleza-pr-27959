@@ -36,85 +36,72 @@ const FloatingButtons = () => {
   };
 
   return (
-    <>
-      {/* Floating Action Buttons - Bottom Right */}
-      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 md:gap-3">
-        {/* WhatsApp - Always visible */}
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2.5">
+      {/* WhatsApp - Always visible */}
+      <Button
+        size="icon"
+        onClick={handleWhatsApp}
+        className="bg-[#25D366] hover:bg-[#20bd5a] shadow-warm h-12 w-12 md:h-14 md:w-14 rounded-full"
+        aria-label="WhatsApp"
+      >
+        <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
+      </Button>
+
+      {/* Expandable buttons */}
+      <div className={`flex flex-col gap-2.5 transition-all duration-300 ${
+        isExpanded ? 'opacity-100 scale-100' : 'opacity-0 scale-0 h-0 pointer-events-none'
+      }`}>
         <Button
-          variant="floating"
           size="icon"
-          onClick={handleWhatsApp}
-          className="bg-[#25D366] hover:bg-[#20bd5a] shadow-elegant h-12 w-12 md:h-14 md:w-14"
-          aria-label="WhatsApp"
+          onClick={handlePhone}
+          aria-label="Ligar"
+          className="bg-foreground hover:bg-foreground/90 shadow-soft h-12 w-12 md:h-14 md:w-14 rounded-full"
         >
-          <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
+          <Phone className="w-5 h-5 md:w-6 md:h-6 text-background" />
         </Button>
 
-        {/* Expandable buttons */}
-        <div className={`flex flex-col gap-2 md:gap-3 transition-all duration-300 ${
-          isExpanded ? 'opacity-100 scale-100' : 'opacity-0 scale-0 h-0'
-        }`}>
-          <Button
-            variant="floating"
-            size="icon"
-            onClick={handlePhone}
-            aria-label="Ligar"
-            className="h-12 w-12 md:h-14 md:w-14"
-          >
-            <Phone className="w-5 h-5 md:w-6 md:h-6" />
-          </Button>
-
-          <Button
-            variant="floating"
-            size="icon"
-            onClick={handleRoute}
-            aria-label="Como Chegar"
-            className="bg-blue-600 hover:bg-blue-700 h-12 w-12 md:h-14 md:w-14"
-          >
-            <Navigation className="w-5 h-5 md:w-6 md:h-6" />
-          </Button>
-
-          <Button
-            variant="floating"
-            size="icon"
-            onClick={handleEmail}
-            aria-label="Email"
-            className="h-12 w-12 md:h-14 md:w-14"
-          >
-            <Mail className="w-5 h-5 md:w-6 md:h-6" />
-          </Button>
-
-          {/* Scroll to Top - Below other buttons */}
-          {showScrollTop && (
-            <Button
-              variant="floating"
-              size="icon"
-              onClick={scrollToTop}
-              className="animate-bounce h-12 w-12 md:h-14 md:w-14"
-              aria-label="Voltar ao topo"
-            >
-              <ArrowUp className="w-5 h-5 md:w-6 md:h-6" />
-            </Button>
-          )}
-        </div>
-
-        {/* Expand/Collapse Button */}
         <Button
-          variant="floating"
           size="icon"
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="bg-gradient-to-r from-[#C4A574] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#C4A574] h-12 w-12 md:h-14 md:w-14"
-          aria-label={isExpanded ? "Fechar menu" : "Expandir menu"}
+          onClick={handleRoute}
+          aria-label="Como Chegar"
+          className="bg-sky-600 hover:bg-sky-700 shadow-soft h-12 w-12 md:h-14 md:w-14 rounded-full"
         >
-          {isExpanded ? (
-            <X className="w-5 h-5 md:w-6 md:h-6 text-black" />
-          ) : (
-            <Plus className="w-5 h-5 md:w-6 md:h-6 text-black" />
-          )}
+          <Navigation className="w-5 h-5 md:w-6 md:h-6 text-white" />
         </Button>
+
+        <Button
+          size="icon"
+          onClick={handleEmail}
+          aria-label="Email"
+          className="bg-foreground hover:bg-foreground/90 shadow-soft h-12 w-12 md:h-14 md:w-14 rounded-full"
+        >
+          <Mail className="w-5 h-5 md:w-6 md:h-6 text-background" />
+        </Button>
+
+        {/* Scroll to Top */}
+        {showScrollTop && (
+          <Button
+            size="icon"
+            onClick={scrollToTop}
+            className="bg-secondary hover:bg-secondary/80 shadow-soft h-12 w-12 md:h-14 md:w-14 rounded-full"
+            aria-label="Voltar ao topo"
+          >
+            <ArrowUp className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
+          </Button>
+        )}
       </div>
 
-    </>
+      {/* Expand/Collapse Button */}
+      <Button
+        size="icon"
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="bg-primary hover:bg-primary/90 shadow-warm h-12 w-12 md:h-14 md:w-14 rounded-full transition-transform duration-300"
+        style={{ transform: isExpanded ? 'rotate(45deg)' : 'rotate(0deg)' }}
+        aria-label={isExpanded ? "Fechar menu" : "Expandir menu"}
+      >
+        <Plus className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+      </Button>
+    </div>
   );
 };
 

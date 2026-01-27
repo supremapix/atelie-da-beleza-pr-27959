@@ -1,24 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import heroMobileImage from "@/assets/hero-mobile-portrait.jpg";
-import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
-  const [showVideo, setShowVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
-  const { displayedText: torneSe, isComplete: torneSeComplete } = useTypewriter({ 
-    text: "Torne-se", 
-    speed: 150, 
-    delay: 500 
-  });
-  
-  const { displayedText: referencia } = useTypewriter({ 
-    text: "Referência em Estética", 
-    speed: 100, 
-    delay: torneSeComplete ? 800 : 99999 
-  });
   
   useEffect(() => {
     const checkMobile = () => {
@@ -36,22 +22,19 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 lg:pt-24">
-      {/* Background - Image on Mobile, Video on Desktop */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+      {/* Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {isMobile ? (
-          // Mobile: Beautiful Image Background
           <div className="relative w-full h-full">
             <img 
               src={heroMobileImage} 
               alt="Ateliê da Beleza" 
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-background/70"></div>
-            <div className="absolute inset-0 gradient-hero"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
           </div>
         ) : (
-          // Desktop: Video Background
           <>
             <div className="relative w-full h-full">
               <iframe
@@ -65,56 +48,68 @@ const Hero = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
             </div>
-            <div className="absolute inset-0 bg-black/45"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-foreground/50 via-foreground/40 to-background"></div>
           </>
         )}
       </div>
 
+      {/* Decorative Elements */}
+      <div className="absolute top-1/4 left-8 w-32 h-32 rounded-full bg-primary/5 blur-3xl animate-gentle-pulse" />
+      <div className="absolute bottom-1/3 right-12 w-48 h-48 rounded-full bg-primary/8 blur-3xl animate-gentle-pulse" style={{ animationDelay: '1.5s' }} />
+
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-3 text-center flex items-center justify-center min-h-screen">
-        <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6 md:space-y-10 lg:space-y-12 animate-fade-in">
-          {/* Tag Superior */}
+      <div className="relative z-10 container mx-auto px-4 flex items-center justify-center min-h-screen">
+        <div className="max-w-4xl mx-auto text-center space-y-8 md:space-y-12 animate-fade-in-up">
+          
+          {/* Tagline */}
           <div className="inline-block">
-            <p className="text-primary text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] uppercase font-montserrat font-bold mb-2 md:mb-4">
-              Transforme sua Carreira
-            </p>
-            <div className="w-12 sm:w-16 md:w-20 h-0.5 bg-primary mx-auto"></div>
+            <span className="text-primary/90 text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
+              Escola de Estética Profissional
+            </span>
           </div>
           
-          {/* Título Principal com Efeito Typewriter */}
-          <h1 className="font-bold tracking-tight leading-tight font-playfair px-2">
-            <span className="block text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-1 sm:mb-2 md:mb-3">
-              {torneSe}<span className="animate-pulse">|</span>
-            </span>
-            <span className="block text-primary text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-3 md:mb-4 break-words">
-              {referencia}{torneSeComplete && <span className="animate-pulse">|</span>}
-            </span>
-            <span className="block text-white/90 text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-1 sm:mt-2 md:mt-4 font-montserrat font-light leading-snug">
-              em apenas algumas horas
-            </span>
-          </h1>
+          {/* Main Title */}
+          <div className="space-y-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white leading-[1.1]">
+              Desperte sua
+              <span className="block text-primary mt-2">Nova Beleza</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light max-w-2xl mx-auto leading-relaxed mt-6">
+              Cursos profissionalizantes que transformam paixão em carreira. 
+              Mais de <span className="text-primary font-medium">6.000 alunas</span> formadas.
+            </p>
+          </div>
           
-          {/* Descrição */}
-          <p className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed font-montserrat font-light px-2 sm:px-4">
-            Cursos <span className="text-primary font-semibold">rápidos e profissionalizantes</span> com certificação reconhecida.
-            <span className="block mt-1 sm:mt-2 md:mt-3">Instrutores renomados. <span className="text-primary font-semibold">Carreira de sucesso</span>!</span>
-          </p>
-          
-          {/* Botão CTA */}
-          <div className="pt-4 sm:pt-6 md:pt-10 lg:pt-12">
+          {/* CTA */}
+          <div className="pt-4 md:pt-8">
             <Button 
-              variant="outline" 
               size="lg"
               onClick={scrollToCourses}
-              className="group text-sm sm:text-base md:text-lg px-6 py-5 sm:px-8 sm:py-6 md:px-10 md:py-7 w-full max-w-md sm:w-auto bg-[#D4AF37]/20 border-[#D4AF37]/40 text-white hover:bg-[#D4AF37]/30 hover:border-[#D4AF37]/60 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all font-semibold"
+              className="group text-base md:text-lg px-8 py-6 md:px-10 md:py-7 bg-primary hover:bg-primary/90 text-primary-foreground shadow-warm hover:shadow-lg transition-all duration-300"
             >
-              <span className="break-words">Conheça Nossos Cursos</span>
-              <GraduationCap className="ml-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform flex-shrink-0" />
+              <span>Conheça Nossos Cursos</span>
+              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 pt-8 text-white/70 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary/60"></span>
+              <span>+21 anos de experiência</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary/60"></span>
+              <span>+42 cursos disponíveis</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary/60"></span>
+              <span>Certificado reconhecido</span>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 };

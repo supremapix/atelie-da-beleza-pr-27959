@@ -24,29 +24,32 @@ const FAQ = ({
   className = ""
 }: FAQProps) => {
   return (
-    <section className={`py-16 md:py-24 ${className}`}>
+    <section className={`py-20 md:py-28 bg-secondary/30 ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-playfair">
-              {title}
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <span className="text-primary/80 text-xs md:text-sm tracking-[0.25em] uppercase font-medium mb-4 block">
+              FAQ
+            </span>
+            <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+              {title.split(' ')[0]} <span className="text-primary italic">{title.split(' ').slice(1).join(' ')}</span>
             </h2>
-            <p className="text-lg md:text-xl opacity-80 font-montserrat">
+            <p className="text-muted-foreground text-base md:text-lg">
               {subtitle}
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion type="single" collapsible className="w-full space-y-3">
             {items.map((item, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border-2 border-primary/30 rounded-lg px-6 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors data-[state=open]:bg-primary data-[state=open]:text-black"
+                className="organic-card px-5 md:px-6 data-[state=open]:border-primary/40 data-[state=open]:bg-primary/5"
               >
-                <AccordionTrigger className="text-left text-base md:text-lg font-semibold hover:no-underline py-5 data-[state=open]:text-black">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline py-5 text-foreground">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm md:text-base leading-relaxed pt-2 pb-5 data-[state=open]:text-black/90">
+                <AccordionContent className="text-sm md:text-base leading-relaxed pt-1 pb-5 text-muted-foreground">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
